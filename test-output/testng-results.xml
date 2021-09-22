@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-09-21T14:44:52 ICT" name="Default suite" finished-at="2021-09-21T14:44:58 ICT" duration-ms="5989">
+  <suite started-at="2021-09-22T11:17:29 ICT" name="Default suite" finished-at="2021-09-22T11:17:35 ICT" duration-ms="6295">
     <groups>
     </groups>
-    <test started-at="2021-09-21T14:44:52 ICT" name="Default test" finished-at="2021-09-21T14:44:58 ICT" duration-ms="5989">
+    <test started-at="2021-09-22T11:17:29 ICT" name="Default test" finished-at="2021-09-22T11:17:35 ICT" duration-ms="6295">
       <class name="com.zombieclothing.testCases.TC_SignUpTest_001">
-        <test-method signature="signUpTest()[pri:0, instance:com.zombieclothing.testCases.TC_SignUpTest_001@3f053c80]" started-at="2021-09-21T14:44:52 ICT" name="signUpTest" finished-at="2021-09-21T14:44:58 ICT" duration-ms="5964" status="PASS">
+        <test-method signature="signUpTest()[pri:0, instance:com.zombieclothing.testCases.TC_SignUpTest_001@6c6c5427]" started-at="2021-09-22T11:17:29 ICT" name="signUpTest" finished-at="2021-09-22T11:17:35 ICT" duration-ms="6269" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- signUpTest -->

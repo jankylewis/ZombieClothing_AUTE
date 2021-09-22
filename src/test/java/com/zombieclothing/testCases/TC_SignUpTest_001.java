@@ -7,22 +7,24 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.pageObjects.SignUpPage;
+import com.zombieclothing.utilities.ReadConfig;
 
 public class TC_SignUpTest_001 extends BaseClass{
 	
+	ReadConfig readconfig= new ReadConfig();
 	@Var
 	public int randomNum= new Random().nextInt(50000);
-	public String lastName= "Tran";
-	public String firstName= "Vinh";
-	public String birthday= "2/9/2000";
-	public String email= "vinhtranak02092k"+ String.valueOf(randomNum)+ "@gmail.com";
-	public String password= "Raul123";
+	public String lastName= readconfig.getLastName();
+	public String firstName= readconfig.getFirstName();
+	public String birthday= readconfig.getBirthday();
+	public String email= readconfig.getLocalPart()+ String.valueOf(randomNum)+ readconfig.getDomainPart();
+	public String password= readconfig.getPassword();
 	protected String expFullName= lastName+ " "+ firstName;
 	protected String expEmail= email;
 	
 	@Test
 	public void signUpTest() throws IOException {
-		setUp(baseURL+ "/account/register/");
+		setUp(readconfig.getApplicationBaseURL()+ "/account/register/");
 		log.info("Register page is opened on browser\n");
 		
 		SignUpPage su= new SignUpPage(driver);

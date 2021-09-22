@@ -10,17 +10,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import com.google.errorprone.annotations.Var;
+import com.zombieclothing.utilities.ReadConfig;
 
 public class BaseClass {
 	
+	ReadConfig readconfig= new ReadConfig();
 	@Var
-	public String baseURL= "https://zombieclothingstore.com";
+	public String baseURL= readconfig.getApplicationBaseURL();
 	public static WebDriver driver;
 	public static Logger log= org.apache.logging.log4j.LogManager.getLogger();
 	
 	@BeforeClass
 	public void setUp(String baseURL) {
-		System.setProperty("webdriver.chrome.driver", ".\\Drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", readconfig.getChromePath());
 		driver= new ChromeDriver();
 		driver.get(baseURL);
 		driver.manage().window().maximize();

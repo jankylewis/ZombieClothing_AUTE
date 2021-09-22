@@ -12,17 +12,20 @@ import org.testng.annotations.Test;
 
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.pageObjects.LogInPage;
+import com.zombieclothing.utilities.ReadConfig;
+
 import freemarker.log.Logger;
 
 public class TC_LogInTest_001 extends BaseClass{
 	
+	ReadConfig readconfig= new ReadConfig();
 	@Var
-	public String email= "vinhtranak02092k@gmail.com";
-	public String password= "Raul123";
+	public String email= readconfig.getEmail();
+	public String password= readconfig.getPassword();
 	
 	@Test
 	public void logInTest() throws IOException {
-		setUp(baseURL+ "/account/");
+		setUp(readconfig.getApplicationBaseURL()+ "/account/");
 		log.info("URL is opened\n");
 		
 		LogInPage lp= new LogInPage(driver);	
@@ -48,7 +51,7 @@ public class TC_LogInTest_001 extends BaseClass{
 			Assert.assertFalse(true);
 			log.error("\n\n==>>-----------/*---Login test case is failed due to an error---*/-----------\n");
 		}
-		tearDown();
+//		tearDown();
 		log.warn("\n\n==>>-----------/*---Terminated test case---*/-----------\n");
 		log.exit();
 	}
