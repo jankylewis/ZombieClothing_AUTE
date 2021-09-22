@@ -9,6 +9,8 @@ import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.utilities.ReadConfig;
 
@@ -21,9 +23,23 @@ public class BaseClass {
 	public static Logger log= org.apache.logging.log4j.LogManager.getLogger();
 	
 	@BeforeClass
-	public void setUp(String baseURL) {
-		System.setProperty("webdriver.chrome.driver", readconfig.getChromePath());
-		driver= new ChromeDriver();
+	public void setUp(String baseURL, String br) {
+		if (br== "chrome") {
+			System.setProperty("webdriver.chrome.driver", readconfig.getChromePath());
+			driver= new ChromeDriver();
+		}
+		if (br== "firefox") {
+			System.setProperty("webdriver.gecko.driver", readconfig.getFirefoxPath());
+			driver= new FirefoxDriver();
+		}
+		if (br== "IE") {	
+			System.setProperty("webdriver.ie.driver", readconfig.getIEPath());
+			driver= new InternetExplorerDriver();
+		}
+		if (br== "opera") {	
+			System.setProperty("webdriver.opera.driver", readconfig.getOperaPath());
+			driver= new OperaDriver();
+		}
 		driver.get(baseURL);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);

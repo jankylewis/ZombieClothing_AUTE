@@ -44,6 +44,16 @@ public class ReadConfig {
 		return firefoxpath;
 	}
 	
+	public String getIEPath() {
+		String iepath= prop.getProperty("iepath");
+		return iepath;
+	}
+	
+	public String getOperaPath() {
+		String operapath= prop.getProperty("operapath");
+		return operapath;
+	}
+	
 	public String getLastName() {
 		String lastname= prop.getProperty("lastname");
 		return lastname;

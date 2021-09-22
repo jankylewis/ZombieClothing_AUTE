@@ -24,7 +24,7 @@ public class TC_SignUpTest_001 extends BaseClass{
 	
 	@Test
 	public void signUpTest() throws IOException {
-		setUp(readconfig.getApplicationBaseURL()+ "/account/register/");
+		setUp(readconfig.getApplicationBaseURL()+ "/account/register/", "chrome");
 		log.info("Register page is opened on browser\n");
 		
 		SignUpPage su= new SignUpPage(driver);

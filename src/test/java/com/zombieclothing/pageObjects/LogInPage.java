@@ -30,6 +30,10 @@ public class LogInPage {
 	@CacheLookup
 	WebElement BTN_LOGIN;
 	
+	@FindBy(xpath= "//div//following::li[@class=\"last\"]//a")
+	@CacheLookup
+	WebElement LNK_LOGOUT;
+	
 	public void setUserEmail(String email) {
 		TXT_EMAIL.clear();
 		TXT_EMAIL.sendKeys(email);
@@ -42,6 +46,10 @@ public class LogInPage {
 	
 	public void clickSubmit() {
 		BTN_LOGIN.click();
+	}
+	
+	public void clickLogout() {
+		LNK_LOGOUT.click();
 	}
 	
 }

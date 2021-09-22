@@ -9,11 +9,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.Test;
-
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.pageObjects.LogInPage;
 import com.zombieclothing.utilities.ReadConfig;
-
 import freemarker.log.Logger;
 
 public class TC_LogInTest_001 extends BaseClass{
@@ -25,7 +23,7 @@ public class TC_LogInTest_001 extends BaseClass{
 	
 	@Test
 	public void logInTest() throws IOException {
-		setUp(readconfig.getApplicationBaseURL()+ "/account/");
+		setUp(readconfig.getApplicationBaseURL()+ "/account/", "chrome");
 		log.info("URL is opened\n");
 		
 		LogInPage lp= new LogInPage(driver);	
@@ -51,7 +49,7 @@ public class TC_LogInTest_001 extends BaseClass{
 			Assert.assertFalse(true);
 			log.error("\n\n==>>-----------/*---Login test case is failed due to an error---*/-----------\n");
 		}
-//		tearDown();
+		tearDown();
 		log.warn("\n\n==>>-----------/*---Terminated test case---*/-----------\n");
 		log.exit();
 	}
