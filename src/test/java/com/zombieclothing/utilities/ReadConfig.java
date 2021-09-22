@@ -78,4 +78,14 @@ public class ReadConfig {
 		String domainpart= prop.getProperty("domainpart");
 		return domainpart;
 	}
+	
+	public String getSearchProductKey() {
+		String searchproductkey= prop.getProperty("searchproductkey");
+		return searchproductkey;
+	}
+	
+	public String getViewProductType() {
+		String viewproducttype= prop.getProperty("viewproducttype");
+		return viewproducttype;
+	}
 }

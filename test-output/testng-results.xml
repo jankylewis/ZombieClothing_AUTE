@@ -1,93 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-09-22T18:52:00 ICT" name="Default suite" finished-at="2021-09-22T18:52:56 ICT" duration-ms="56581">
+  <suite started-at="2021-09-22T23:34:23 ICT" name="Default suite" finished-at="2021-09-22T23:34:28 ICT" duration-ms="4790">
     <groups>
     </groups>
-    <test started-at="2021-09-22T18:52:00 ICT" name="Default test" finished-at="2021-09-22T18:52:56 ICT" duration-ms="56581">
-      <class name="com.zombieclothing.testCases.TC_LogInDDTTest_002">
-        <test-method signature="LogInDDT(java.lang.String,java.lang.String)[pri:0, instance:com.zombieclothing.testCases.TC_LogInDDTTest_002@5b11a194]" started-at="2021-09-22T18:52:00 ICT" name="LogInDDT" data-provider="LogInData" finished-at="2021-09-22T18:52:11 ICT" duration-ms="10645" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[abc@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[syn1120]]>
-              </value>
-            </param>
-          </params>
+    <test started-at="2021-09-22T23:34:23 ICT" name="Default test" finished-at="2021-09-22T23:34:28 ICT" duration-ms="4790">
+      <class name="com.zombieclothing.testCases.TC_ViewProduct_001">
+        <test-method signature="viewProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@6c6c5427]" started-at="2021-09-22T23:34:23 ICT" name="viewProductType" finished-at="2021-09-22T23:34:28 ICT" duration-ms="4761" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- LogInDDT -->
-        <test-method signature="LogInDDT(java.lang.String,java.lang.String)[pri:0, instance:com.zombieclothing.testCases.TC_LogInDDTTest_002@5b11a194]" started-at="2021-09-22T18:52:11 ICT" name="LogInDDT" data-provider="LogInData" finished-at="2021-09-22T18:52:29 ICT" duration-ms="17778" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[abf@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[qosqodqwdw]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- LogInDDT -->
-        <test-method signature="LogInDDT(java.lang.String,java.lang.String)[pri:0, instance:com.zombieclothing.testCases.TC_LogInDDTTest_002@5b11a194]" started-at="2021-09-22T18:52:29 ICT" name="LogInDDT" data-provider="LogInData" finished-at="2021-09-22T18:52:39 ICT" duration-ms="10613" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[abkqwds@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[oqwdmoqwcs]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- LogInDDT -->
-        <test-method signature="LogInDDT(java.lang.String,java.lang.String)[pri:0, instance:com.zombieclothing.testCases.TC_LogInDDTTest_002@5b11a194]" started-at="2021-09-22T18:52:39 ICT" name="LogInDDT" data-provider="LogInData" finished-at="2021-09-22T18:52:47 ICT" duration-ms="7857" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[vinhtranak02092k@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Raul1232]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- LogInDDT -->
-        <test-method signature="LogInDDT(java.lang.String,java.lang.String)[pri:0, instance:com.zombieclothing.testCases.TC_LogInDDTTest_002@5b11a194]" started-at="2021-09-22T18:52:47 ICT" name="LogInDDT" data-provider="LogInData" finished-at="2021-09-22T18:52:56 ICT" duration-ms="9008" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[1120@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[thientutung]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- LogInDDT -->
-      </class> <!-- com.zombieclothing.testCases.TC_LogInDDTTest_002 -->
+        </test-method> <!-- viewProductType -->
+      </class> <!-- com.zombieclothing.testCases.TC_ViewProduct_001 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

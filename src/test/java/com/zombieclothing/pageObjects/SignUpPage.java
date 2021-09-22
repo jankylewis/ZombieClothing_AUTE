@@ -1,5 +1,7 @@
 package com.zombieclothing.pageObjects;
 
+import java.util.List;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -24,9 +26,9 @@ public class SignUpPage {
 	@CacheLookup
 	WebElement TXT_FIRSTNAME;
 	
-	@FindBy(xpath= "//form[@id=\"create_customer\"]//div//label[@for=\"radio2\"]")
-	@CacheLookup
-	WebElement RDB_MALE;
+//	@FindBy(xpath= "//form[@id=\"create_customer\"]//div//label[@for=\"radio2\"]")
+//	@CacheLookup
+//	WebElement RDB_MALE;
 	
 	@FindBy(xpath= "//form[@id=\"create_customer\"]//following::input[@id=\"birthday\" and @type=\"text\"]")
 	@CacheLookup
@@ -44,6 +46,14 @@ public class SignUpPage {
 	@CacheLookup
 	WebElement BTN_REGISTER;
 	
+	@FindBy(xpath= "//div[@id=\"form-gender\"]//label")
+	@CacheLookup
+	WebElement RDB_MALE;
+	
+//	@FindBy(xpath= "//input[@type=\"radio\"]")
+//	@CacheLookup
+//	WebElement CHILD_RDB_MALE;
+	
 	public void setLastName(String lastName) {
 		TXT_LASTNAME.clear();
 		TXT_LASTNAME.sendKeys(lastName);
@@ -54,9 +64,19 @@ public class SignUpPage {
 		TXT_FIRSTNAME.sendKeys(firstName);
 	}
 	
+//	public void setMaleGender() {
+//		if (RDB_MALE.isSelected()==false) {
+//			RDB_MALE.click();
+//		}
+//	}
+	
 	public void setMaleGender() {
-		if (RDB_MALE.isSelected()==false) {
-			RDB_MALE.click();
+		List<WebElement> CHILD_RDB_MALE= RDB_MALE.findElements(By.xpath("//input[@type=\"radio\"]"));
+		for (int index=0; index< CHILD_RDB_MALE.size(); index++) {
+			if (CHILD_RDB_MALE.get(index).getText().equals("Male")) {
+				CHILD_RDB_MALE.get(index).click();
+				break;
+			}
 		}
 	}
 	
