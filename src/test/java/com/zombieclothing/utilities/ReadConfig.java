@@ -84,8 +84,68 @@ public class ReadConfig {
 		return searchproductkey;
 	}
 	
-	public String getViewProductType() {
-		String viewproducttype= prop.getProperty("viewproducttype");
-		return viewproducttype;
+	public String getViewAoByProductType() {
+		String viewaobyproducttype= prop.getProperty("viewaobyproducttype");
+		return viewaobyproducttype;
+	}
+	
+	public String getViewAoThunSoMiByProductType() {
+		String viewaothunsomibyproducttype= prop.getProperty("viewaothunsomibyproducttype");
+		return viewaothunsomibyproducttype;
+	}
+	
+	public String getViewSweaterHoodieByProductType() {
+		String viewsweaterhoodiebyproducttype= prop.getProperty("viewsweaterhoodiebyproducttype");
+		return viewsweaterhoodiebyproducttype;
+	}
+	
+	public String getViewSanPhamKhacByProductType() {
+		String viewsanphamkhacbyproducttype= prop.getProperty("viewsanphamkhacbyproducttype");
+		return viewsanphamkhacbyproducttype;
+	}
+	
+	public String getViewQuanByProductType() {
+		String viewquanbyproducttype= prop.getProperty("viewquanbyproducttype");
+		return viewquanbyproducttype;
+	}
+	
+	public String getViewQuanDaiByProductType() {
+		String viewquandaibyproducttype= prop.getProperty("viewquandaibyproducttype");
+		return viewquandaibyproducttype;
+	}
+	
+	public String getViewQuanShortByProductType() {
+		String viewquanshortbyproducttype= prop.getProperty("viewquanshortbyproducttype");
+		return viewquanshortbyproducttype;
+	}
+	
+	public String getViewSetByProductType() {
+		String viewsetbyproducttype= prop.getProperty("viewsetbyproducttype");
+		return viewsetbyproducttype;
+	}
+	
+	public String getViewPhuKienByProductType() {
+		String viewphukienbyproducttype= prop.getProperty("viewphukienbyproducttype");
+		return viewphukienbyproducttype;
+	}
+	
+	public String getViewMuByProductType() {
+		String viewmubyproducttype= prop.getProperty("viewmubyproducttype");
+		return viewmubyproducttype;
+	}
+	
+	public String getViewKinhByProductType() {
+		String viewkinhbyproducttype= prop.getProperty("viewkinhbyproducttype");
+		return viewkinhbyproducttype;
+	}
+	
+	public String getViewNhanByProductType() {
+		String viewnhanbyproducttype= prop.getProperty("viewnhanbyproducttype");
+		return viewnhanbyproducttype;
+	}
+	
+	public String getViewWalletChainByProductType() {
+		String viewwalletchainbyproducttype= prop.getProperty("viewwalletchainbyproducttype");
+		return viewwalletchainbyproducttype;
 	}
 }
