@@ -23,7 +23,7 @@ public class TC_LogInTest_001 extends BaseClass{
 	
 	@Test
 	public void logInTest() throws IOException {
-		setUp(readconfig.getApplicationBaseURL()+ "/account/", "chrome");
+		setUp(readconfig.getApplicationBaseURL()+ "/account/", "IE");
 		log.info("URL is opened\n");
 		
 		LogInPage lp= new LogInPage(driver);	

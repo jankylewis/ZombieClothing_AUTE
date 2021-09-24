@@ -14,7 +14,7 @@ public class TC_SearchProduct_001 extends BaseClass{
 	private String searchProductKey= readconfig.getSearchProductKey();
 	
 	@Test
-	public void searchProductTest() {
+	public void searchProductTest() throws InterruptedException {
 		setUp(readconfig.getApplicationBaseURL()+ "/search/", "chrome");
 		log.info("Search URL is opened on browser\n");
 		

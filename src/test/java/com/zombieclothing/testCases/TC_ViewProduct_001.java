@@ -323,14 +323,26 @@ public class TC_ViewProduct_001 extends BaseClass{
 	
 	@Test(groups= {"Phu Kien", "Mu"})
 	public void viewMuByProductType() {
-		setUp(readconfig.getApplicationBaseURL(), "chrome");
+		setUp(readconfig.getApplicationBaseURL(), "opera");
 		log.info("Navigated to homepage\n");
 		
 		ViewProductPage vpg= new ViewProductPage(driver);
 		vpg.performTatcaspMouseHover();
+		try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		log.info("Hovered San pham navigation link\n");
 		
 		vpg.performPhuKienMouseHover();
+		try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		log.info("Hovered Phu Kien navigation link\n");
 		
 		vpg.clickMuNavigationLink();
@@ -357,7 +369,7 @@ public class TC_ViewProduct_001 extends BaseClass{
 	
 	@Test(groups= {"Phu Kien", "Kinh"})
 	public void viewKinhByProductType() {
-		setUp(readconfig.getApplicationBaseURL(), "chrome");
+		setUp(readconfig.getApplicationBaseURL(), "opera");
 		log.info("Navigated to homepage\n");
 		
 		ViewProductPage vpg= new ViewProductPage(driver);

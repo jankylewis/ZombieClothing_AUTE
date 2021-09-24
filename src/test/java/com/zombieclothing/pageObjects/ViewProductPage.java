@@ -1,16 +1,21 @@
 package com.zombieclothing.pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import lombok.Builder.Default;
 
 public class ViewProductPage {
 
-	Actions action;
+	public Actions action;
+	public WebDriverWait wait;
 	
 	@Default
 	WebDriver ldriver;
@@ -18,6 +23,7 @@ public class ViewProductPage {
 		ldriver= rdriver;
 		PageFactory.initElements(rdriver, this);
 		action= new Actions(rdriver);
+		wait= new WebDriverWait(rdriver, 50);
 	}
 		
 	@FindBy(xpath= "//nav[@class=\"main-nav text-center\"]//preceding-sibling::li[1]//ancestor::a[@title=\"Sản phẩm\"]")
@@ -93,6 +99,7 @@ public class ViewProductPage {
 	
 	public void clickTatcaspNavigationLink() {
 		if (NAV_TAT_CA_SAN_PHAM.isDisplayed()==true) {
+			NAV_TAT_CA_SAN_PHAM= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//nav[@class=\"main-nav text-center\"]//preceding-sibling::li[1]//ancestor::a[@title=\"Sản phẩm\"]")));
 			action.moveToElement(NAV_TAT_CA_SAN_PHAM).click().perform();
 		}
 	}
@@ -171,6 +178,7 @@ public class ViewProductPage {
 	//Phu kien
 	public void performPhuKienMouseHover() {
 		if (NAV_PHU_KIEN.isDisplayed()==true) {
+			NAV_PHU_KIEN= wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//nav[@class=\"main-nav text-center\"]//following-sibling::li[4]//child::a[@title=\"Phụ kiện\"]")));
 			action.moveToElement(NAV_PHU_KIEN).build().perform();
 		}
 	}

@@ -1,113 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="13" passed="13" failed="0" skipped="0">
+<testng-results ignored="12" total="13" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-09-23T23:28:33 ICT" name="Default suite" finished-at="2021-09-23T23:29:47 ICT" duration-ms="74141">
+  <suite started-at="2021-09-24T23:50:27 ICT" name="Suite" finished-at="2021-09-24T23:50:34 ICT" duration-ms="7318">
     <groups>
-      <group name="Quan Dai">
-        <method signature="TC_ViewProduct_001.viewQuanDaiByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewQuanDaiByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-      </group> <!-- Quan Dai -->
-      <group name="Nhan">
-        <method signature="TC_ViewProduct_001.viewNhanByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewNhanByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-      </group> <!-- Nhan -->
-      <group name="Set">
-        <method signature="TC_ViewProduct_001.viewSetByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewSetByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-      </group> <!-- Set -->
-      <group name="San Pham Khac">
-        <method signature="TC_ViewProduct_001.viewSanPhamKhacByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewSanPhamKhacByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-      </group> <!-- San Pham Khac -->
-      <group name="Ao Thun - So Mi">
-        <method signature="TC_ViewProduct_001.viewAoThunSoMiByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewAoThunSoMiByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-      </group> <!-- Ao Thun - So Mi -->
-      <group name="Quan">
-        <method signature="TC_ViewProduct_001.viewQuanByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewQuanByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-        <method signature="TC_ViewProduct_001.viewQuanDaiByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewQuanDaiByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-        <method signature="TC_ViewProduct_001.viewQuanShortByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewQuanShortByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-      </group> <!-- Quan -->
-      <group name="Mu">
-        <method signature="TC_ViewProduct_001.viewMuByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewMuByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-      </group> <!-- Mu -->
       <group name="Phu Kien">
-        <method signature="TC_ViewProduct_001.viewKinhByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewKinhByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-        <method signature="TC_ViewProduct_001.viewMuByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewMuByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-        <method signature="TC_ViewProduct_001.viewNhanByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewNhanByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-        <method signature="TC_ViewProduct_001.viewPhuKienByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewPhuKienByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-        <method signature="TC_ViewProduct_001.viewWalletChainByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewWalletChainByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
+        <method signature="TC_ViewProduct_001.viewKinhByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@60f7cc1d]" name="viewKinhByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
       </group> <!-- Phu Kien -->
       <group name="Kinh">
-        <method signature="TC_ViewProduct_001.viewKinhByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewKinhByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
+        <method signature="TC_ViewProduct_001.viewKinhByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@60f7cc1d]" name="viewKinhByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
       </group> <!-- Kinh -->
-      <group name="Wallet Chain">
-        <method signature="TC_ViewProduct_001.viewWalletChainByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewWalletChainByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-      </group> <!-- Wallet Chain -->
-      <group name="Quan Short">
-        <method signature="TC_ViewProduct_001.viewQuanShortByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewQuanShortByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-      </group> <!-- Quan Short -->
-      <group name="Sweater - Hoodie">
-        <method signature="TC_ViewProduct_001.viewSweaterHoodieByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewSweaterHoodieByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-      </group> <!-- Sweater - Hoodie -->
-      <group name="Ao">
-        <method signature="TC_ViewProduct_001.viewAoByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewAoByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-        <method signature="TC_ViewProduct_001.viewAoThunSoMiByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewAoThunSoMiByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-        <method signature="TC_ViewProduct_001.viewSanPhamKhacByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewSanPhamKhacByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-        <method signature="TC_ViewProduct_001.viewSweaterHoodieByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" name="viewSweaterHoodieByProductType" class="com.zombieclothing.testCases.TC_ViewProduct_001"/>
-      </group> <!-- Ao -->
     </groups>
-    <test started-at="2021-09-23T23:28:33 ICT" name="Default test" finished-at="2021-09-23T23:29:47 ICT" duration-ms="74141">
+    <test started-at="2021-09-24T23:50:27 ICT" name="Test" finished-at="2021-09-24T23:50:34 ICT" duration-ms="7318">
       <class name="com.zombieclothing.testCases.TC_ViewProduct_001">
-        <test-method signature="viewAoByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" started-at="2021-09-23T23:28:33 ICT" name="viewAoByProductType" finished-at="2021-09-23T23:28:39 ICT" duration-ms="5722" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- viewAoByProductType -->
-        <test-method signature="viewAoThunSoMiByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" started-at="2021-09-23T23:28:39 ICT" name="viewAoThunSoMiByProductType" finished-at="2021-09-23T23:28:48 ICT" duration-ms="8927" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- viewAoThunSoMiByProductType -->
-        <test-method signature="viewKinhByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" started-at="2021-09-23T23:28:48 ICT" name="viewKinhByProductType" finished-at="2021-09-23T23:28:53 ICT" duration-ms="5215" status="PASS">
+        <test-method signature="viewKinhByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@60f7cc1d]" started-at="2021-09-24T23:50:27 ICT" name="viewKinhByProductType" finished-at="2021-09-24T23:50:34 ICT" duration-ms="7286" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- viewKinhByProductType -->
-        <test-method signature="viewMuByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" started-at="2021-09-23T23:28:53 ICT" name="viewMuByProductType" finished-at="2021-09-23T23:28:58 ICT" duration-ms="5448" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- viewMuByProductType -->
-        <test-method signature="viewNhanByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" started-at="2021-09-23T23:28:58 ICT" name="viewNhanByProductType" finished-at="2021-09-23T23:29:04 ICT" duration-ms="5286" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- viewNhanByProductType -->
-        <test-method signature="viewPhuKienByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" started-at="2021-09-23T23:29:04 ICT" name="viewPhuKienByProductType" finished-at="2021-09-23T23:29:09 ICT" duration-ms="5054" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- viewPhuKienByProductType -->
-        <test-method signature="viewQuanByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" started-at="2021-09-23T23:29:09 ICT" name="viewQuanByProductType" finished-at="2021-09-23T23:29:14 ICT" duration-ms="5646" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- viewQuanByProductType -->
-        <test-method signature="viewQuanDaiByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" started-at="2021-09-23T23:29:14 ICT" name="viewQuanDaiByProductType" finished-at="2021-09-23T23:29:20 ICT" duration-ms="5889" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- viewQuanDaiByProductType -->
-        <test-method signature="viewQuanShortByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" started-at="2021-09-23T23:29:20 ICT" name="viewQuanShortByProductType" finished-at="2021-09-23T23:29:26 ICT" duration-ms="5484" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- viewQuanShortByProductType -->
-        <test-method signature="viewSanPhamKhacByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" started-at="2021-09-23T23:29:26 ICT" name="viewSanPhamKhacByProductType" finished-at="2021-09-23T23:29:31 ICT" duration-ms="5420" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- viewSanPhamKhacByProductType -->
-        <test-method signature="viewSetByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" started-at="2021-09-23T23:29:31 ICT" name="viewSetByProductType" finished-at="2021-09-23T23:29:36 ICT" duration-ms="5032" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- viewSetByProductType -->
-        <test-method signature="viewSweaterHoodieByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" started-at="2021-09-23T23:29:36 ICT" name="viewSweaterHoodieByProductType" finished-at="2021-09-23T23:29:42 ICT" duration-ms="5501" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- viewSweaterHoodieByProductType -->
-        <test-method signature="viewWalletChainByProductType()[pri:0, instance:com.zombieclothing.testCases.TC_ViewProduct_001@1dd0e7c4]" started-at="2021-09-23T23:29:42 ICT" name="viewWalletChainByProductType" finished-at="2021-09-23T23:29:47 ICT" duration-ms="5477" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- viewWalletChainByProductType -->
       </class> <!-- com.zombieclothing.testCases.TC_ViewProduct_001 -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

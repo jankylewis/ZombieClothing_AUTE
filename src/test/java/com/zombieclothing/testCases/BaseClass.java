@@ -42,7 +42,13 @@ public class BaseClass {
 		}
 		driver.get(baseURL);
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
 		
 //		logger= Logger.getLogger("zombieClothingV1");
 //		PropertyConfigurator.configure("Log4j.properties");
