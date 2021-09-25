@@ -12,7 +12,7 @@ import com.zombieclothing.utilities.XLUtils;
 
 public class TC_LogInDDTTest_002 extends BaseClass{
 	
-	@Test(dataProvider= "LogInData")
+	@Test(dataProvider= "LogInData_1")
 	public void LogInDDT(String email, String pwd) throws InterruptedException {
 		
 		setUp(readconfig.getApplicationBaseURL()+ "/account/", "chrome");
@@ -52,9 +52,9 @@ public class TC_LogInDDTTest_002 extends BaseClass{
 		}return false;
 	}
 	
-	@DataProvider(name="LogInData")
+	@DataProvider(name="LogInData_1")
 	public String [][] getData() throws IOException {
-		String path= System.getProperty("user.dir")+ "/src/test/java/com/zombieclothing/testData/LogInData.xlsx";
+		String path= System.getProperty("user.dir")+ "/src/test/java/com/zombieclothing/testData/LogInData_1.xlsx";
 		int rownum= XLUtils.getRowCount(path, "LogIn_TestData");
 		int colcount= XLUtils.getCellCount(path, "LogIn_TestData", 1);
 		String logindata[][]= new String[rownum][colcount];	
