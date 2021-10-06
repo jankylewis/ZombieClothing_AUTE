@@ -139,7 +139,7 @@ public class TC_ViewProduct_001 extends BaseClass{
 		log.info("Hovered Ao product type\n");
 		
 		vpg.clickSanPhamKhacNavigationLink();
-		log.info("Clicked San Pham Khac product type\n");
+		log.info("Clicked San Pham Khac product type\n");	
 		
 		//assertion
 		String expProductType= sanPhamKhacProductType;

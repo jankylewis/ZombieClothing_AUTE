@@ -64,17 +64,19 @@ public class SignUpPage {
 		TXT_FIRSTNAME.sendKeys(firstName);
 	}
 	
-//	public void setMaleGender() {
-//		if (RDB_MALE.isSelected()==false) {
-//			RDB_MALE.click();
-//		}
-//	}
+	public void setGender() {
+		if (RDB_MALE.isSelected()==false) {
+			RDB_MALE.click();
+		}
+	}
 	
-	public void setMaleGender() {
-		List<WebElement> CHILD_RDB_MALE= RDB_MALE.findElements(By.xpath("//input[@type=\"radio\"]"));
-		for (int index=0; index< CHILD_RDB_MALE.size(); index++) {
-			if (CHILD_RDB_MALE.get(index).getText().equals("Male")) {
-				CHILD_RDB_MALE.get(index).click();
+	public void setMaleGender(String str, WebDriver dr) {
+		WebElement listElement= dr.findElement(By.xpath("//div[@id=\"form-gender\"]"));
+		List<WebElement> childGenderElements= listElement.findElements(By.xpath("//div[@id=\"form-gender\"]//descendant::*[(contains(normalize-space(@for),\"radio\"))]"));
+		for (int index=0; index< childGenderElements.size(); index++) {
+//			System.out.println(dr.findElement(By.xpath("//div[@id=\"form-gender\"]//descendant::*[(contains(normalize-space(@for),\"radio2\"))]")).getText());
+			if (childGenderElements.get(index).getText().equals(str)) {
+				childGenderElements.get(index).click();
 				break;
 			}
 		}

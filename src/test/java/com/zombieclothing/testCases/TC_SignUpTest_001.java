@@ -11,14 +11,23 @@ import com.zombieclothing.utilities.ReadConfig;
 
 public class TC_SignUpTest_001 extends BaseClass{
 	
-	ReadConfig readconfig= new ReadConfig();
+//	ReadConfig readconfig= new ReadConfig();
 	@Var
 	public int randomNum= new Random().nextInt(50000);
-	public String lastName= readconfig.getLastName();
-	public String firstName= readconfig.getFirstName();
-	public String birthday= readconfig.getBirthday();
-	public String email= readconfig.getLocalPart()+ String.valueOf(randomNum)+ readconfig.getDomainPart();
-	public String password= readconfig.getPassword();
+//	public String lastName= readconfig.getLastName();
+//	public String firstName= readconfig.getFirstName();
+//	public String birthday= readconfig.getBirthday();
+//	public String email= readconfig.getLocalPart()+ String.valueOf(randomNum)+ readconfig.getDomainPart();
+//	public String password= readconfig.getPassword();
+//	protected String expFullName= lastName+ " "+ firstName;
+//	protected String expEmail= email;
+	
+	private String lastName= "Tran";
+	private String firstName= "Vinh";
+	private String birthday= "2/9/2000";
+	private String email= "vinhtranak02092k"+ String.valueOf(randomNum)+ "@gmail.com";
+	private String password= "Raul123";
+	
 	protected String expFullName= lastName+ " "+ firstName;
 	protected String expEmail= email;
 	
@@ -34,7 +43,7 @@ public class TC_SignUpTest_001 extends BaseClass{
 		su.setFirstName(firstName);
 		log.info("Inputted first name successfully\n");
 		
-		su.setMaleGender();
+		su.setMaleGender("Nam", driver);
 		log.info("Selected gender successfully\n");
 		
 		su.setBirthday(birthday);
