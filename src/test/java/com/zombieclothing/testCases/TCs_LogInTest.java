@@ -94,6 +94,14 @@ public class TCs_LogInTest extends BaseClass{
 		lp.clickSubmit();
 		log.info("Clicked login button\n");
 		
+		boolean alertMessage= driver.getPageSource().contains("Please fill out this field.");
+		if (alertMessage==true) {
+			log.info("Asserted message successfully\n");
+		}
+		else if (alertMessage!=true){
+			log.info("Asserted message unsuccessfully\n");
+		}
+		
 //		WebDriverWait w = new WebDriverWait(driver, 5);
 //		if (lp.verifyAlertIsPresent(w)==true) {
 //			System.out.println("Alert is present!");
@@ -105,10 +113,9 @@ public class TCs_LogInTest extends BaseClass{
 //		if (lp.closeChatWithZombiePopup()==true) {
 //			log.info("Closed the chat with zombie popup\n");
 //		}
-		
 		tearDown();
 		log.warn("\n\n==>>-----------/*---Terminated test case---*/-----------\n");
-		log.exit();
+		log.exit();		
 	}
 	
 	@Test(groups= {"006 => 008"}, dataProvider= "LogInData_1")

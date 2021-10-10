@@ -9,7 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import lombok.Builder.Default;
 
 public class ViewProductPage {
@@ -115,6 +114,7 @@ public class ViewProductPage {
 		if (NAV_AO.isDisplayed()==true) {
 			action.moveToElement(NAV_AO).click().perform();
 		}
+		
 	}
 	
 	//Ao children

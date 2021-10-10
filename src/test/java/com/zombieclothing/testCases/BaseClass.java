@@ -6,6 +6,7 @@ import org.apache.log4j.PropertyConfigurator;
 import org.apache.logging.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -19,6 +20,9 @@ public class BaseClass {
 	ReadConfig readconfig= new ReadConfig();
 	@Var
 	public String baseURL= readconfig.getApplicationBaseURL();
+	
+	public static JavascriptExecutor javascript;
+	
 	public static WebDriver driver;
 	public static Logger log= org.apache.logging.log4j.LogManager.getLogger();
 	

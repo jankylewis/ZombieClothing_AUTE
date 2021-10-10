@@ -47,14 +47,19 @@ public class LogInPage {
 	@CacheLookup
 	WebElement LNK_LOGOUT;
 	
-	@FindBy(xpath = "//div[@aria-label=\"close\"]//following::div[@data-visualcompletion=\"ignore\"]")
+	@FindBy(xpath= "//div//child::strong[text()=\"Chat with Zombie\"]")
+	@CacheLookup
+	WebElement TXT_CHAT_WITH_ZOMBIE;
+	
+	@FindBy(xpath= "//div[@aria-label=\"close\"]//following::div[@data-visualcompletion=\"ignore\"]")
 	@CacheLookup
 	WebElement BTN_CLOSE_CHAT_WITH_ZOMBIE_POPUP;
 	
 	public boolean closeChatWithZombiePopup() {
-		if (BTN_CLOSE_CHAT_WITH_ZOMBIE_POPUP.isDisplayed()==true || BTN_CLOSE_CHAT_WITH_ZOMBIE_POPUP.isEnabled()==true) {
+		
+		if (TXT_CHAT_WITH_ZOMBIE.isDisplayed()==true || BTN_CLOSE_CHAT_WITH_ZOMBIE_POPUP.isEnabled()==true) {
+//			BTN_CLOSE_CHAT_WITH_ZOMBIE_POPUP= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@aria-label=\"close\"]//following::div[@data-visualcompletion=\"ignore\"]")));	
 			action.moveToElement(BTN_CLOSE_CHAT_WITH_ZOMBIE_POPUP).click().perform();
-//			BTN_CLOSE_CHAT_WITH_ZOMBIE_POPUP.click();
 			return true;
 		}
 		else {
