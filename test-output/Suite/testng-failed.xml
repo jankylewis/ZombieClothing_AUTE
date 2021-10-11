@@ -8,11 +8,11 @@
       </run>
     </groups>
     <classes>
-      <class name="com.zombieclothing.testCases.TCs_LogOut">
+      <class name="com.zombieclothing.testCases.TCs_SignUp">
         <methods>
-          <include name="logOutTest2"/>
+          <include name="signUpTest2"/>
         </methods>
-      </class> <!-- com.zombieclothing.testCases.TCs_LogOut -->
+      </class> <!-- com.zombieclothing.testCases.TCs_SignUp -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
