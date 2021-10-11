@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 import com.zombieclothing.pageObjects.LogInPage;
 import com.zombieclothing.utilities.XLUtils;
 
-public class TC_LogInDDTTest_002 extends BaseClass{
+public class TC_LogInDataDriven extends BaseClass{
 	
 	@Test(dataProvider= "LogInData_1")
 	public void LogInDDT(String email, String pwd) throws InterruptedException {

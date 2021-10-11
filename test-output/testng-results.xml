@@ -1,20 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="15" total="16" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="10" passed="10" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-10-10T19:23:57 ICT" name="Suite" finished-at="2021-10-10T19:24:05 ICT" duration-ms="8074">
+  <suite started-at="2021-10-11T23:12:54 ICT" name="Default suite" finished-at="2021-10-11T23:13:54 ICT" duration-ms="60196">
     <groups>
       <group name="001">
-        <method signature="TCs_ViewNewProductDetail.viewProductTest001()[pri:0, instance:com.zombieclothing.testCases.TCs_ViewNewProductDetail@1b065145]" name="viewProductTest001" class="com.zombieclothing.testCases.TCs_ViewNewProductDetail"/>
+        <method signature="TCs_LogIn.logInTest1()[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" name="logInTest1" class="com.zombieclothing.testCases.TCs_LogIn"/>
       </group> <!-- 001 -->
+      <group name="002">
+        <method signature="TCs_LogIn.logInTest2()[pri:1, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" name="logInTest2" class="com.zombieclothing.testCases.TCs_LogIn"/>
+      </group> <!-- 002 -->
+      <group name="006 =&gt; 008">
+        <method signature="TCs_LogIn.logInDDT(java.lang.String,java.lang.String)[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" name="logInDDT" class="com.zombieclothing.testCases.TCs_LogIn"/>
+      </group> <!-- 006 => 008 -->
+      <group name="003">
+        <method signature="TCs_LogIn.logInTest3()[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" name="logInTest3" class="com.zombieclothing.testCases.TCs_LogIn"/>
+      </group> <!-- 003 -->
+      <group name="004">
+        <method signature="TCs_LogIn.logInTest4()[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" name="logInTest4" class="com.zombieclothing.testCases.TCs_LogIn"/>
+      </group> <!-- 004 -->
+      <group name="005">
+        <method signature="TCs_LogIn.logInTest5()[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" name="logInTest5" class="com.zombieclothing.testCases.TCs_LogIn"/>
+      </group> <!-- 005 -->
+      <group name="009">
+        <method signature="TCs_LogIn.logInTest9()[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" name="logInTest9" class="com.zombieclothing.testCases.TCs_LogIn"/>
+      </group> <!-- 009 -->
+      <group name="010">
+        <method signature="TCs_LogIn.logInTest10()[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" name="logInTest10" class="com.zombieclothing.testCases.TCs_LogIn"/>
+      </group> <!-- 010 -->
     </groups>
-    <test started-at="2021-10-10T19:23:57 ICT" name="Test" finished-at="2021-10-10T19:24:05 ICT" duration-ms="8074">
-      <class name="com.zombieclothing.testCases.TCs_ViewNewProductDetail">
-        <test-method signature="viewProductTest001()[pri:0, instance:com.zombieclothing.testCases.TCs_ViewNewProductDetail@1b065145]" started-at="2021-10-10T19:23:57 ICT" name="viewProductTest001" finished-at="2021-10-10T19:24:05 ICT" duration-ms="8036" status="PASS">
+    <test started-at="2021-10-11T23:12:54 ICT" name="Default test" finished-at="2021-10-11T23:13:54 ICT" duration-ms="60196">
+      <class name="com.zombieclothing.testCases.TCs_LogIn">
+        <test-method signature="logInDDT(java.lang.String,java.lang.String)[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" started-at="2021-10-11T23:12:54 ICT" name="logInDDT" data-provider="LogInData_1" finished-at="2021-10-11T23:13:01 ICT" duration-ms="6419" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[vinhtranak02092kz@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Raul123]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- viewProductTest001 -->
-      </class> <!-- com.zombieclothing.testCases.TCs_ViewNewProductDetail -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+        </test-method> <!-- logInDDT -->
+        <test-method signature="logInDDT(java.lang.String,java.lang.String)[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" started-at="2021-10-11T23:13:01 ICT" name="logInDDT" data-provider="LogInData_1" finished-at="2021-10-11T23:13:07 ICT" duration-ms="5886" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[vinhtranak02092k@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Raul1231]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logInDDT -->
+        <test-method signature="logInDDT(java.lang.String,java.lang.String)[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" started-at="2021-10-11T23:13:07 ICT" name="logInDDT" data-provider="LogInData_1" finished-at="2021-10-11T23:13:13 ICT" duration-ms="6202" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[vinhtranak02092kz@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Raul1231]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logInDDT -->
+        <test-method signature="logInTest1()[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" started-at="2021-10-11T23:13:13 ICT" name="logInTest1" finished-at="2021-10-11T23:13:18 ICT" duration-ms="4800" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logInTest1 -->
+        <test-method signature="logInTest10()[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" started-at="2021-10-11T23:13:18 ICT" name="logInTest10" finished-at="2021-10-11T23:13:25 ICT" duration-ms="7177" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logInTest10 -->
+        <test-method signature="logInTest3()[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" started-at="2021-10-11T23:13:25 ICT" name="logInTest3" finished-at="2021-10-11T23:13:30 ICT" duration-ms="5419" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logInTest3 -->
+        <test-method signature="logInTest4()[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" started-at="2021-10-11T23:13:30 ICT" name="logInTest4" finished-at="2021-10-11T23:13:36 ICT" duration-ms="5434" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logInTest4 -->
+        <test-method signature="logInTest5()[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" started-at="2021-10-11T23:13:36 ICT" name="logInTest5" finished-at="2021-10-11T23:13:41 ICT" duration-ms="5887" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logInTest5 -->
+        <test-method signature="logInTest9()[pri:0, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" started-at="2021-10-11T23:13:41 ICT" name="logInTest9" finished-at="2021-10-11T23:13:49 ICT" duration-ms="7186" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logInTest9 -->
+        <test-method signature="logInTest2()[pri:1, instance:com.zombieclothing.testCases.TCs_LogIn@62dae540]" started-at="2021-10-11T23:13:49 ICT" name="logInTest2" finished-at="2021-10-11T23:13:54 ICT" duration-ms="5222" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logInTest2 -->
+      </class> <!-- com.zombieclothing.testCases.TCs_LogIn -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

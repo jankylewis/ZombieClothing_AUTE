@@ -1,5 +1,6 @@
 package com.zombieclothing.pageObjects;
 
+import java.util.concurrent.TimeoutException;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
@@ -13,7 +14,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import lombok.Builder.Default;
 
 public class LogInPage {
@@ -67,6 +67,14 @@ public class LogInPage {
 		}
 	}
 	
+	public void leaveEmailBlank() {
+		TXT_EMAIL.clear();
+	}
+	
+	public void leavePasswordBlank() {
+		TXT_PASSWORD.clear();
+	}
+	
 	public void setUserEmail(String email) {
 		TXT_EMAIL.clear();
 		TXT_EMAIL.sendKeys(email);
@@ -92,6 +100,48 @@ public class LogInPage {
 		}
 	}
 	
+	public void pauseWithTryCatch(int timeSecond) {
+		try {
+			Thread.sleep(timeSecond);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean checkIfEmailAlertIsExisted(WebDriver dr, String strEmailRequiredMessage) throws TimeoutException {
+		String requiredMessage = dr.findElement(By.xpath("//form[@id=\"customer_login\"]//div//following-sibling::input[@id=\"customer_email\" and @type and @name=\"customer[email]\"]")).getAttribute("validationMessage");
+		if (requiredMessage.isEmpty()!=true && requiredMessage.isBlank()!=true && requiredMessage.equals(strEmailRequiredMessage)==true) {
+			System.out.println("The required message of Email field is: "+ requiredMessage+ "\n");
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public boolean checkIfPasswordAlertIsExisted(WebDriver dr, String strPasswordRequiredMessage) throws TimeoutException {
+		String requiredMessage = dr.findElement(By.xpath("//form[@id=\"customer_login\"]//div//following-sibling::input[@id=\"customer_password\" and @type=\"password\" and @name=\"customer[password]\"]")).getAttribute("validationMessage");
+		if (requiredMessage.isEmpty()!=true && requiredMessage.isBlank()!=true && requiredMessage.equals(strPasswordRequiredMessage)==true) {
+			System.out.println("The required message of Password field is: "+ requiredMessage+ "\n");
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public boolean checkIfEmailInvalidMessageIsExisted(WebDriver dr, String strEmailInvalidMessage, String invalidEmail) throws TimeoutException {
+		
+		String invalidMessage= dr.findElement(By.xpath("//form[@id=\"customer_login\"]//div//following-sibling::input[@id=\"customer_email\" and @type and @name=\"customer[email]\"]")).getAttribute("validationMessage");
+		if (invalidMessage.isEmpty()==false && invalidMessage.isBlank()==false && invalidMessage.equals(strEmailInvalidMessage)!=false) {
+			System.out.println("The error message of Email field is: "+ invalidMessage+ "\n\n");
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 	public boolean isAlertPresent(WebDriver driver, String alertMessageText) {
 		//get locator
 		WebElement alertMessageLocator= driver.findElement(By.xpath("//form[@id=\"customer_login\"]//div//ul//preceding-sibling::li"));
@@ -105,25 +155,25 @@ public class LogInPage {
 		} return false;
 	}
 	
-	public boolean isEmailAlertPresent(WebDriver driver) {
-		try {
-			Alert emailAlert= driver.switchTo().alert();
-			String emailAlertMessage= driver.switchTo().alert().getText();
-			System.out.println("//--------//====//--------//\n\n"+ emailAlertMessage+ "\n\n//--------//====//--------//\n");
-			return true;
-		} catch (NoAlertPresentException Ex) {
-			return false;
-		}
-	}
-	
-	public boolean verifyAlertIsPresent(WebDriverWait w) {
-		
-		if (w.until(ExpectedConditions.alertIsPresent())==null) {
-			return false;
-		}
-		else {
-			return true;
-		}	
-	}
+//	public boolean isEmailAlertPresent(WebDriver driver) {
+//		try {
+//			Alert emailAlert= driver.switchTo().alert();
+//			String emailAlertMessage= driver.switchTo().alert().getText();
+//			System.out.println("//--------//====//--------//\n\n"+ emailAlertMessage+ "\n\n//--------//====//--------//\n");
+//			return true;
+//		} catch (NoAlertPresentException Ex) {
+//			return false;
+//		}
+//	}
+//	
+//	public boolean verifyAlertIsPresent(WebDriverWait w) {
+//		
+//		if (w.until(ExpectedConditions.alertIsPresent())==null) {
+//			return false;
+//		}
+//		else {
+//			return true;
+//		}	
+//	}
 
 }

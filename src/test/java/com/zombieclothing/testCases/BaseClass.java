@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.utilities.ReadConfig;
@@ -22,7 +23,8 @@ public class BaseClass {
 	public String baseURL= readconfig.getApplicationBaseURL();
 	
 	public static JavascriptExecutor javascript;
-	
+	public Actions action;
+	public WebDriver wait;
 	public static WebDriver driver;
 	public static Logger log= org.apache.logging.log4j.LogManager.getLogger();
 	
