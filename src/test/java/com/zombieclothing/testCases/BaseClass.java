@@ -8,6 +8,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -26,6 +27,7 @@ public class BaseClass {
 	public Actions action;
 	public WebDriver wait;
 	public static WebDriver driver;
+	public static WebElement webelement;
 	public static Logger log= org.apache.logging.log4j.LogManager.getLogger();
 	
 	@BeforeClass

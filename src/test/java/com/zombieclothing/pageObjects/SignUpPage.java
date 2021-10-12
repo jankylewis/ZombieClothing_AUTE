@@ -10,7 +10,6 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import lombok.Builder.Default;
 
 public class SignUpPage {
@@ -117,7 +116,6 @@ public class SignUpPage {
 	}
 	
 	public boolean checkIfFieldRequiredAlertIsPresent(WebDriver dr, String strFieldRequiredMessage, String TXT_REQUIRED_LOCATOR, String field) {
-		
 		String fieldRequiredMessage= dr.findElement(By.xpath(TXT_REQUIRED_LOCATOR)).getAttribute("validationMessage");
 		if (fieldRequiredMessage.isEmpty()!=true && fieldRequiredMessage.equals(strFieldRequiredMessage)==true) {
 			System.out.println("The required message of "+ field+ " field is: "+ fieldRequiredMessage+ "\n\n");
@@ -126,7 +124,17 @@ public class SignUpPage {
 		else {
 			return !true;
 		}
-		
+	}
+	
+	public boolean checkIfErrorMessageIsAppeared(String REQUIRED_LBL_ERROR_LOCATOR, String REQUIRED_ERROR_MESSAGE, WebDriver dr) {
+		String errorMessage= dr.findElement(By.xpath(REQUIRED_LBL_ERROR_LOCATOR)).getText();
+		if (dr.findElement(By.xpath(REQUIRED_LBL_ERROR_LOCATOR)).isDisplayed()==true && errorMessage.equals(REQUIRED_ERROR_MESSAGE)==true) {
+			System.out.println("The error message is: "+ errorMessage+ "\r\r");
+			return !false;
+		}
+		else {
+			return false;
+		}
 	}
 	
 	public void executeScrollingDown(WebDriver dr, JavascriptExecutor js, int scrollUnit) {

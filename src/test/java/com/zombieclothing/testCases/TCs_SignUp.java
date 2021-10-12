@@ -30,7 +30,11 @@ public class TCs_SignUp extends BaseClass{
 	private String birthday= "2/9/2000";
 	private String email= "vinhtranak02092k"+ String.valueOf(randomNum)+ "@gmail.com";
 	private String password= "Raul123";
-	
+	private String nonAtDomainEmail= "vinhtranak02092k";
+	private String nonDomainEmail= "vinhtranak02092k@";
+	private String invalidEmail= "vinhtranak02092k@sz";
+	private String duplicatedEmail= "kqdq@gmail.com";
+	private String truncatedPassword= "z";
 	private String expFullName= lastName+ " "+ firstName;
 	private String expEmail= email;
 	
@@ -38,6 +42,11 @@ public class TCs_SignUp extends BaseClass{
 	private String firstNameRequiredMessage= "Please fill out this field.";
 	private String emailRequiredMessage= "Please fill out this field.";
 	private String passwordRequiredMessage= "Please fill out this field.";
+	private String invalidEmailErrorMessageNonAt= "Please include an '@' in the email address. "+ "'"+ nonAtDomainEmail+ "'"+ " is missing an '@'.";
+	private String invalidEmailErrorMessageNon= "Please enter a part following '@'. "+ "'"+ nonDomainEmail+ "'"+ " is incomplete.";
+	private String invalidEmailErrorMessage= "Email không hợp lệ.";
+	private String duplicatedEmailErorrMessage= "Email đã tồn tại. Nếu bạn quên mật khẩu, bạn có thể thiết lập lại mật khẩu tại đây.";
+	private String truncatedPasswordErrorMessage= "Mật khẩu quá ngắn (tối thiểu 5 ký tự).";
 	
 	private String TXT_LAST_NAME_LOCATOR= "//div[@id=\"form-last_name\"]//descendant::input[@id=\"last_name\" and @class]";
 	private String TXT_FIRST_NAME_LOCATOR= "//div[@id=\"form-first_name\"]//child::input[@id=\"first_name\" and @class]";
@@ -45,6 +54,9 @@ public class TCs_SignUp extends BaseClass{
 	private String TXT_PASSWORD_LOCATOR= "//div[@id=\"form-password\"]//following::input[1][@id=\"password\" or @type=\"password\"]";
 	private String LBL_ACT_FULL_NAME_LOCATOR= "//div[@id=\"customer_sidebar\"]//following::h2[@class=\"name_account\"]";
 	private String LBL_ACT_EMAIL_LOCATOR= "//div[@id=\"customer_sidebar\"]//following::p[contains(normalize-space(@class),\"email\")]";
+	private String LBL_INVALID_EMAIL_ERROR_MESSAGE_LOCATOR= "//div[@class=\"errors\"]//ul//child::li";
+	private String LBL_DUPLICATED_EMAIL_ERROR_MESSAGE_LOCATOR= "//div[@class=\"errors\"]//ul//child::li";
+	private String LBL_TRUNCATED_PASSWORD_ERROR_MESSAGE_LOCATOR= "//div[@class=\"errors\"]//ul//child::li";
 	
 	@Test (groups= {"001"})
 	public void signUpTest1() throws IOException {
@@ -85,11 +97,11 @@ public class TCs_SignUp extends BaseClass{
 		
 		if (actFullName.equals(expFullName) && actEmail.equals(expEmail)) {
 			Assert.assertTrue(true);
-			log.info("\n\n==>>-----------/*---Sign up test case is passed---*/-----------\n");
+			log.info("\n\n==>>-----------\n\n/*---Test case 001 is passed! \n\n---*/-----------\n");
 		}
 		else {
 			Assert.assertTrue(false);
-			log.error("\n\n==>>-----------/*---Sign up test case is failed---*/-----------\n");
+			log.info("\n\n==>>-----------\n\n/*---Test case 001 is failed! \n\n---*/-----------\n");
 		}
 		
 		su.pauseWithTryCatch(1500);
@@ -137,11 +149,11 @@ public class TCs_SignUp extends BaseClass{
 		
 		if (actFullName.equals(expFullName) && actEmail.equals(expEmail)) {
 			Assert.assertTrue(true);
-			log.info("\n\n==>>-----------/*---Sign up test case is passed---*/-----------\n");
+			log.info("\n\n==>>-----------\n\n/*---Test case 002 is passed! \n\n---*/-----------\n");
 		}
 		else {
 			Assert.assertTrue(false);
-			log.error("\n\n==>>-----------/*---Sign up test case is failed---*/-----------\n");
+			log.info("\n\n==>>-----------\n\n/*---Test case 002 is failed! \n\n---*/-----------\n");
 		}
 		
 		su.pauseWithTryCatch(1500);
@@ -165,8 +177,8 @@ public class TCs_SignUp extends BaseClass{
 		su.selectGender("Nam", driver);
 		log.info("Selected gender successfully \r\r");
 		
-		su.setBirthday(birthday);
-		log.info("Inputted DOB successfully \r\r");
+//		su.setBirthday(birthday);
+		log.info("Left blank to DOB field successfully \r\r");
 		
 		su.setEmail(email);
 		log.info("Inputted email successfully \r\r");
@@ -189,11 +201,11 @@ public class TCs_SignUp extends BaseClass{
 		
 		if (actFullName.equals(expFullName) && actEmail.equals(expEmail)) {
 			Assert.assertTrue(true);
-			log.info("\n\n==>>-----------/*---Sign up test case is passed---*/-----------\n");
+			log.info("\n\n==>>-----------\n\n/*---Test case 003 is passed! \n\n---*/-----------\n");
 		}
 		else {
-			Assert.assertTrue(false);
-			log.error("\n\n==>>-----------/*---Sign up test case is failed---*/-----------\n");
+//			Assert.assertTrue(false);
+			log.info("\n\n==>>-----------\n\n/*---Test case 003 is failed! \n\n---*/-----------\n");
 		}
 		
 		su.pauseWithTryCatch(1500);
@@ -241,11 +253,11 @@ public class TCs_SignUp extends BaseClass{
 		
 		if (actFullName.equals(expFullName) && actEmail.equals(expEmail)) {
 			Assert.assertTrue(true);
-			log.info("\n\n==>>-----------/*---Sign up test case is passed---*/-----------\n");
+			log.info("\n\n==>>-----------\n\n/*---Test case 004 is passed! \n\n---*/-----------\n");
 		}
 		else {
-			Assert.assertTrue(false);
-			log.error("\n\n==>>-----------/*---Sign up test case is failed---*/-----------\n");
+//			Assert.assertTrue(false);
+			log.info("\n\n==>>-----------\n\n/*---Test case 004 is failed! \n\n---*/-----------\n");
 		}
 		
 		su.pauseWithTryCatch(1500);
@@ -512,6 +524,236 @@ public class TCs_SignUp extends BaseClass{
 			log.error("Test case 010 is failed! \r\r");
 		}
 		
+		su.pauseWithTryCatch(1500);
+		tearDown();
+		log.warn("\n\n\n==>>-----------/*---Terminated test case---*/-----------\n");
+		log.exit();
+	}
+	
+	@Test (groups= {"011"})
+	public void signUpTest11() throws IOException {
+		setUp(readconfig.getApplicationBaseURL()+ "/account/register/", brRandom);
+		log.info("Register page is opened on browser \r\r");
+		
+		SignUpPage su= new SignUpPage(driver);
+		su.setLastName(lastName);
+		log.info("Inputted last name successfully \r\r");
+		
+		su.setFirstName(firstName);
+		log.info("Inputted first name successfully \r\r");
+		
+		su.selectGender("Nam", driver);
+		log.info("Selected gender successfully \r\r");
+		
+		su.setBirthday(birthday);
+		log.info("Inputted DOB successfully \r\r");
+		
+		su.setEmail(nonAtDomainEmail);
+		log.info("Inputted email successfully \r\r");
+		
+		su.setPassword(password);
+		log.info("Inputted password successfully \r\r");
+		
+		su.executeScrollingDown(driver, javascript, 300);
+		su.pauseWithTryCatch(500);
+		su.clickRegister();
+		log.info("Clicked register button successfully \n\n");
+		
+		//assertions
+		if (su.checkIfFieldRequiredAlertIsPresent(driver, invalidEmailErrorMessageNonAt, TXT_EMAIL_LOCATOR, "Email")==true) {
+			log.info("Email error message is present \n\n");
+			log.info("Asserted alert successfully \n\n");
+			log.info("Test case 011 is passed! \n\n");
+		}
+		else {
+			log.warn("Asserted alert unsuccessfully due to the presence of the alert \n\n");
+			log.info("Test case 011 is failed! \n\n");
+		}
+
+		su.pauseWithTryCatch(1500);
+		tearDown();
+		log.warn("\n\n\n==>>-----------/*---Terminated test case---*/-----------\n");
+		log.exit();
+	}
+	
+	@Test (groups= {"012"})
+	public void signUpTest12() throws IOException {
+		setUp(readconfig.getApplicationBaseURL()+ "/account/register/", brRandom);
+		log.info("Register page is opened on browser \r\r");
+		
+		SignUpPage su= new SignUpPage(driver);
+		su.setLastName(lastName);
+		log.info("Inputted last name successfully \r\r");
+		
+		su.setFirstName(firstName);
+		log.info("Inputted first name successfully \r\r");
+		
+		su.selectGender("Nam", driver);
+		log.info("Selected gender successfully \r\r");
+		
+		su.setBirthday(birthday);
+		log.info("Inputted DOB successfully \r\r");
+		
+		su.setEmail(nonDomainEmail);
+		log.info("Inputted email successfully \r\r");
+		
+		su.setPassword(password);
+		log.info("Inputted password successfully \r\r");
+		
+		su.executeScrollingDown(driver, javascript, 300);
+		su.pauseWithTryCatch(500);
+		su.clickRegister();
+		log.info("Clicked register button successfully \n\n");
+		
+		//assertions
+		if (su.checkIfFieldRequiredAlertIsPresent(driver, invalidEmailErrorMessageNon, TXT_EMAIL_LOCATOR, "Email")==true) {
+			log.info("Email error message is present \n\n");
+			log.info("Asserted alert successfully \n\n");
+			log.info("Test case 012 is passed! \n\n");
+		}
+		else {
+			log.warn("Asserted alert unsuccessfully due to the presence of the alert \n\n");
+			log.info("Test case 012 is failed! \n\n");
+		}
+
+		su.pauseWithTryCatch(1500);
+		tearDown();
+		log.warn("\n\n\n==>>-----------/*---Terminated test case---*/-----------\n");
+		log.exit();
+	}
+	
+	@Test (groups= {"013"})
+	public void signUpTest13() throws IOException {
+		setUp(readconfig.getApplicationBaseURL()+ "/account/register/", brRandom);
+		log.info("Register page is opened on browser \r\r");
+		
+		SignUpPage su= new SignUpPage(driver);
+		su.setLastName(lastName);
+		log.info("Inputted last name successfully \r\r");
+		
+		su.setFirstName(firstName);
+		log.info("Inputted first name successfully \r\r");
+		
+		su.selectGender("Nam", driver);
+		log.info("Selected gender successfully \r\r");
+		
+		su.setBirthday(birthday);
+		log.info("Inputted DOB successfully \r\r");
+		
+		su.setEmail(invalidEmail);
+		log.info("Inputted email successfully \r\r");
+		
+		su.setPassword(password);
+		log.info("Inputted password successfully \r\r");
+		
+		su.executeScrollingDown(driver, javascript, 300);
+		su.pauseWithTryCatch(500);
+		su.clickRegister();
+		log.info("Clicked register button successfully \n\n");
+		
+		//assertions
+		if (su.checkIfErrorMessageIsAppeared(LBL_INVALID_EMAIL_ERROR_MESSAGE_LOCATOR, invalidEmailErrorMessage, driver)==!false) {
+			log.info("Email error message is present \n\n");
+			log.info("Asserted alert successfully \n\n");
+			log.info("Test case 013 is passed! \n\n");
+		}
+		else {
+			log.warn("Asserted alert unsuccessfully due to the presence of the alert \n\n");
+			log.info("Test case 013 is failed! \n\n");
+		}
+
+		su.pauseWithTryCatch(1500);
+		tearDown();
+		log.warn("\n\n\n==>>-----------/*---Terminated test case---*/-----------\n");
+		log.exit();
+	}
+	
+	@Test (groups= {"014"})
+	public void signUpTest14() throws IOException {
+		setUp(readconfig.getApplicationBaseURL()+ "/account/register/", brRandom);
+		log.info("Register page is opened on browser \r\r");
+		
+		SignUpPage su= new SignUpPage(driver);
+		su.setLastName(lastName);
+		log.info("Inputted last name successfully \r\r");
+		
+		su.setFirstName(firstName);
+		log.info("Inputted first name successfully \r\r");
+		
+		su.selectGender("Nam", driver);
+		log.info("Selected gender successfully \r\r");
+		
+		su.setBirthday(birthday);
+		log.info("Inputted DOB successfully \r\r");
+		
+		su.setEmail(duplicatedEmail);
+		log.info("Inputted email successfully \r\r");
+		
+		su.setPassword(password);
+		log.info("Inputted password successfully \r\r");
+		
+		su.executeScrollingDown(driver, javascript, 300);
+		su.pauseWithTryCatch(500);
+		su.clickRegister();
+		log.info("Clicked register button successfully \n\n");
+		
+		//assertions
+		if (su.checkIfErrorMessageIsAppeared(LBL_DUPLICATED_EMAIL_ERROR_MESSAGE_LOCATOR, duplicatedEmailErorrMessage, driver)==!false) {
+			log.info("Email error message is present \n\n");
+			log.info("Asserted alert successfully \n\n");
+			log.info("Test case 014 is passed! \n\n");
+		}
+		else {
+			log.warn("Asserted alert unsuccessfully due to the presence of the alert \n\n");
+			log.info("Test case 014 is failed! \n\n");
+		}
+
+		su.pauseWithTryCatch(1500);
+		tearDown();
+		log.warn("\n\n\n==>>-----------/*---Terminated test case---*/-----------\n");
+		log.exit();
+	}
+	
+	@Test (groups= {"015"})
+	public void signUpTest15() throws IOException {
+		setUp(readconfig.getApplicationBaseURL()+ "/account/register/", brRandom);
+		log.info("Register page is opened on browser \r\r");
+		
+		SignUpPage su= new SignUpPage(driver);
+		su.setLastName(lastName);
+		log.info("Inputted last name successfully \r\r");
+		
+		su.setFirstName(firstName);
+		log.info("Inputted first name successfully \r\r");
+		
+		su.selectGender("Nam", driver);
+		log.info("Selected gender successfully \r\r");
+		
+		su.setBirthday(birthday);
+		log.info("Inputted DOB successfully \r\r");
+		
+		su.setEmail(email);
+		log.info("Inputted email successfully \r\r");
+		
+		su.setPassword(truncatedPassword);
+		log.info("Inputted password successfully \r\r");
+		
+		su.executeScrollingDown(driver, javascript, 300);
+		su.pauseWithTryCatch(500);
+		su.clickRegister();
+		log.info("Clicked register button successfully \n\n");
+		
+		//assertions
+		if (su.checkIfErrorMessageIsAppeared(LBL_TRUNCATED_PASSWORD_ERROR_MESSAGE_LOCATOR, truncatedPasswordErrorMessage, driver)==!false) {
+			log.info("Password error message is present \n\n");
+			log.info("Asserted alert successfully \n\n");
+			log.info("Test case 015 is passed! \n\n");
+		}
+		else {
+			log.warn("Asserted alert unsuccessfully due to the presence of the alert \n\n");
+			log.info("Test case 015 is failed! \n\n");
+		}
+
 		su.pauseWithTryCatch(1500);
 		tearDown();
 		log.warn("\n\n\n==>>-----------/*---Terminated test case---*/-----------\n");

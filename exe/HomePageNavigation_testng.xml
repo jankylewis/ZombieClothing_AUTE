@@ -10,7 +10,7 @@
 		</groups>
 
 		<classes>
-			<class name="com.zombieclothing.testCases.TCs_SignUp" />
+			<class name="com.zombieclothing.testCases.TCs_HomePageNavigation" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

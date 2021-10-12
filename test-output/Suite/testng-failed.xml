@@ -4,13 +4,13 @@
   <test thread-count="5" name="Test(failed)">
     <groups>
       <run>
-        <include name="002"/>
+        <include name="003"/>
       </run>
     </groups>
     <classes>
       <class name="com.zombieclothing.testCases.TCs_SignUp">
         <methods>
-          <include name="signUpTest2"/>
+          <include name="signUpTest3"/>
         </methods>
       </class> <!-- com.zombieclothing.testCases.TCs_SignUp -->
     </classes>

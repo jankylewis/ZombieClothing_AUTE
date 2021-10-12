@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="9" total="10" passed="1" failed="0" skipped="0">
+<testng-results ignored="3" total="4" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-10-12T02:17:22 ICT" name="Suite" finished-at="2021-10-12T02:17:32 ICT" duration-ms="10205">
+  <suite started-at="2021-10-12T12:21:07 ICT" name="Suite" finished-at="2021-10-12T12:21:16 ICT" duration-ms="9426">
     <groups>
-      <group name="010">
-        <method signature="TCs_SignUp.signUpTest10()[pri:1, instance:com.zombieclothing.testCases.TCs_SignUp@242aa8d9]" name="signUpTest10" class="com.zombieclothing.testCases.TCs_SignUp"/>
-      </group> <!-- 010 -->
+      <group name="004">
+        <method signature="TCs_HomePageNavigation.homePageNavigationTest4()[pri:0, instance:com.zombieclothing.testCases.TCs_HomePageNavigation@2c88b9fc]" name="homePageNavigationTest4" class="com.zombieclothing.testCases.TCs_HomePageNavigation"/>
+      </group> <!-- 004 -->
     </groups>
-    <test started-at="2021-10-12T02:17:22 ICT" name="Test" finished-at="2021-10-12T02:17:32 ICT" duration-ms="10205">
-      <class name="com.zombieclothing.testCases.TCs_SignUp">
-        <test-method signature="signUpTest10()[pri:1, instance:com.zombieclothing.testCases.TCs_SignUp@242aa8d9]" started-at="2021-10-12T02:17:22 ICT" name="signUpTest10" finished-at="2021-10-12T02:17:32 ICT" duration-ms="10179" status="PASS">
+    <test started-at="2021-10-12T12:21:07 ICT" name="Test" finished-at="2021-10-12T12:21:16 ICT" duration-ms="9426">
+      <class name="com.zombieclothing.testCases.TCs_HomePageNavigation">
+        <test-method signature="homePageNavigationTest4()[pri:0, instance:com.zombieclothing.testCases.TCs_HomePageNavigation@2c88b9fc]" started-at="2021-10-12T12:21:07 ICT" name="homePageNavigationTest4" finished-at="2021-10-12T12:21:16 ICT" duration-ms="9401" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- signUpTest10 -->
-      </class> <!-- com.zombieclothing.testCases.TCs_SignUp -->
+        </test-method> <!-- homePageNavigationTest4 -->
+      </class> <!-- com.zombieclothing.testCases.TCs_HomePageNavigation -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>
