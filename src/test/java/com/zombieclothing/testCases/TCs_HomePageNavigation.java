@@ -13,20 +13,32 @@ public class TCs_HomePageNavigation extends BaseClass{
 	ReadConfig readconfig= new ReadConfig();
 	@Var
 	private String browserArr[]= {"firefox", "chrome", "opera"};
-	private String siteArr[]= {"/blogs/news", 
-								"/pages/about-us", 
-								 "/pages/chinh-sach-doi-tra", 
-								  "/pages/chinh-sach-bao-mat",
-								   "/pages/dieu-khoan-dich-vu",
-								    "/collections/ao",
-								     "/collections/quan",
-								      "/collections/set",
-								       "/collections/phu-kien",
-								        "/collections/ao-thun-so-mi",
-								         "/collections/sweater-hoodie",
-								          "/collections/quan-dai",
-								           "/collections/quan-short",
-								            "/products/zombie-hoodie-in-black"};
+	
+	private String siteArr[]= {																	"/blogs/news",										
+																							"/collections/quan",
+																						"/collections/set",
+																					"/collections/ao",
+																				"/blogs/news?page=2",
+																			"/pages/chinh-sach-doi-tra", 
+																		"/pages/chinh-sach-bao-mat",
+																	"/pages/dieu-khoan-dich-vu",
+																"/pages/about-us",
+															"/collections/sweater-hoodie",
+														"/collections/ao-thun-so-mi",
+													"/collections/san-pham-moi",
+												"/collections/phu-kien",
+											"/collections/quan-short",
+										"/collections/quan-dai",
+									"/blogs/news/bai-viet-mau",
+								"/blogs/news/summer-beach-mua-he-voi-bien-ca",
+							"/blogs/news/trua-18-5-them-85-ca-mac-covid-19-moi",
+						"/products/1-extended-tee-long-tee-white",
+					"/products/zombie-hoodie-in-black",
+				"/products/python-printed-leather-set",
+			"/products/zombie-corduroy-tracksuit-purple",							
+		"/blogs/news/thu-kinh-doanh-local-brand-mot-hanh-trinh-bi-hai",
+	"/blogs/news/cac-dan-choi-truyen-tay-nhau-bo-anh-cuc-chat-ve-van-hoa-duong-pho-vi",							};
+						      
 	private String brRandom= browserArr[new Random().nextInt(browserArr.length)];
 	private String siteRandom= siteArr[new Random().nextInt(siteArr.length)];
 	

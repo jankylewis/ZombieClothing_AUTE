@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.zombieclothing.testCases.TCs_SignUp">
+      <class name="com.zombieclothing.testCases.TC_SearchProduct">
         <methods>
-          <include name="signUpTest2"/>
-          <include name="signUpTest3"/>
-          <include name="signUpTest4"/>
+          <include name="searchProductTest"/>
         </methods>
-      </class> <!-- com.zombieclothing.testCases.TCs_SignUp -->
+      </class> <!-- com.zombieclothing.testCases.TC_SearchProduct -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

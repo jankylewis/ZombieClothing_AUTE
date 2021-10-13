@@ -4,35 +4,52 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import com.google.errorprone.annotations.Var;
-import com.zombieclothing.pageObjects.ViewProductPage;
+import com.zombieclothing.pageObjects.ViewProductByHomepagePage;
 import com.zombieclothing.utilities.ReadConfig;
 import lombok.Builder.Default;
 
-public class TC_ViewProduct_001 extends BaseClass{
+public class TCs_ViewProductByHomepage extends BaseClass{
 
 	ReadConfig readconfig= new ReadConfig();
 	@Var
-	//for asserting
-	private String aoProductType= readconfig.getViewAoByProductType();
-	private String aoThunSoMiProductType= readconfig.getViewAoThunSoMiByProductType();
-	private String sweaterHoodieProductType= readconfig.getViewSweaterHoodieByProductType();
-	private String sanPhamKhacProductType= readconfig.getViewSanPhamKhacByProductType();
-	private String quanProductType= readconfig.getViewQuanByProductType();
-	private String quanDaiProductType= readconfig.getViewQuanDaiByProductType();
-	private String quanShortProductType= readconfig.getViewQuanShortByProductType();
-	private String setProductType= readconfig.getViewSetByProductType();
-	private String phuKienProductType= readconfig.getViewPhuKienByProductType();
-	private String muProductType= readconfig.getViewMuByProductType();
-	private String kinhProductType= readconfig.getViewKinhByProductType();
-	private String nhanProductType= readconfig.getViewNhanByProductType();
-	private String walletChainProductType= readconfig.getViewWalletChainByProductType();
+//	private String aoProductType= readconfig.getViewAoByProductType();
+//	private String aoThunSoMiProductType= readconfig.getViewAoThunSoMiByProductType();
+//	private String sweaterHoodieProductType= readconfig.getViewSweaterHoodieByProductType();
+//	private String sanPhamKhacProductType= readconfig.getViewSanPhamKhacByProductType();
+//	private String quanProductType= readconfig.getViewQuanByProductType();
+//	private String quanDaiProductType= readconfig.getViewQuanDaiByProductType();
+//	private String quanShortProductType= readconfig.getViewQuanShortByProductType();
+//	private String setProductType= readconfig.getViewSetByProductType();
+//	private String phuKienProductType= readconfig.getViewPhuKienByProductType();
+//	private String muProductType= readconfig.getViewMuByProductType();
+//	private String kinhProductType= readconfig.getViewKinhByProductType();
+//	private String nhanProductType= readconfig.getViewNhanByProductType();
+//	private String walletChainProductType= readconfig.getViewWalletChainByProductType();
+	
+	//for asserting	
+	private String aoProductType= "Áo";
+	private String aoThunSoMiProductType= "Áo thun - Sơ mi";
+	private String sweaterHoodieProductType= "Sweater - Hoodie";
+	private String sanPhamKhacProductType= "Các Sản Phẩm Khác";
+	
+			private String quanProductType= "Quần";
+			private String quanDaiProductType= "Quần Dài";
+			private String quanShortProductType= "Quần short";
+			
+				private String setProductType= "Set";
+				
+					private String phuKienProductType= "Phụ kiện";
+					private String muProductType= "Mũ";
+					private String kinhProductType= "Kính";
+					private String nhanProductType= "Nhẫn";
+					private String walletChainProductType= "Wallet chain";
 	
 	@Test(groups= {"Ao"})
 	public void viewAoByProductType() {
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("Navigated to homepage\n");
 		
-		ViewProductPage vpg= new ViewProductPage(driver);
+		ViewProductByHomepagePage vpg= new ViewProductByHomepagePage(driver);
 		vpg.performTatcaspMouseHover();
 		log.info("Hovered San pham navigation link\n");
 		
@@ -63,7 +80,7 @@ public class TC_ViewProduct_001 extends BaseClass{
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("Navigated to homepage\n");
 		
-		ViewProductPage vpg= new ViewProductPage(driver);
+		ViewProductByHomepagePage vpg= new ViewProductByHomepagePage(driver);
 		vpg.performTatcaspMouseHover();
 		log.info("Hovered San pham navigation link\n");
 		
@@ -97,7 +114,7 @@ public class TC_ViewProduct_001 extends BaseClass{
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("Navigated to homepage\n");
 		
-		ViewProductPage vpg= new ViewProductPage(driver);
+		ViewProductByHomepagePage vpg= new ViewProductByHomepagePage(driver);
 		vpg.performTatcaspMouseHover();
 		log.info("Hovered San pham navigation link\n");
 		
@@ -131,7 +148,7 @@ public class TC_ViewProduct_001 extends BaseClass{
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("Navigated to homepage\n");
 		
-		ViewProductPage vpg= new ViewProductPage(driver);
+		ViewProductByHomepagePage vpg= new ViewProductByHomepagePage(driver);
 		vpg.performTatcaspMouseHover();
 		log.info("Hovered San pham navigation link\n");
 		
@@ -165,7 +182,7 @@ public class TC_ViewProduct_001 extends BaseClass{
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("Navigated to homepage\n");
 		
-		ViewProductPage vpg= new ViewProductPage(driver);
+		ViewProductByHomepagePage vpg= new ViewProductByHomepagePage(driver);
 		vpg.performTatcaspMouseHover();
 		log.info("Hovered San pham navigation link\n");
 		
@@ -196,7 +213,7 @@ public class TC_ViewProduct_001 extends BaseClass{
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("Navigated to homepage\n");
 		
-		ViewProductPage vpg= new ViewProductPage(driver);
+		ViewProductByHomepagePage vpg= new ViewProductByHomepagePage(driver);
 		vpg.performTatcaspMouseHover();
 		log.info("Hovered San pham navigation link\n");
 		
@@ -230,14 +247,17 @@ public class TC_ViewProduct_001 extends BaseClass{
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("Navigated to homepage\n");
 		
-		ViewProductPage vpg= new ViewProductPage(driver);
+		ViewProductByHomepagePage vpg= new ViewProductByHomepagePage(driver);
 		vpg.performTatcaspMouseHover();
+		vpg.pauseWithTryCatch(500);
 		log.info("Hovered San pham navigation link\n");
 		
 		vpg.performQuanMouseHover();
+		vpg.pauseWithTryCatch(500);
 		log.info("Hovered Quan navigation link\n");
 		
 		vpg.clickQuanShortNavigationLink();
+		vpg.pauseWithTryCatch(500);
 		log.info("Clicked Quan Short product type\n");
 		
 		//assertion
@@ -264,11 +284,13 @@ public class TC_ViewProduct_001 extends BaseClass{
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("Navigated to homepage\n");
 		
-		ViewProductPage vpg= new ViewProductPage(driver);
+		ViewProductByHomepagePage vpg= new ViewProductByHomepagePage(driver);
 		vpg.performTatcaspMouseHover();
+		vpg.pauseWithTryCatch(500);
 		log.info("Hovered San pham navigation link\n");
 		
 		vpg.clickSetNavigationLink();
+		vpg.pauseWithTryCatch(500);
 		log.info("Clicked Set navigation link\n");
 		
 		//assertion
@@ -295,11 +317,13 @@ public class TC_ViewProduct_001 extends BaseClass{
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("Navigated to homepage\n");
 		
-		ViewProductPage vpg= new ViewProductPage(driver);
+		ViewProductByHomepagePage vpg= new ViewProductByHomepagePage(driver);
 		vpg.performTatcaspMouseHover();
+		vpg.pauseWithTryCatch(500);
 		log.info("Hovered San pham navigation link\n");
 		
 		vpg.clickPhuKienNavigationLink();
+		vpg.pauseWithTryCatch(500);
 		log.info("Clicked Phu Kien navigation link\n");
 		
 		//assertion
@@ -326,24 +350,16 @@ public class TC_ViewProduct_001 extends BaseClass{
 		setUp(readconfig.getApplicationBaseURL(), "opera");
 		log.info("Navigated to homepage\n");
 		
-		ViewProductPage vpg= new ViewProductPage(driver);
+		ViewProductByHomepagePage vpg= new ViewProductByHomepagePage(driver);
 		vpg.performTatcaspMouseHover();
-		try {
-			Thread.sleep(200);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		vpg.pauseWithTryCatch(1500);
+		
 		log.info("Hovered San pham navigation link\n");
 		
 		vpg.performPhuKienMouseHover();
-		try {
-			Thread.sleep(200);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		log.info("Hovered Phu Kien navigation link\n");
+		vpg.pauseWithTryCatch(1500);
+		
+		log.info("Hovered Phu Kien nưavigation link\n");
 		
 		vpg.clickMuNavigationLink();
 		log.info("Clicked Mu navigation link\n");
@@ -372,14 +388,17 @@ public class TC_ViewProduct_001 extends BaseClass{
 		setUp(readconfig.getApplicationBaseURL(), "opera");
 		log.info("Navigated to homepage\n");
 		
-		ViewProductPage vpg= new ViewProductPage(driver);
+		ViewProductByHomepagePage vpg= new ViewProductByHomepagePage(driver);
 		vpg.performTatcaspMouseHover();
+		vpg.pauseWithTryCatch(500);
 		log.info("Hovered San pham navigation link\n");
 		
 		vpg.performPhuKienMouseHover();
+		vpg.pauseWithTryCatch(500);
 		log.info("Hovered Phu Kien navigation link\n");
 		
 		vpg.clickKinhNavigationLink();
+		vpg.pauseWithTryCatch(500);
 		log.info("Clicked Kinh navigation link\n");
 		
 		//assertion
@@ -406,14 +425,17 @@ public class TC_ViewProduct_001 extends BaseClass{
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("Navigated to homepage\n");
 		
-		ViewProductPage vpg= new ViewProductPage(driver);
+		ViewProductByHomepagePage vpg= new ViewProductByHomepagePage(driver);
 		vpg.performTatcaspMouseHover();
+		vpg.pauseWithTryCatch(500);
 		log.info("Hovered San pham navigation link\n");
 		
 		vpg.performPhuKienMouseHover();
+		vpg.pauseWithTryCatch(500);
 		log.info("Hovered Phu Kien navigation link\n");
 		
 		vpg.clickNhanNavigationLink();
+		vpg.pauseWithTryCatch(500);
 		log.info("Clicked Nhan navigation link\n");
 		
 		//assertion
@@ -440,14 +462,17 @@ public class TC_ViewProduct_001 extends BaseClass{
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("Navigated to homepage\n");
 		
-		ViewProductPage vpg= new ViewProductPage(driver);
+		ViewProductByHomepagePage vpg= new ViewProductByHomepagePage(driver);
 		vpg.performTatcaspMouseHover();
+		vpg.pauseWithTryCatch(500);
 		log.info("Hovered San pham navigation link\n");
 		
 		vpg.performPhuKienMouseHover();
+		vpg.pauseWithTryCatch(500);
 		log.info("Hovered Phu Kien navigation link\n");
 		
 		vpg.clickWalletChainNavigationLink();
+		vpg.pauseWithTryCatch(500);
 		log.info("Clicked Wallet Chain navigation link\n");
 		
 		//assertion

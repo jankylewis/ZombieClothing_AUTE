@@ -11,14 +11,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import lombok.Builder.Default;
 
-public class ViewProductPage {
+public class ViewProductByHomepagePage {
 
 	public Actions action;
 	public WebDriverWait wait;
 	
 	@Default
 	WebDriver ldriver;
-	public ViewProductPage(WebDriver rdriver) {
+	public ViewProductByHomepagePage(WebDriver rdriver) {
 		ldriver= rdriver;
 		PageFactory.initElements(rdriver, this);
 		action= new Actions(rdriver);
@@ -93,6 +93,14 @@ public class ViewProductPage {
 	public void performTatcaspMouseHover() {
 		if (NAV_TAT_CA_SAN_PHAM.isDisplayed()==true) {
 			action.moveToElement(NAV_TAT_CA_SAN_PHAM).build().perform();
+		}
+	}
+	
+	public void pauseWithTryCatch(int timeSecond) {
+		try {
+			Thread.sleep(timeSecond);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -213,6 +221,4 @@ public class ViewProductPage {
 			action.moveToElement(NAV_WALLET_CHAIN).click().perform();
 		}
 	}
-	
-	
 }
