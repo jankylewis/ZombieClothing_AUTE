@@ -32,17 +32,17 @@ public class TCs_ViewProductByHomepage extends BaseClass{
 	private String sweaterHoodieProductType= "Sweater - Hoodie";
 	private String sanPhamKhacProductType= "Các Sản Phẩm Khác";
 	
-			private String quanProductType= "Quần";
-			private String quanDaiProductType= "Quần Dài";
-			private String quanShortProductType= "Quần short";
+		private String quanProductType= "Quần";
+		private String quanDaiProductType= "Quần Dài";
+		private String quanShortProductType= "Quần short";
 			
-				private String setProductType= "Set";
+			private String setProductType= "Set";
 				
-					private String phuKienProductType= "Phụ kiện";
-					private String muProductType= "Mũ";
-					private String kinhProductType= "Kính";
-					private String nhanProductType= "Nhẫn";
-					private String walletChainProductType= "Wallet chain";
+				private String phuKienProductType= "Phụ kiện";
+				private String muProductType= "Mũ";
+				private String kinhProductType= "Kính";
+				private String nhanProductType= "Nhẫn";
+				private String walletChainProductType= "Wallet chain";
 	
 	@Test(groups= {"Ao"})
 	public void viewAoByProductType() {

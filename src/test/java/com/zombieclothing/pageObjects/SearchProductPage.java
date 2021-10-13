@@ -1,5 +1,8 @@
 package com.zombieclothing.pageObjects;
 
+import java.sql.Driver;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,6 +40,22 @@ public class SearchProductPage {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public boolean isElementVisible(WebDriver dr, String verifiedLocator) {
+	    try {
+	        if (dr.findElement(By.xpath(verifiedLocator)).isDisplayed()) {
+	            return true;
+	        }
+	    }
+	    catch(Exception e) {       
+	        return false;
+	    }       
+	    return false;
+	}
+	public void paginationLocator(int index, WebElement ele) {
+		WebElement pagXpath= ele.findElement(By.xpath("//div[@id=\'pagination\']//a[contains(normalize-space(),\'"+ (index+2)+ "\')]"));
+		pagXpath.click();
 	}
 	
 	public void setSearchProductKey(String searchKey) {
