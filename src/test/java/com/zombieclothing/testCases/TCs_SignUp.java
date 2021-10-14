@@ -105,7 +105,7 @@ public class TCs_SignUp extends BaseClass{
 		}
 		
 		su.pauseWithTryCatch(1500);
-		tearDown();
+//		tearDown();
 		log.warn("\n\n==>>-----------/*---Terminated test case---*/-----------\n");
 		log.exit();
 	}
@@ -571,7 +571,7 @@ public class TCs_SignUp extends BaseClass{
 		}
 
 		su.pauseWithTryCatch(1500);
-		tearDown();
+//		tearDown();
 		log.warn("\n\n\n==>>-----------/*---Terminated test case---*/-----------\n");
 		log.exit();
 	}

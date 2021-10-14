@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-10-13T20:11:40 ICT" name="Default suite" finished-at="2021-10-13T20:11:49 ICT" duration-ms="8996">
+  <suite started-at="2021-10-14T19:55:26 ICT" name="Default suite" finished-at="2021-10-14T19:55:57 ICT" duration-ms="31136">
     <groups>
     </groups>
-    <test started-at="2021-10-13T20:11:40 ICT" name="Default test" finished-at="2021-10-13T20:11:49 ICT" duration-ms="8996">
+    <test started-at="2021-10-14T19:55:26 ICT" name="Default test" finished-at="2021-10-14T19:55:57 ICT" duration-ms="31136">
       <class name="com.zombieclothing.testCases.TC_SearchProduct">
-        <test-method signature="searchProductTest()[pri:0, instance:com.zombieclothing.testCases.TC_SearchProduct@13c3c1e1]" started-at="2021-10-13T20:11:40 ICT" name="searchProductTest" finished-at="2021-10-13T20:11:49 ICT" duration-ms="8964" status="PASS">
+        <test-method signature="searchProductTest()[pri:0, instance:com.zombieclothing.testCases.TC_SearchProduct@13c3c1e1]" started-at="2021-10-14T19:55:26 ICT" name="searchProductTest" finished-at="2021-10-14T19:55:57 ICT" duration-ms="31107" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchProductTest -->

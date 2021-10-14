@@ -1,5 +1,6 @@
 package com.zombieclothing.testCases;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.PropertyConfigurator;
@@ -17,18 +18,21 @@ import org.openqa.selenium.opera.OperaDriver;
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.utilities.ReadConfig;
 
+
 public class BaseClass {
 	
 	ReadConfig readconfig= new ReadConfig();
 	@Var
 	public String baseURL= readconfig.getApplicationBaseURL();
-	
 	public static JavascriptExecutor javascript;
 	public Actions action;
 	public WebDriver wait;
 	public static WebDriver driver;
 	public static WebElement webelement;
 	public static Logger log= org.apache.logging.log4j.LogManager.getLogger();
+	
+	public String browserArr[]= {"firefox", "chrome", "opera"};
+	public String brRandom= browserArr[new Random().nextInt(browserArr.length)];
 	
 	@BeforeClass
 	public void setUp(String baseURL, String br) {

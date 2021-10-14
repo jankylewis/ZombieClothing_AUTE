@@ -83,6 +83,9 @@ public class TCs_LogIn extends BaseClass{
 		String actEmail= driver.findElement(By.xpath("//div[@id=\"customer_sidebar\"]//preceding-sibling::p[contains(normalize-space(@class),\"email\")]")).getText();
 		log.info("Getting text facilitates asserting\n");
 		
+		System.out.println("\r\r"+ expEmail+ "\r\r");
+		System.out.println("\r\r"+ actEmail+ "\r\r");
+		
 		if(actEmail.equals(expEmail)) {
 			Assert.assertTrue(true);
 			log.info("\n\n==>>-----------/*---Test case 002 is passed---*/-----------\n");
@@ -91,7 +94,7 @@ public class TCs_LogIn extends BaseClass{
 			Assert.assertFalse(true);
 			log.error("\n\n==>>-----------/*---Test case 002 is failed due to an error---*/-----------\n");
 		}
-		tearDown();
+//		tearDown();
 		log.warn("\n\n==>>-----------/*---Terminated test case---*/-----------\n");
 		log.exit();
 	}
