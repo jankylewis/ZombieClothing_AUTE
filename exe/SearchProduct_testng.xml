@@ -5,12 +5,12 @@
 
 		<groups>
 			<run>
-				<include name="004"></include>
+				<include name="003"></include>
 			</run>
 		</groups>
 
 		<classes>
-			<class name="com.zombieclothing.testCases.TCs_HomePageNavigation" />
+			<class name="com.zombieclothing.testCases.TCs_SearchProduct" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

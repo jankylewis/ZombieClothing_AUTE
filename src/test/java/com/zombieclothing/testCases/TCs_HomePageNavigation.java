@@ -12,32 +12,32 @@ public class TCs_HomePageNavigation extends BaseClass{
 	@Var
 	private String browserArr[]= {"firefox", "chrome", "opera"};
 	private String siteArr[]= {
-									
-	                  "/collections/quan",
-	                 "/collections/set",
-	                "/collections/ao",
-	               "/blogs/news?page=2",
-	              "/pages/chinh-sach-doi-tra", 
-	             "/pages/chinh-sach-bao-mat",
-	            "/pages/dieu-khoan-dich-vu",
-	           "/pages/about-us",
-	          "/collections/sweater-hoodie",
-	         "/collections/ao-thun-so-mi",
-	        "/blogs/news/cac-dan-choi-truyen-tay-nhau-bo-anh-cuc-chat-ve-van-hoa-duong-pho-vi",
-	       "/blogs/news/thu-kinh-doanh-local-brand-mot-hanh-trinh-bi-hai",
-	        "/collections/san-pham-moi",
-	         "/collections/phu-kien",
-	          "/collections/quan-short",
-	           "/collections/quan-dai",
-	         	"/blogs/news/bai-viet-mau",
-	        	 "/blogs/news/summer-beach-mua-he-voi-bien-ca",
-	       		  "/blogs/news/trua-18-5-them-85-ca-mac-covid-19-moi",
-	      		   "/products/1-extended-tee-long-tee-white",
-	     			"/products/zombie-hoodie-in-black",
-	    			 "/products/python-printed-leather-set",
-	   			      "/products/zombie-corduroy-tracksuit-purple",							
-	   			       "/blogs/news",
-	 												
+			
+			 									  "/blogs/news",
+	                  						    "/collections/quan",
+	                  						  "/collections/set",
+	                 						"/collections/ao",
+	                					  "/pages/about-us",
+	           							"/blogs/news?page=2",
+	           						  "/collections/phu-kien",
+	      					  		"/collections/quan-short",
+     						      "/pages/chinh-sach-doi-tra", 
+     						    "/pages/chinh-sach-bao-mat",
+       						  "/pages/dieu-khoan-dich-vu",
+     					    "/collections/san-pham-moi",
+	    				  "/collections/quan-dai",
+	   				    "/blogs/news/bai-viet-mau",
+	   			      "/collections/ao-thun-so-mi",
+	   			    "/collections/sweater-hoodie",
+	   			  "/products/zombie-hoodie-in-black",
+	   		    "/products/python-printed-leather-set",
+	   		  "/products/1-extended-tee-long-tee-white",
+	   	    "/blogs/news/summer-beach-mua-he-voi-bien-ca",
+	      "/products/zombie-corduroy-tracksuit-purple",	
+	    "/blogs/news/trua-18-5-them-85-ca-mac-covid-19-moi",
+	  "/blogs/news/thu-kinh-doanh-local-brand-mot-hanh-trinh-bi-hai",
+	"/blogs/news/cac-dan-choi-truyen-tay-nhau-bo-anh-cuc-chat-ve-van-hoa-duong-pho-vi",
+	
 							};
 						      
 	private String brRandom= browserArr[new Random().nextInt(browserArr.length)];
@@ -47,7 +47,7 @@ public class TCs_HomePageNavigation extends BaseClass{
 	private String LBL_NEWS_LOCATOR= "//div[@class=\"heading-page clearfix\"]//descendant::h1";
 	private String LBL_ABOUT_US_LOCATOR= "//div[@class=\"heading-page\"]//child::h1";
 	
-	@Test (groups= {"001"})
+	@Test (groups= {"001"}, enabled = true, invocationCount = 3)
 	public void homePageNavigationTest1() {
 		setUp(readconfig.getApplicationBaseURL(), brRandom);
 		log.info("Homepage is opened on web browser \r\r");
@@ -70,7 +70,7 @@ public class TCs_HomePageNavigation extends BaseClass{
 		log.exit();
 	}
 	
-	@Test (groups= {"002"})
+	@Test (groups= {"002"}, enabled = true, invocationCount = 3)
 	public void homePageNavigationTest2() {
 		setUp(readconfig.getApplicationBaseURL(), brRandom);
 		log.info("Homepage is opened on web browser \r\r");
@@ -96,7 +96,7 @@ public class TCs_HomePageNavigation extends BaseClass{
 		log.exit();
 	}
 	
-	@Test (groups= {"003"})
+	@Test (groups= {"003"}, enabled = true, invocationCount = 3)
 	public void homePageNavigationTest3() {
 		setUp(readconfig.getApplicationBaseURL(), brRandom);
 		log.info("Homepage is opened on web browser \r\r");
@@ -122,7 +122,7 @@ public class TCs_HomePageNavigation extends BaseClass{
 		log.exit();
 	}
 	
-	@Test (groups= {"004"})
+	@Test (groups= {"004"}, enabled = true, invocationCount = 3)
 	public void homePageNavigationTest4() {
 		setUp(readconfig.getApplicationBaseURL(), brRandom);
 		log.info("Homepage is opened on web browser \r\r");
