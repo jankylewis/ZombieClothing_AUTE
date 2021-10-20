@@ -18,7 +18,6 @@ import org.openqa.selenium.opera.OperaDriver;
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.utilities.ReadConfig;
 
-
 public class BaseClass {
 	
 	ReadConfig readconfig= new ReadConfig();
@@ -67,6 +66,7 @@ public class BaseClass {
 	
 	@AfterClass
 	public void tearDown() {
+		driver.manage().deleteAllCookies();
 		driver.quit();
 	}
 }

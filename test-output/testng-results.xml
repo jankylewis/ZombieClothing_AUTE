@@ -1,34 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-10-15T19:22:25 ICT" name="Default suite" finished-at="2021-10-15T19:23:07 ICT" duration-ms="42148">
+  <suite started-at="2021-10-19T15:35:30 ICT" name="Default suite" finished-at="2021-10-19T15:35:39 ICT" duration-ms="8610">
     <groups>
       <group name="001">
-        <method signature="TCs_SearchProduct.searchProductTest1()[pri:-1, instance:com.zombieclothing.testCases.TCs_SearchProduct@1e63ec0b]" name="searchProductTest1" class="com.zombieclothing.testCases.TCs_SearchProduct"/>
+        <method signature="TCs_AddToCart.addToCartTest1()[pri:-1, instance:com.zombieclothing.testCases.TCs_AddToCart@3f053c80]" name="addToCartTest1" class="com.zombieclothing.testCases.TCs_AddToCart"/>
       </group> <!-- 001 -->
-      <group name="002">
-        <method signature="TCs_SearchProduct.searchProductTest2()[pri:0, instance:com.zombieclothing.testCases.TCs_SearchProduct@1e63ec0b]" name="searchProductTest2" class="com.zombieclothing.testCases.TCs_SearchProduct"/>
-      </group> <!-- 002 -->
-      <group name="003">
-        <method signature="TCs_SearchProduct.searchProductTest3()[pri:1, instance:com.zombieclothing.testCases.TCs_SearchProduct@1e63ec0b]" name="searchProductTest3" class="com.zombieclothing.testCases.TCs_SearchProduct"/>
-      </group> <!-- 003 -->
     </groups>
-    <test started-at="2021-10-15T19:22:25 ICT" name="Default test" finished-at="2021-10-15T19:23:07 ICT" duration-ms="42148">
-      <class name="com.zombieclothing.testCases.TCs_SearchProduct">
-        <test-method signature="searchProductTest1()[pri:-1, instance:com.zombieclothing.testCases.TCs_SearchProduct@1e63ec0b]" started-at="2021-10-15T19:22:25 ICT" name="searchProductTest1" finished-at="2021-10-15T19:22:36 ICT" duration-ms="11005" status="PASS">
+    <test started-at="2021-10-19T15:35:30 ICT" name="Default test" finished-at="2021-10-19T15:35:39 ICT" duration-ms="8610">
+      <class name="com.zombieclothing.testCases.TCs_AddToCart">
+        <test-method signature="addToCartTest1()[pri:-1, instance:com.zombieclothing.testCases.TCs_AddToCart@3f053c80]" started-at="2021-10-19T15:35:30 ICT" name="addToCartTest1" finished-at="2021-10-19T15:35:39 ICT" duration-ms="8583" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- searchProductTest1 -->
-        <test-method signature="searchProductTest2()[pri:0, instance:com.zombieclothing.testCases.TCs_SearchProduct@1e63ec0b]" started-at="2021-10-15T19:22:36 ICT" name="searchProductTest2" finished-at="2021-10-15T19:23:00 ICT" duration-ms="23878" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- searchProductTest2 -->
-        <test-method signature="searchProductTest3()[pri:1, instance:com.zombieclothing.testCases.TCs_SearchProduct@1e63ec0b]" started-at="2021-10-15T19:23:00 ICT" name="searchProductTest3" finished-at="2021-10-15T19:23:07 ICT" duration-ms="7229" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- searchProductTest3 -->
-      </class> <!-- com.zombieclothing.testCases.TCs_SearchProduct -->
+        </test-method> <!-- addToCartTest1 -->
+      </class> <!-- com.zombieclothing.testCases.TCs_AddToCart -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

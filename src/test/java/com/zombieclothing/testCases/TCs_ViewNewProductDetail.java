@@ -1,6 +1,8 @@
 package com.zombieclothing.testCases;
 
 import java.util.Random;
+import java.util.concurrent.TimeoutException;
+
 import org.apache.batik.gvt.font.AWTGlyphGeometryCache;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -36,7 +38,7 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"001"})
 	
-	public void viewProductTest001() {
+	public void viewProductTest001() throws InterruptedException {
 		setUp(readconfig.getApplicationBaseURL(), brRandom);
 		log.info("URL is opened on web browser\n");
 		
@@ -52,7 +54,12 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 		
 		String actFrProductName= driver.findElement(By.xpath(LBL_PRODUCT_TITLE_LOCATOR)).getText();
 		if (actFrProductName.equals(expFrProductName)==true) {
-			log.info("Product name is asserted successfully\n");
+			log.info("Product name is asserted successfully\n\n");
+			log.info("\n\n\nTest case 001 is passed!!\n\n");
+		}
+		else {
+			log.error("\r\r\rTest case 001 is failed due to an error...\n\r");
+			tearDown();
 		}
 		
 		tearDown();
@@ -62,7 +69,7 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"002"})
 	
-	public void viewProductTest002() {
+	public void viewProductTest002() throws InterruptedException {
 		setUp(readconfig.getApplicationBaseURL(), brRandom);
 		log.info("URL is opened on web browser\n");
 		
@@ -78,7 +85,12 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 		
 		String actSecProductName= driver.findElement(By.xpath(LBL_PRODUCT_TITLE_LOCATOR)).getText();
 		if (actSecProductName.equals(expSecProductName)==true) {
-			log.info("Product name is asserted successfully\n");
+			log.info("Product name is asserted successfully\n\n");
+			log.info("\n\n\nTest case 002 is passed!!\n\n");
+		}
+		else {
+			log.error("\r\r\rTest case 002 is failed due to an error...\n\r");
+			tearDown();
 		}
 		
 		tearDown();
@@ -88,7 +100,7 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"003"})
 	
-	public void viewProductTest003() {
+	public void viewProductTest003() throws InterruptedException {
 		setUp(readconfig.getApplicationBaseURL(), brRandom);
 		log.info("URL is opened on web browser\n");
 		
@@ -104,7 +116,12 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 		
 		String actThrProductName= driver.findElement(By.xpath(LBL_PRODUCT_TITLE_LOCATOR)).getText();
 		if (actThrProductName.equals(expThrProductName)==true) {
-			log.info("Product name is asserted successfully\n");
+			log.info("Product name is asserted successfully\n\n");
+			log.info("\n\n\nTest case 003 is passed!!\n\n");
+		}
+		else {
+			log.error("\r\r\rTest case 003 is failed due to an error...\n\r");
+			tearDown();
 		}
 		
 		tearDown();
@@ -114,12 +131,12 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"004"})
 	
-	public void viewProductTest004() {
-		setUp(readconfig.getApplicationBaseURL(), brRandom);
+	public void viewProductTest004() throws InterruptedException {
+		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("URL is opened on web browser\n");
 		
 		ViewNewProductDetailPage vpdg= new ViewNewProductDetailPage(driver);
-		vpdg.selectProductByText(foProductName, driver, javascript, 1000);
+		vpdg.selectProductByText(foProductName, driver, javascript, 2000);
 		vpdg.pauseWithTryCatch(1000);
 		log.info("Clicked product by name successfully\n");
 		
@@ -130,7 +147,12 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 		
 		String actFoProductName= driver.findElement(By.xpath(LBL_PRODUCT_TITLE_LOCATOR)).getText();
 		if (actFoProductName.equals(expFoProductName)==true) {
-			log.info("Product name is asserted successfully\n");
+			log.info("Product name is asserted successfully\n\n");
+			log.info("\n\n\nTest case 004 is passed!!\n\n");
+		}
+		else {
+			log.error("\r\r\rTest case 004 is failed due to an error...\n\r");
+			tearDown();
 		}
 		
 		tearDown();
@@ -140,7 +162,7 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"005"})
 	
-	public void viewProductTest005() {
+	public void viewProductTest005() throws InterruptedException {
 		setUp(readconfig.getApplicationBaseURL(), brRandom);
 		log.info("URL is opened on web browser\n");
 		
@@ -156,7 +178,12 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 		
 		String actFiProductName= driver.findElement(By.xpath(LBL_PRODUCT_TITLE_LOCATOR)).getText();
 		if (actFiProductName.equals(expFiProductName)==true) {
-			log.info("Product name is asserted successfully\n");
+			log.info("Product name is asserted successfully\n\n");
+			log.info("\n\n\nTest case 005 is passed!!\n\n");
+		}
+		else {
+			log.error("\r\r\rTest case 005 is failed due to an error...\n\r");
+			tearDown();
 		}
 		
 		tearDown();
@@ -166,7 +193,7 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"006"})
 	
-	public void viewProductTest006() {
+	public void viewProductTest006() throws InterruptedException {
 		
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("URL is opened on web browser\n");
@@ -186,7 +213,12 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 		
 		String actSiProductName= driver.findElement(By.xpath(LBL_PRODUCT_TITLE_LOCATOR)).getText();
 		if (actSiProductName.equals(expSiProductName)==true) {
-			log.info("Product name is asserted successfully\n");
+			log.info("Product name is asserted successfully\n\n");
+			log.info("\n\n\nTest case 006 is passed!!\n\n");
+		}
+		else {
+			log.error("\r\r\rTest case 006 is failed due to an error...\n\r");
+			tearDown();
 		}
 		
 		tearDown();
@@ -196,7 +228,7 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"007"})
 	
-	public void viewProductTest007() {
+	public void viewProductTest007() throws InterruptedException {
 		
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("URL is opened on web browser\n");
@@ -214,7 +246,12 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 		
 		String actSevProductName= driver.findElement(By.xpath(LBL_PRODUCT_TITLE_LOCATOR)).getText();
 		if (actSevProductName.equals(expSevProductName)==true) {
-			log.info("Product name is asserted successfully\n");
+			log.info("Product name is asserted successfully\n\n");
+			log.info("\n\n\nTest case 007 is passed!!\n\n");
+		}
+		else {
+			log.error("\r\r\rTest case 007 is failed due to an error...\n\r");
+			tearDown();
 		}
 		
 		tearDown();
@@ -224,7 +261,7 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"008"})
 	
-	public void viewProductTest008() {
+	public void viewProductTest008() throws InterruptedException {
 		
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("URL is opened on web browser\n");
@@ -244,7 +281,12 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 		String actEigProductName= driver.findElement(By.xpath(LBL_PRODUCT_TITLE_LOCATOR)).getText();
 		System.out.println(actEigProductName);
 		if (actEigProductName.equals(expEigProductName)==true) {
-			log.info("Product name is asserted successfully\n");
+			log.info("Product name is asserted successfully\n\n");
+			log.info("\n\n\nTest case 008 is passed!!\n\n");
+		}
+		else {
+			log.error("\r\r\rTest case 008 is failed due to an error...\n\r");
+			tearDown();
 		}
 		
 		tearDown();
@@ -254,7 +296,7 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"009"})
 	
-	public void viewProductTest009() {
+	public void viewProductTest009() throws TimeoutException {
 		setUp(readconfig.getApplicationBaseURL(), brRandom);
 		log.info("URL is opened on web browser\n");
 		
@@ -271,7 +313,12 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 		String actNinProductName= driver.findElement(By.xpath(LBL_PRODUCT_TITLE_LOCATOR)).getText();
 		
 		if (actNinProductName.equals(expNinProductName)==true) {
-			log.info("Product name is asserted successfully\n");
+			log.info("Product name is asserted successfully\n\n");
+			log.info("\n\n\nTest case 009 is passed!!\n\n");
+		}
+		else {
+			log.error("\r\r\rTest case 009 is failed due to an error...\n\r");
+			tearDown();
 		}
 		
 		tearDown();
@@ -281,7 +328,7 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"010"})
 	
-	public void viewProductTest010() {
+	public void viewProductTest010() throws InterruptedException {
 		setUp(readconfig.getApplicationBaseURL(), brRandom);
 		log.info("URL is opened on web browser\n");
 		
@@ -298,7 +345,12 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 		String actTenProductName= driver.findElement(By.xpath(LBL_PRODUCT_TITLE_LOCATOR)).getText();
 		
 		if (actTenProductName.equals(expTenProductName)==true) {
-			log.info("Product name is asserted successfully\n");
+			log.info("Product name is asserted successfully\n\n");
+			log.info("\n\n\nTest case 010 is passed!!\n\n");
+		}
+		else {
+			log.error("\r\r\rTest case 010 is failed due to an error...\n\r");
+			tearDown();
 		}
 		
 		tearDown();
@@ -308,7 +360,7 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"011"})
 	
-	public void viewProductTest011() {
+	public void viewProductTest011() throws InterruptedException {
 		setUp(readconfig.getApplicationBaseURL(), brRandom);
 		log.info("URL is opened on web browser\n");
 		
@@ -343,8 +395,8 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"012"})
 	
-	public void viewProductTest012() {
-		setUp(readconfig.getApplicationBaseURL(), brRandom);
+	public void viewProductTest012() throws InterruptedException {
+		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("URL is opened on web browser\n");
 		
 		ViewNewProductDetailPage vpdg= new ViewNewProductDetailPage(driver);		
@@ -376,7 +428,7 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"013"})
 	
-	public void viewProductTest013() {
+	public void viewProductTest013() throws InterruptedException {
 		setUp(readconfig.getApplicationBaseURL(), brRandom);
 		log.info("URL is opened on web browser\n");
 		
@@ -409,7 +461,7 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"014"})
 	
-	public void viewProductTest014() {
+	public void viewProductTest014() throws InterruptedException {
 		setUp(readconfig.getApplicationBaseURL(), brRandom);
 		log.info("URL is opened on web browser\n");
 		
@@ -442,7 +494,7 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"015"})
 	
-	public void viewProductTest015() {
+	public void viewProductTest015() throws InterruptedException {
 		setUp(readconfig.getApplicationBaseURL(), brRandom);
 		log.info("URL is opened on web browser\n");
 		
@@ -475,7 +527,7 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 	
 	@Test(groups= {"016"})
 	
-	public void viewProductTest016() {
+	public void viewProductTest016() throws InterruptedException {
 		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("URL is opened on web browser\n");
 		
@@ -490,8 +542,13 @@ public class TCs_ViewNewProductDetail extends BaseClass{
 		vpdg.pauseWithTryCatch(150);
 		
 		String actSixProductName= driver.findElement(By.xpath(LBL_PRODUCT_TITLE_LOCATOR)).getText();
-		if (actSixProductName.equals(expSiProductName)==true) {
-			log.info("Product name is asserted successfully\n");
+		if (actSixProductName.equals(expSixProductName)==true) {
+			log.info("Product name is asserted successfully\n\n");
+			log.info("\n\n\nTest case 016 is passed!!\n\n");
+		}
+		else {
+			log.error("\r\r\rTest case 016 is failed due to an error...\n\r");
+			tearDown();
 		}
 		
 		tearDown();
