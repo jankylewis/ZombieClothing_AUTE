@@ -1,5 +1,6 @@
 package com.zombieclothing.pageObjects;
 
+import java.sql.Driver;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
@@ -12,6 +13,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import lombok.Builder.Default;
@@ -42,6 +44,10 @@ public class AddToCartPage {
 	@CacheLookup
 	WebElement LBL_CHILDREN_PRODUCTS_BANNER_LOCATOR;
 	
+	@FindBy(xpath= "//nav[@class=\"main-nav text-center\"]//following-sibling::li[4]//child::a[@title=\"Phụ kiện\"]")
+	@CacheLookup
+	WebElement NAV_PHU_KIEN;
+	
 	@FindBy(xpath= "//div[contains(@class,\"banner\")][1]//div[@class=\"owl-stage-outer\"]//child::div[@class=\"owl-stage\"]")
 	@CacheLookup
 	WebElement IMG_FOREFATHER_PRODUCTS_BANNER_LOCATOR;
@@ -58,9 +64,17 @@ public class AddToCartPage {
 	@CacheLookup
 	WebElement BTN_CLOSE_POPUP_LOCATOR;
 	
+	@FindBy(xpath= "//nav[@class=\"main-nav text-center\"]//following-sibling::li[4]//child::a[@title=\"Phụ kiện\"]//following::a[3][contains(normalize-space(@title), \"Nhẫn\")]")
+	@CacheLookup
+	WebElement NAV_NHAN;
+	
 	@FindBy(xpath= "//div[@class=\"owl-nav\"][1]//button[@class=\"owl-prev\"]")
 	@CacheLookup
 	WebElement BTN_PREVIOUS_BUTTON_LOCATOR;
+	
+	@FindBy(xpath= "//nav[@class=\"main-nav text-center\"]//preceding-sibling::li[1]//ancestor::a[@title=\"Sản phẩm\"]")
+	@CacheLookup
+	WebElement NAV_TAT_CA_SAN_PHAM;
 	
 	public void pauseWithTryCatch(int timeSecond) {
 		try {
@@ -106,4 +120,44 @@ public class AddToCartPage {
 		}
 		action.moveToElement(BTN_CLOSE_POPUP_LOCATOR).click().perform();
 	}
+	
+	public void clickOnRing(String ringName, WebDriver dr, JavascriptExecutor js, int scrollUnit) {
+		WebElement listProductElement= dr.findElement(By.xpath("//div[@class=\"content-product-list product-list filter clearfix\"]"));
+		List<WebElement> childProductElements= listProductElement.findElements(By.xpath("//h3[@class=\"pro-name\"]//a[normalize-space(text()=\"RING\")]"));
+		for (int index=0; index< childProductElements.size(); index++) {
+			if (childProductElements.get(index).getText().equals(ringName)) {
+				((JavascriptExecutor)dr).executeScript("scroll(0,"+scrollUnit+")");
+				
+				
+				action.moveToElement(childProductElements.get(index)).click().perform();
+				break;
+			}
+		}
+	}
+	
+	public void performTatcaspMouseHover() {
+		if (NAV_TAT_CA_SAN_PHAM.isDisplayed()==true) {
+			action.moveToElement(NAV_TAT_CA_SAN_PHAM).build().perform();
+		}
+	}
+	
+	public void performPhuKienMouseHover() {
+		if (NAV_PHU_KIEN.isDisplayed()==true) {
+			NAV_PHU_KIEN= wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//nav[@class=\"main-nav text-center\"]//following-sibling::li[4]//child::a[@title=\"Phụ kiện\"]")));
+			action.moveToElement(NAV_PHU_KIEN).build().perform();
+		}
+	}
+	
+	public void clickNhanNavigationLink() {
+		if (NAV_NHAN.isDisplayed()==true) {
+			action.moveToElement(NAV_NHAN).click().perform();
+		}
+	}
+	
+	public void refreshScreen(WebDriver dr) {
+		dr.navigate().refresh();
+	}
+	
+	
+	
 }
