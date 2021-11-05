@@ -3,7 +3,6 @@ package com.zombieclothing.testCases;
 import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.TimeoutException;
-
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -22,7 +21,6 @@ import com.google.errorprone.annotations.Var;
 import com.zombieclothing.pageObjects.LogInPage;
 import com.zombieclothing.utilities.ReadConfig;
 import com.zombieclothing.utilities.XLUtils;
-
 import freemarker.debug.EnvironmentSuspendedEvent;
 import freemarker.log.Logger;
 
@@ -65,7 +63,7 @@ public class TCs_LogIn extends BaseClass{
 	
 	@Test(groups= {"002"}, priority= 1)
 	public void logInTest2() throws IOException {
-		setUp(readconfig.getApplicationBaseURL()+ "/account/", brRandom);
+		setUp(readconfig.getApplicationBaseURL()+ "/account/", "opera");
 		log.info("URL is opened\n");
 		
 		LogInPage lp= new LogInPage(driver);	

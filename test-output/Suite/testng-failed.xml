@@ -4,15 +4,15 @@
   <test thread-count="5" name="Test(failed)">
     <groups>
       <run>
-        <include name="Con hang"/>
+        <include name="001"/>
       </run>
     </groups>
     <classes>
-      <class name="com.zombieclothing.testCases.TCs_AddToCart">
+      <class name="com.zombieclothing.testCases.TCs_SortProduct">
         <methods>
-          <include name="addToCartTest2"/>
+          <include name="sortProductAscendingly"/>
         </methods>
-      </class> <!-- com.zombieclothing.testCases.TCs_AddToCart -->
+      </class> <!-- com.zombieclothing.testCases.TCs_SortProduct -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

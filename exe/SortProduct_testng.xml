@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <test name="Test">
+
+        <groups>
+            <run>
+                <include name="004"></include>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="com.zombieclothing.testCases.TCs_SortProduct" />
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->

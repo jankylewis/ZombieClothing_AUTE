@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
+
+import org.apache.poi.util.SystemOutLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -16,6 +18,8 @@ import com.zombieclothing.pageObjects.SearchProductPage;
 import com.zombieclothing.utilities.ReadConfig;
 import lombok.EqualsAndHashCode.Include;
 import net.bytebuddy.implementation.bind.annotation.Super;
+
+import javax.swing.*;
 
 public class TCs_SearchProduct extends BaseClass{
 	
@@ -193,7 +197,6 @@ public class TCs_SearchProduct extends BaseClass{
 				
 															  };
 		this.searchProductGreaterThanOnePageKeyRandom= searchProductGreaterThanOnePageKey[new Random().nextInt(searchProductGreaterThanOnePageKey.length)];
-		System.out.println("\r\r"+ "The search keyword: "+ searchProductGreaterThanOnePageKeyRandom+ "\r\r");
 		
 		setUp(readconfig.getApplicationBaseURL()+ "/search/", brRandom);
 		log.info("Search URL is opened on browser\n");
@@ -210,6 +213,9 @@ public class TCs_SearchProduct extends BaseClass{
 		this.textDisplayedAfterSearch= driver.findElement(By.xpath(LBL_TEXT_DISPLAYED_AFTER_SEARCH_LOCATOR)).getText();
 		
 		//assertions
+
+		System.out.println("\r\nThe search key is: "+ searchProductGreaterThanOnePageKeyRandom+ "\r");
+
 		int proCounterPerPage= driver.findElements(By.xpath("//ancestor::h3[@class=\"pro-name\"]//a")).size();
 		System.out.println("\n"+ "Number of items per page: "+ proCounterPerPage);
 		String resultCounter= driver.findElement(By.xpath(LBL_TOTAL_RESULTS_LOCATOR)).getText();
@@ -260,7 +266,9 @@ public class TCs_SearchProduct extends BaseClass{
 				indexLocator++;
 //				System.out.println(index);
 				spp.executeScrollingDown(driver, javascript, 3000);
-						
+
+
+				//
 				int totalResultReminder= totalResult%10;
 //				System.out.println(totalResultReminder);
 						
