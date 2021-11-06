@@ -3,6 +3,7 @@ package com.zombieclothing.testCases;
 
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.pageObjects.SortProductPage;
+import com.zombieclothing.pageObjects.TestListenersPage;
 import com.zombieclothing.utilities.ReadConfig;
 import lombok.EqualsAndHashCode;
 import org.apache.poi.ss.formula.functions.Intercept;
@@ -11,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ import java.util.List;
 
 
     /* Mapped to Abstract Class --| */
+    @Listeners(TestListenersPage.class)
 	public class TCs_SortProduct extends BaseClass{
 
     ReadConfig readConfig= new ReadConfig();
@@ -40,6 +43,8 @@ import java.util.List;
             private List<Character> productsNameArray= new ArrayList<Character>();
 
     private String BTN_NEXT_LOCATOR= "//following::a[@class=\"next\"]";
+    private By nextButtonLocator= By.xpath(BTN_NEXT_LOCATOR);
+
     private String PAR_LIST_PRODUCT_LOCATOR= "//div[contains(normalize-space(@class),\"filter clearfix\")]";
     private String CHI_LIST_PRODUCT_LOCATOR= "//p[contains(normalize-space(@class),\"pro-price\")]//span";
 
@@ -56,8 +61,8 @@ import java.util.List;
             spp.clickTatcaspNavigationLink();
             driver.navigate().refresh();
             spp.executeScrollingDown(driver, javascript,300);
-            spp.selectAscending(driver, PAR_SEL_LOCATOR, selAscendingValue);
-//        spp.clickOnSortCriterion(driver, javascript, 0, ascendingProduct);
+//            spp.selectAscending(driver, PAR_SEL_LOCATOR, selAscendingValue);
+        spp.clickOnSortCriterion(driver, javascript, 0, ascendingProduct);
 
             int indexLocator= 0; ; ;   ; ; ;   ; ; ;   ; ; ; int indexProductPriceArray= 0;
 
@@ -66,7 +71,7 @@ import java.util.List;
                 if (index<361) {
                     WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
                     List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_LOCATOR));
-                    WebElement nextButton= driver.findElement(By.xpath(BTN_NEXT_LOCATOR));
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
                     String productPrice= childResultsElements.get(indexLocator).getText();
 
                     //***-----------***        HANDLING SUBSTRING, SPLIT, PARSEINT, REGEX
@@ -151,13 +156,21 @@ import java.util.List;
                     }
                 }
             }
+            if (checkPointIfTheTestCaseIsPassed==true || checkPointIfTheTestCaseIsFailed!=true) {
+                Assert.assertFalse(false);
+                log.info("\\--------------**---------"+"TEST CASE 001 IS PASSED!"+ "\\-----------**----------");
+            }
+            else if (checkPointIfTheTestCaseIsFailed==true || checkPointIfTheTestCaseIsPassed!=true){
+                Assert.assertFalse(true);
+                log.error("\\--------------**---------"+"TEST CASE 001 IS FAILED!"+ "\\-----------**----------");
+            }
             tearDown();
-            log.warn("//----------------**--TERMINATED TEST CASE--**------------------//!!");
+            log.warn("//----------------**--TERMINATED TEST CASE 001--**------------------//!!");
     }
 
 
         @Test (groups= {"002", "descending"},
-                priority = -1)
+                priority = 0)
         public void sortProductDescendingly() throws InterruptedException {
 
             setUp(readconfig.getApplicationBaseURL(), "firefox");
@@ -261,12 +274,20 @@ import java.util.List;
                     }
                 }
             }
+            if (checkPointIfTheTestCaseIsPassed==true || checkPointIfTheTestCaseIsFailed!=true) {
+                Assert.assertFalse(false);
+                log.info("\\--------------**---------"+"TEST CASE 002 IS PASSED!"+ "\\-----------**----------");
+            }
+            else if (checkPointIfTheTestCaseIsFailed==true || checkPointIfTheTestCaseIsPassed!=true){
+                Assert.assertFalse(true);
+                log.error("\\--------------**---------"+"TEST CASE 002 IS FAILED!"+ "\\-----------**----------");
+            }
             tearDown();
             log.warn("//----------------**--TERMINATED TEST CASE--**------------------//!!");
         }
 
         @Test (groups= {"003", "alphabetical order"},
-                priority = -1)
+                priority = 1)
         public void sortProductAlphabetically() throws InterruptedException {
 
             setUp(readconfig.getApplicationBaseURL(), "firefox");
@@ -379,12 +400,21 @@ import java.util.List;
                     }
                 }
             }
+
+            if (checkPointIfTheTestCaseIsPassed==true || checkPointIfTheTestCaseIsFailed!=true) {
+                Assert.assertFalse(false);
+                log.info("\\--------------**---------"+"TEST CASE 003 IS PASSED!"+ "\\-----------**----------");
+            }
+            else if (checkPointIfTheTestCaseIsFailed==true || checkPointIfTheTestCaseIsPassed!=true){
+                Assert.assertFalse(true);
+                log.error("\\--------------**---------"+"TEST CASE 003 IS FAILED!"+ "\\-----------**----------");
+            }
             tearDown();
-            log.warn("//----------------**--TERMINATED TEST CASE--**------------------//!!");
+            log.warn("//----------------**--TERMINATED TEST CASE 003--**------------------//!!");
         }
 
         @Test (groups= {"004", "non-alphabetic order"},
-                priority = -1)
+                priority = 2)
         public void sortProductNonAlphabetically() throws InterruptedException {
 
     triggerBrowser: setUp(readconfig.getApplicationBaseURL(), "firefox");
@@ -496,6 +526,14 @@ import java.util.List;
                         plus:               indexLocatorLastPage+=2-1;
                     }
                 }
+            }
+            if (checkPointIfTheTestCaseIsPassed==true || checkPointIfTheTestCaseIsFailed!=true) {
+                Assert.assertFalse(false);
+                log.info("\\--------------**---------"+"TEST CASE 004 IS PASSED!"+ "\\-----------**----------");
+            }
+            else if (checkPointIfTheTestCaseIsFailed==true || checkPointIfTheTestCaseIsPassed!=true){
+                Assert.assertFalse(true);
+                log.error("\\--------------**---------"+"TEST CASE 004 IS FAILED!"+ "\\-----------**----------");
             }
             tearDown();
             log.warn("//----------------**--TERMINATED TEST CASE--**------------------//!!");

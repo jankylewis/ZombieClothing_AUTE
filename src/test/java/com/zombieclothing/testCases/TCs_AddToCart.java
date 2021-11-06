@@ -3,6 +3,7 @@ package com.zombieclothing.testCases;
 import java.util.Random;
 import java.util.concurrent.TimeoutException;
 
+import com.zombieclothing.pageObjects.TestListenersPage;
 import org.apache.batik.util.gui.resource.JToolbarToggleButton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -10,11 +11,14 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.pageObjects.AddToCartPage;
 import com.zombieclothing.utilities.ReadConfig;
 
+
+@Listeners(TestListenersPage.class)
 public class TCs_AddToCart extends BaseClass{
 
 	ReadConfig readconfig= new ReadConfig();

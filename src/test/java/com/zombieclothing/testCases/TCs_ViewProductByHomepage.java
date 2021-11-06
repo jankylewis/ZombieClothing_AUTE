@@ -1,13 +1,17 @@
 package com.zombieclothing.testCases;
 
+import com.zombieclothing.pageObjects.TestListenersPage;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.pageObjects.ViewProductByHomepagePage;
 import com.zombieclothing.utilities.ReadConfig;
 import lombok.Builder.Default;
 
+
+@Listeners(TestListenersPage.class)
 public class TCs_ViewProductByHomepage extends BaseClass{
 
 	ReadConfig readconfig= new ReadConfig();

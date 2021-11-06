@@ -8,10 +8,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Random;
 
+import com.zombieclothing.pageObjects.TestListenersPage;
 import org.apache.poi.util.SystemOutLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.pageObjects.SearchProductPage;
@@ -21,6 +23,8 @@ import net.bytebuddy.implementation.bind.annotation.Super;
 
 import javax.swing.*;
 
+
+@Listeners(TestListenersPage.class)
 public class TCs_SearchProduct extends BaseClass{
 	
 	ReadConfig readconfig= new ReadConfig();

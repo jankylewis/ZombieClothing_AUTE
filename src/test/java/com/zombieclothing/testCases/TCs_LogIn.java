@@ -3,6 +3,8 @@ package com.zombieclothing.testCases;
 import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.TimeoutException;
+
+import com.zombieclothing.pageObjects.TestListenersPage;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -16,6 +18,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.pageObjects.LogInPage;
@@ -24,6 +27,8 @@ import com.zombieclothing.utilities.XLUtils;
 import freemarker.debug.EnvironmentSuspendedEvent;
 import freemarker.log.Logger;
 
+
+@Listeners(TestListenersPage.class)
 public class TCs_LogIn extends BaseClass{
 	
 	ReadConfig readconfig= new ReadConfig();
