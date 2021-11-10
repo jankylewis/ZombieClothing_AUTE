@@ -3,13 +3,9 @@ package com.zombieclothing.testCases;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Random;
 
-import com.zombieclothing.pageObjects.TestListenersPage;
-import org.apache.poi.util.SystemOutLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -19,12 +15,9 @@ import com.google.errorprone.annotations.Var;
 import com.zombieclothing.pageObjects.SearchProductPage;
 import com.zombieclothing.utilities.ReadConfig;
 import lombok.EqualsAndHashCode.Include;
-import net.bytebuddy.implementation.bind.annotation.Super;
-
-import javax.swing.*;
 
 
-@Listeners(TestListenersPage.class)
+@Listeners(BaseTestListeners.class)
 public class TCs_SearchProduct extends BaseClass{
 	
 	ReadConfig readconfig= new ReadConfig();

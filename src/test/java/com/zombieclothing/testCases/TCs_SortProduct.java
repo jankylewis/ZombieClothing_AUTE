@@ -3,10 +3,8 @@ package com.zombieclothing.testCases;
 
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.pageObjects.SortProductPage;
-import com.zombieclothing.pageObjects.TestListenersPage;
 import com.zombieclothing.utilities.ReadConfig;
 import lombok.EqualsAndHashCode;
-import org.apache.poi.ss.formula.functions.Intercept;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -14,13 +12,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
     /* Mapped to Abstract Class --| */
-    @Listeners(TestListenersPage.class)
+    @Listeners(BaseTestListeners.class)
 	public class TCs_SortProduct extends BaseClass{
 
     ReadConfig readConfig= new ReadConfig();

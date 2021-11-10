@@ -4,31 +4,18 @@ import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.TimeoutException;
 
-import com.zombieclothing.pageObjects.TestListenersPage;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.CacheLookup;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.pageObjects.LogInPage;
 import com.zombieclothing.utilities.ReadConfig;
-import com.zombieclothing.utilities.XLUtils;
-import freemarker.debug.EnvironmentSuspendedEvent;
-import freemarker.log.Logger;
+import com.zombieclothing.utilities.ExcelReader;
 
 
-@Listeners(TestListenersPage.class)
+@Listeners(BaseTestListeners.class)
 public class TCs_LogIn extends BaseClass{
 	
 	ReadConfig readconfig= new ReadConfig();
@@ -239,14 +226,14 @@ public class TCs_LogIn extends BaseClass{
 	@DataProvider(name="LogInData_1")
 	public String [][] getData() throws IOException {
 		String path= System.getProperty("user.dir")+ "/src/test/java/com/zombieclothing/testData/LogInData_1.xlsx";
-		int rownum= XLUtils.getRowCount(path, "LogIn_TestData");
-		int colcount= XLUtils.getCellCount(path, "LogIn_TestData", 1);
+		int rownum= ExcelReader.getRowCount(path, "LogIn_TestData");
+		int colcount= ExcelReader.getCellCount(path, "LogIn_TestData", 1);
 		String logindata[][]= new String[rownum][colcount];	
 		
 		for(int i=1; i<= rownum; i++) {
 			for (int j=0; j< colcount; j++) {
 				//starting from 1
-				logindata[i-1][j]= XLUtils.getCellData(path, "LogIn_TestData", i, j);			
+				logindata[i-1][j]= ExcelReader.getCellData(path, "LogIn_TestData", i, j);
 			}
 		}
 		return logindata;

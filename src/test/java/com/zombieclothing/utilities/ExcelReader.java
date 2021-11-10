@@ -11,7 +11,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class XLUtils 
+public class ExcelReader
 {
 	public static FileInputStream fi;
 	public static FileOutputStream fo;

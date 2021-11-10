@@ -17,7 +17,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import lombok.Builder.Default;
 
 public class LogInPage {
-	
+
+	public boolean checkPoint;
 	public Actions action;
 	public WebDriverWait wait;
 	
@@ -54,7 +55,24 @@ public class LogInPage {
 	@FindBy(xpath= "//div[@aria-label=\"close\"]//following::div[@data-visualcompletion=\"ignore\"]")
 	@CacheLookup
 	WebElement BTN_CLOSE_CHAT_WITH_ZOMBIE_POPUP;
-	
+
+	public void checkIfInvalidLoginInforIsPresent(WebDriver dr,
+												  	By desiredLocator,
+												  		String assertedText) {
+
+
+		WebElement locatedElement= dr.findElement(desiredLocator);
+		if (locatedElement.isDisplayed()==true && (assertedText.equals(locatedElement.getText()))
+													|| assertedText.contains(locatedElement.getText())) {
+			System.out.println(locatedElement.getText()+ "\n");
+			checkPoint=true;
+		}
+		else {
+			checkPoint=false;
+		}
+
+	}
+
 	public boolean closeChatWithZombiePopup() {
 		
 		if (TXT_CHAT_WITH_ZOMBIE.isDisplayed()==true || BTN_CLOSE_CHAT_WITH_ZOMBIE_POPUP.isEnabled()==true) {

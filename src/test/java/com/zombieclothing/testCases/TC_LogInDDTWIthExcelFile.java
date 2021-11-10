@@ -1,16 +1,14 @@
 package com.zombieclothing.testCases;
 
 import java.io.IOException;
-import org.junit.Assert;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import com.zombieclothing.pageObjects.LogInPage;
-import com.zombieclothing.utilities.XLUtils;
+import com.zombieclothing.utilities.ExcelReader;
 
-public class TC_LogInDataDriven extends BaseClass{
+public class TC_LogInDDTWIthExcelFile extends BaseClass{
 	
 	@Test(dataProvider= "LogInData_1")
 	public void LogInDDT(String email, String pwd) throws InterruptedException {
@@ -55,14 +53,14 @@ public class TC_LogInDataDriven extends BaseClass{
 	@DataProvider(name="LogInData_1")
 	public String [][] getData() throws IOException {
 		String path= System.getProperty("user.dir")+ "/src/test/java/com/zombieclothing/testData/LogInData_1.xlsx";
-		int rownum= XLUtils.getRowCount(path, "LogIn_TestData");
-		int colcount= XLUtils.getCellCount(path, "LogIn_TestData", 1);
+		int rownum= ExcelReader.getRowCount(path, "LogIn_TestData");
+		int colcount= ExcelReader.getCellCount(path, "LogIn_TestData", 1);
 		String logindata[][]= new String[rownum][colcount];	
 		
 		for(int i=1; i<= rownum; i++) {
 			for (int j=0; j< colcount; j++) {
 				//starting from 1
-				logindata[i-1][j]= XLUtils.getCellData(path, "LogIn_TestData", i, j);			
+				logindata[i-1][j]= ExcelReader.getCellData(path, "LogIn_TestData", i, j);
 			}
 		}
 		return logindata;

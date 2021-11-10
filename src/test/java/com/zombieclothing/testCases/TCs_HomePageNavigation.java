@@ -2,7 +2,6 @@ package com.zombieclothing.testCases;
 
 import java.util.Random;
 
-import com.zombieclothing.pageObjects.TestListenersPage;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import com.google.errorprone.annotations.Var;
@@ -10,7 +9,7 @@ import com.zombieclothing.pageObjects.HomePageNavigation;
 import com.zombieclothing.utilities.ReadConfig;
 
 
-@Listeners(TestListenersPage.class)
+@Listeners(BaseTestListeners.class)
 public class TCs_HomePageNavigation extends BaseClass{
 
 	ReadConfig readconfig= new ReadConfig();

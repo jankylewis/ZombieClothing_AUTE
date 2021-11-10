@@ -1,4 +1,4 @@
-package com.zombieclothing.pageObjects;
+package com.zombieclothing.testCases;
 
 import com.google.errorprone.annotations.ForOverride;
 import com.zombieclothing.testCases.BaseClass;
@@ -6,7 +6,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class TestListenersPage extends BaseClass
+public class BaseTestListeners extends BaseClass
                                     implements ITestListener {
 
     public static boolean checkIfTestCaseIsPassed;
@@ -42,12 +42,12 @@ public class TestListenersPage extends BaseClass
 
     @Override
     public void onTestStart(ITestResult startedTestCase) {
-        System.out.println(" \nTest case "+ startedTestCase.getName()+ " was triggered!\n");
+        System.out.println("Test case "+ startedTestCase.getName()+ " was triggered!\n");
     }
 
     @ForOverride
     public void onTestSuccess(ITestResult passedTestCase) {
-        System.out.println("\nTest case "+ passedTestCase.getName()+ " was successful! \n");
+        System.out.println("\nTest case "+ passedTestCase.getName()+ " was successful!\n");
         checkIfTestCaseIsPassed=true;
     }
 }

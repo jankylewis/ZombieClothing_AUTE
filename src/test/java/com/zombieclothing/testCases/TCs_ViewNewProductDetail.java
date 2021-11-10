@@ -3,8 +3,6 @@ package com.zombieclothing.testCases;
 import java.util.Random;
 import java.util.concurrent.TimeoutException;
 
-import com.zombieclothing.pageObjects.TestListenersPage;
-import org.apache.batik.gvt.font.AWTGlyphGeometryCache;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Listeners;
@@ -14,7 +12,7 @@ import com.zombieclothing.pageObjects.ViewNewProductDetailPage;
 import com.zombieclothing.utilities.ReadConfig;
 
 
-@Listeners(TestListenersPage.class)
+@Listeners(BaseTestListeners.class)
 public class TCs_ViewNewProductDetail extends BaseClass{
 
 	ReadConfig readconfig= new ReadConfig();

@@ -10,7 +10,7 @@
         </groups>
 
         <classes>
-            <class name="com.zombieclothing.testCases.TC_LogInDDTWithJson" />
+            <class name="com.zombieclothing.testCases.TC_LogInDDTWithJSONFile" />
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->

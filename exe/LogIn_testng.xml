@@ -5,7 +5,7 @@
 
 		<groups>
 			<run>
-				<include name="002"></include>
+				<include name="006-008"></include>
 			</run>
 		</groups>
 
