@@ -20,40 +20,40 @@ public class BaseTestListeners extends BaseClass
         log.error(iTestResult.getThrowable());
     }
 
-    @ForOverride
+    @ForOverride()
     public void onFinish(ITestContext onFinishTestCase) {
         log.info("\n\nFINISHED TESTING");
     }
 
-    @ForOverride
+    @ForOverride()
     public void onStart(ITestContext onStartTestCase) {
         log.info("\n\nSTART TESTING\n");
     }
 
-    @ForOverride
+    @ForOverride()
     public void onTestFailedButWithinSuccessPercentage(ITestResult successPercent) {
         log.info("\n Test case's status: "+ successPercent.getStatus());
     }
 
-    @Override
+    @Override()
     public void onTestFailure(ITestResult failedTestCase) {
         System.out.println("\nTest case "+ failedTestCase.getName()+ " being failed!\n");
         getErrorFailTest(failedTestCase);
         checkIfTestCaseIsFailed=true;
     }
 
-    @Override
+    @Override()
     public void onTestSkipped(ITestResult skippedTestCase) {
         System.out.println("\nTest case "+ skippedTestCase.getName()+ " was flown! \n");
         checkIfTestCaseIsSkipped=true;
     }
 
-    @Override
+    @Override()
     public void onTestStart(ITestResult startedTestCase) {
         System.out.println("Test case "+ startedTestCase.getName()+ " was triggered!\n");
     }
 
-    @ForOverride
+    @ForOverride()
     public void onTestSuccess(ITestResult passedTestCase) {
         System.out.println("\nTest case "+ passedTestCase.getName()+ " was successful!\n");
         checkIfTestCaseIsPassed=true;

@@ -125,6 +125,20 @@ public class SignUpPage {
 			return !true;
 		}
 	}
+
+	public boolean checkRequiredMessageWithJSON(WebDriver dr,
+		String requiredMessage,
+			By TXT_REQUIRED_LOCATOR,
+				String field) {
+		String fieldRequiredMessage= dr.findElement(TXT_REQUIRED_LOCATOR).getAttribute("validationMessage");
+		if (fieldRequiredMessage.isEmpty()!=true && fieldRequiredMessage.equals(requiredMessage)==true) {
+			System.out.println("\nThe required message of "+ field+ " field is: "+ fieldRequiredMessage+ "\n\n");
+			return true;
+		}
+		else {
+			return !true;
+		}
+	}
 	
 	public boolean checkIfErrorMessageIsAppeared(String REQUIRED_LBL_ERROR_LOCATOR, String REQUIRED_ERROR_MESSAGE, WebDriver dr) {
 		String errorMessage= dr.findElement(By.xpath(REQUIRED_LBL_ERROR_LOCATOR)).getText();

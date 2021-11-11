@@ -19,12 +19,12 @@ public class JSONReader {
     public static Object[][] getData(String JSON_path,
                                      String typeData,
                                      int totalDataSet,
-                                     int totalColumnEntry) throws FileNotFoundException
+                                     int totalKey) throws FileNotFoundException
     {
         JsonParser jsonParser =  new JsonParser();
         JsonObject jsonObj = jsonParser.parse(new FileReader(JSON_path)).getAsJsonObject();
         JsonArray array = (JsonArray) jsonObj.get(typeData);
-        return searchJSONElement(array, totalDataSet, totalColumnEntry);
+        return searchJSONElement(array, totalDataSet, totalKey);
     }
 
     public static Object[][] toArray(List<List<Object>> list)
