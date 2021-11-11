@@ -24,11 +24,11 @@ public class BaseClass {
 	@Var
 	public String baseURL= readconfig.getApplicationBaseURL();
 	public static JavascriptExecutor javascript;
-	public Actions action;
-	public WebDriver wait;
+	public static Actions action;
+	public static WebDriver wait;
 	public static WebDriver driver;
 	public static WebElement webelement;
-	public static Logger log= org.apache.logging.log4j.LogManager.getLogger();
+	public final static Logger log= org.apache.logging.log4j.LogManager.getLogger();
 	
 	public String browserArr[]= {"firefox", "chrome", "opera"};
 	public String brRandom= browserArr[new Random().nextInt(browserArr.length)];
@@ -66,7 +66,9 @@ public class BaseClass {
 	
 	@AfterClass
 	public void tearDown() {
-		driver.manage().deleteAllCookies();
-		driver.quit();
+		if (driver!= null) {
+			driver.manage().deleteAllCookies();
+			driver.quit();
+		}
 	}
 }

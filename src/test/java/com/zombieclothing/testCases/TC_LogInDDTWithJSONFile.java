@@ -7,9 +7,7 @@ import com.zombieclothing.utilities.ReadConfig;
 import org.json.simple.parser.ParseException;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import java.io.IOException;
 
 
@@ -30,32 +28,46 @@ public class TC_LogInDDTWithJSONFile extends BaseClass{
                                     2);
         }
 
+        @BeforeMethod(alwaysRun = true,
+                                enabled = true,
+                                        description = "Trigger web browser")
+        public void logInMethod() {
+                setUp(rdf.getApplicationBaseURL()+ "/account", "chrome");
+                log.info("TRIGGERED WEB BROWSER \n");
+        }
+
         @Test(groups= {"001"},
                     dataProvider = "loginData")
-        public void logInTestDDTWithJSon(String email, String password) throws Exception {
+        public void logInTestDDTWithJSon(String email, String password) throws InterruptedException {
 
-        setUp(rdf.getApplicationBaseURL()+ "/account", "chrome");
+                LogInPage lp = new LogInPage(driver);
 
-        LogInPage lp= new LogInPage(driver);
-        lp.setUserEmail(email);
-        log.info("Left Email field blank\n");
+                lp.setUserEmail(email);
+                log.info("Inputted user email\n");
 
-        lp.setPassword(password);
-        log.info("Inputted user password\n");
+                lp.setPassword(password);
+                log.info("Inputted user password\n");
 
-        lp.clickSubmit();
-        log.info("Clicked login button\n");
+                lp.clickSubmit();
+                log.info("Clicked login button\n");
 
-        lp.checkIfInvalidLoginInforIsPresent(driver, alertLocator, alertText);
-        if (lp.checkPoint==true) {
-                Assert.assertFalse(false);
-                log.info("READING JSON FILE TEST CASE IS PASSED!");
+                lp.checkIfInvalidLoginInforIsPresent(driver, alertLocator, alertText);
+                if (lp.checkPoint == true) {
+                        Assert.assertFalse(false);
+                        log.info("READING JSON FILE TEST CASE IS PASSED!");
+                } else {
+                        Assert.assertFalse(true);
+                        log.error("READING JSON FILE TEST CASE IS FAILED!");
+                }
         }
-        else {
-                Assert.assertFalse(true);
-                log.error("READING JSON FILE TEST CASE IS FAILED!");
-        }
-        tearDown();
-        log.info("TERMINATED TEST CASE!");
+
+        @AfterMethod(alwaysRun = true,
+                        enabled = true,
+                                description = "Repel the driver")
+        public void afLogInMethod() {
+                tearDown();
+                log.warn("REPELLED THE DRIVER \n");
+                log.warn("TERMINATED TEST CASE \n");
         }
 }
+

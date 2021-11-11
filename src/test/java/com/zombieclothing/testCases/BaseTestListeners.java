@@ -2,6 +2,7 @@ package com.zombieclothing.testCases;
 
 import com.google.errorprone.annotations.ForOverride;
 import com.zombieclothing.testCases.BaseClass;
+import org.junit.Rule;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -9,18 +10,24 @@ import org.testng.ITestResult;
 public class BaseTestListeners extends BaseClass
                                     implements ITestListener {
 
+    @Rule
     public static boolean checkIfTestCaseIsPassed;
     public static boolean checkIfTestCaseIsFailed;
     public static boolean checkIfTestCaseIsSkipped;
 
+    private void getErrorFailTest(ITestResult iTestResult) {
+        log.error(iTestResult.getTestClass().getName());
+        log.error(iTestResult.getThrowable());
+    }
+
     @ForOverride
     public void onFinish(ITestContext onFinishTestCase) {
-        log.info("\n\nFinished the test case");
+        log.info("\n\nFINISHED TESTING");
     }
 
     @ForOverride
     public void onStart(ITestContext onStartTestCase) {
-        log.info("\n\nTest case was being started");
+        log.info("\n\nSTART TESTING\n");
     }
 
     @ForOverride
@@ -30,13 +37,14 @@ public class BaseTestListeners extends BaseClass
 
     @Override
     public void onTestFailure(ITestResult failedTestCase) {
-        System.out.println("\n Test case "+ failedTestCase.getName()+ " being failed!\n");
+        System.out.println("\nTest case "+ failedTestCase.getName()+ " being failed!\n");
+        getErrorFailTest(failedTestCase);
         checkIfTestCaseIsFailed=true;
     }
 
     @Override
     public void onTestSkipped(ITestResult skippedTestCase) {
-        System.out.println("\n Test case "+ skippedTestCase.getName()+ " was flown! \n");
+        System.out.println("\nTest case "+ skippedTestCase.getName()+ " was flown! \n");
         checkIfTestCaseIsSkipped=true;
     }
 

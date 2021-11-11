@@ -1,4 +1,4 @@
 package com.zombieclothing.testCases;
 
-public class TCs_SignUpWithExcelFile {
+public class TC_SignUpDDTWithExcelFile {
 }
