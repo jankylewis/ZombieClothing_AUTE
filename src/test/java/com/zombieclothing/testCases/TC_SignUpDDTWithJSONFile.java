@@ -30,30 +30,30 @@ public class TC_SignUpDDTWithJSONFile extends BaseClass{
                     By.xpath("//div[@id=\"form-birthday\"]//child::input[@id or @validationMessage][1]");
     private final   By TXT_EMAIL_LOCATOR=
                     By.xpath("//div[@id=\"form-email\"]//child::input[@id= \"email\" and @required]");
-    private final   By TXT_PASSWORD_LOCATOR=
-                    By.xpath("//label[@for=\"password\"]//following::input[1]");
-
-    @DataProvider(name= "registrationData")
-    public Object[][] passData() throws IOException, ParseException
-    {
-        return JSONReader.getData("src/" +
-                                        "test/" +
-                                    "java/" +
-                                "com/" +
-                            "zombieclothing/" +
-                        "testData/SignUpData.json",
-                "Registration Data",
-                8,
-                6);
-    }
-
     @BeforeMethod(alwaysRun = true,
             enabled = true,
             description = "Trigger web browser")
     public void be4SignUpMethod() {
         setUp(read.getApplicationBaseURL()+ "/account"
-                                            + "/register", brRandom);
+                + "/register", "chrome");
         log.info("TRIGGERED WEB BROWSER \n");
+    }
+
+    private final   By TXT_PASSWORD_LOCATOR=
+                    By.xpath("//label[@for=\"password\"]//following::input[1]");
+    @DataProvider(name= "registrationData")
+    public Object[][] passData() throws IOException, ParseException
+
+    {
+        return JSONReader.getData("src/" +
+                        "test/" +
+                        "java/" +
+                        "com/" +
+                        "zombieclothing/" +
+                        "testData/SignUpData.json",
+                "Registration Data",
+                8,
+                6);
     }
 
     @Test(groups = {"JSON DDT"}, dataProvider = "registrationData")

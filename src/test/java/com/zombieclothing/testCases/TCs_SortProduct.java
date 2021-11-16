@@ -53,14 +53,14 @@ import java.util.List;
                 priority = -1)
         public void sortProductAscendingly() throws InterruptedException {
 
-            setUp(readconfig.getApplicationBaseURL(), "firefox");
+            setUp(readconfig.getApplicationBaseURL(), "chrome");
 
             SortProductPage spp= new SortProductPage(driver);
             spp.clickTatcaspNavigationLink();
             driver.navigate().refresh();
             spp.executeScrollingDown(driver, javascript,300);
 //            spp.selectAscending(driver, PAR_SEL_LOCATOR, selAscendingValue);
-        spp.clickOnSortCriterion(driver, javascript, 0, ascendingProduct);
+            spp.clickOnSortCriterion(driver, javascript, 0, ascendingProduct);
 
             int indexLocator= 0; ; ;   ; ; ;   ; ; ;   ; ; ; int indexProductPriceArray= 0;
 

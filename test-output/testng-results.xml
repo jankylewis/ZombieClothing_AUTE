@@ -1,31 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="3" total="4" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-11-05T19:45:36 ICT" name="Default suite" finished-at="2021-11-05T19:45:50 ICT" duration-ms="13442">
+  <suite started-at="2021-11-12T15:48:36 ICT" name="Suite" finished-at="2021-11-12T15:49:20 ICT" duration-ms="43783">
     <groups>
-      <group name="001">
-        <method signature="TCs_SortProduct.sortProductAscendingly()[pri:-1, instance:com.zombieclothing.testCases.TCs_SortProduct@3f053c80]" name="sortProductAscendingly" class="com.zombieclothing.testCases.TCs_SortProduct"/>
-      </group> <!-- 001 -->
-      <group name="ascending">
-        <method signature="TCs_SortProduct.sortProductAscendingly()[pri:-1, instance:com.zombieclothing.testCases.TCs_SortProduct@3f053c80]" name="sortProductAscendingly" class="com.zombieclothing.testCases.TCs_SortProduct"/>
-      </group> <!-- ascending -->
+      <group name="003">
+        <method signature="TCs_SortProduct.sortProductAlphabetically()[pri:1, instance:com.zombieclothing.testCases.TCs_SortProduct@f0e995e]" name="sortProductAlphabetically" class="com.zombieclothing.testCases.TCs_SortProduct"/>
+      </group> <!-- 003 -->
+      <group name="alphabetical order">
+        <method signature="TCs_SortProduct.sortProductAlphabetically()[pri:1, instance:com.zombieclothing.testCases.TCs_SortProduct@f0e995e]" name="sortProductAlphabetically" class="com.zombieclothing.testCases.TCs_SortProduct"/>
+      </group> <!-- alphabetical order -->
     </groups>
-    <test started-at="2021-11-05T19:45:36 ICT" name="Default test" finished-at="2021-11-05T19:45:50 ICT" duration-ms="13442">
+    <test started-at="2021-11-12T15:48:36 ICT" name="Test" finished-at="2021-11-12T15:49:20 ICT" duration-ms="43783">
       <class name="com.zombieclothing.testCases.TCs_SortProduct">
-        <test-method signature="sortProductAscendingly()[pri:-1, instance:com.zombieclothing.testCases.TCs_SortProduct@3f053c80]" started-at="2021-11-05T19:45:36 ICT" name="sortProductAscendingly" finished-at="2021-11-05T19:45:50 ICT" duration-ms="13412" status="FAIL">
-          <exception class="java.lang.IndexOutOfBoundsException">
+        <test-method signature="sortProductAlphabetically()[pri:1, instance:com.zombieclothing.testCases.TCs_SortProduct@f0e995e]" started-at="2021-11-12T15:48:36 ICT" name="sortProductAlphabetically" finished-at="2021-11-12T15:49:20 ICT" duration-ms="43742" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchWindowException">
             <message>
-              <![CDATA[Index 20 out of bounds for length 20]]>
+              <![CDATA[Browsing context has been discarded
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'KOP', ip: '192.168.1.9', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.12'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 94.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20211103134640, moz:geckodriverVersion: 0.29.1, moz:headless: false, moz:processID: 22996, moz:profile: C:\Users\ADMIN\AppData\Loca..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: c27db4a1-3b62-4395-a086-762430178957]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.IndexOutOfBoundsException: Index 20 out of bounds for length 20
-at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
-at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
-at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)
-at java.base/java.util.Objects.checkIndex(Objects.java:372)
-at java.base/java.util.ArrayList.get(ArrayList.java:459)
-at com.zombieclothing.testCases.TCs_SortProduct.sortProductAscendingly(TCs_SortProduct.java:63)
+              <![CDATA[org.openqa.selenium.NoSuchWindowException: Browsing context has been discarded
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'KOP', ip: '192.168.1.9', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.12'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 94.0.1, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20211103134640, moz:geckodriverVersion: 0.29.1, moz:headless: false, moz:processID: 22996, moz:profile: C:\Users\ADMIN\AppData\Loca..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: c27db4a1-3b62-4395-a086-762430178957
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:609)
+at org.openqa.selenium.remote.RemoteWebDriver$RemoteWebDriverOptions$RemoteWindow.maximize(RemoteWebDriver.java:837)
+at com.zombieclothing.testCases.BaseClass.setUp(BaseClass.java:55)
+at com.zombieclothing.testCases.TCs_SortProduct.sortProductAlphabetically(TCs_SortProduct.java:291)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -56,11 +74,11 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.IndexOutOfBoundsException -->
+          </exception> <!-- org.openqa.selenium.NoSuchWindowException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- sortProductAscendingly -->
+        </test-method> <!-- sortProductAlphabetically -->
       </class> <!-- com.zombieclothing.testCases.TCs_SortProduct -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
