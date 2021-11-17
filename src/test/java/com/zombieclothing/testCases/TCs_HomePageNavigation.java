@@ -126,9 +126,9 @@ public class TCs_HomePageNavigation extends BaseClass{
 		log.exit();
 	}
 	
-	@Test (groups= {"004"}, enabled = true, invocationCount = 3)
+	@Test (groups= {"004"}, enabled = true, invocationCount = 1)
 	public void homePageNavigationTest4() {
-		setUp(readconfig.getApplicationBaseURL(), brRandom);
+		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("Homepage is opened on web browser \r\r");
 		
 		driver.get(readconfig.getApplicationBaseURL()+ siteRandom);

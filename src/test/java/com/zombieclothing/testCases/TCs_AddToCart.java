@@ -106,7 +106,7 @@ public class TCs_AddToCart extends BaseClass{
 			this.productTitleRandom= aboveProductTitleArray[new Random().nextInt(aboveProductTitleArray.length)];
 			System.out.println("\r\r"+ productTitleRandom.toLowerCase()+ "\r\r");
 			
-			setUp(readconfig.getApplicationBaseURL(), brRandom);
+			setUp(readconfig.getApplicationBaseURL(), "chrome");
 			log.info("Search URL is opened on browser\n");
 			
 			AddToCartPage atcp= new AddToCartPage(this.driver);

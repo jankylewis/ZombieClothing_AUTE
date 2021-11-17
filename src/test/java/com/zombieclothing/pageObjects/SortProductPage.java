@@ -50,37 +50,27 @@ public class SortProductPage {
     WebElement NAV_TAT_CA_SAN_PHAM;
 
     public void clickOnSortCriterion(WebDriver dr, JavascriptExecutor js, int scrollUnit, String sortCriterion) {
-
 //        executeScrollingDown(dr, js, scrollUnit);
         WebElement listSortCriteriaElement= dr.findElement(By.xpath("//following::select[1][1]"));
         List<WebElement> childSortCriteriaElements= listSortCriteriaElement.findElements(By.xpath("//following::select[1][1]//option"));
-
         for (int index= 0; index<childSortCriteriaElements.size(); index+=1) {
             if (childSortCriteriaElements.get(index).getText().equals(sortCriterion)) {
                 System.out.println(childSortCriteriaElements+ "\r\r");
                 (childSortCriteriaElements.get(index)).click();
                 break;
-
             }
         }
     }
 
     public void selectAscending(WebDriver dr, String expLocator, String expValue) {
-
         Select sel= new Select(dr.findElement(By.xpath("//following::select")));
         sel.selectByValue(expValue);
-
     }
     
     public void listWebElement(String expChiLocator, String expParLocator, WebDriver dr) {
-    	
     	WebElement listResultsElement= dr.findElement(By.xpath(expParLocator));
 		List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(expChiLocator));
-    	
-		
-		
     }
-    
 
     public void clickTatcaspNavigationLink() {
         if (NAV_TAT_CA_SAN_PHAM.isDisplayed()==true) {
@@ -88,10 +78,4 @@ public class SortProductPage {
             NAV_TAT_CA_SAN_PHAM.click();
         }
     }
-
-
-
-
-
-
 }

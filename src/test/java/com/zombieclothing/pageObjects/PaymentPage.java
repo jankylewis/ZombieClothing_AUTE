@@ -1,9 +1,7 @@
 package com.zombieclothing.pageObjects;
 
 import com.zombieclothing.testCases.BaseClass;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -15,12 +13,14 @@ import java.util.Random;
 
 public class PaymentPage extends BaseClass {
 
-    boolean checkPoint;
-    Actions actions;
-    WebDriverWait wait;
+    public boolean checkPoint;
+    public Actions actions;
+    public WebDriverWait wait;
 
     WebDriver ldriver;
     private int pageNumber;
+    transient String BTN_NEXT_LOCATOR= "//following::a[@class=\"next\"]";
+    transient By nextButtonLocator= By.xpath(BTN_NEXT_LOCATOR);
 
     public PaymentPage(WebDriver rdriver) {
         ldriver= rdriver;
@@ -48,10 +48,13 @@ public class PaymentPage extends BaseClass {
         }
     }
 
-    public void clickToElement(By elementLocator, WebDriver dr) {
-        WebElement elementToClick= dr.findElement(elementLocator);
-        if (elementToClick.isDisplayed()) {
-            actions.moveToElement(elementToClick).click().perform();
+    @FindBy(xpath = "//a[@title=\"Sản phẩm\"]")
+    @CacheLookup
+    WebElement NAV_SAN_PHAM;
+
+    public void clickToSanPhamNav(WebDriver dr) {
+        if (NAV_SAN_PHAM.isDisplayed()) {
+            actions.moveToElement(NAV_SAN_PHAM).click().perform();
         }
     }
 
@@ -87,7 +90,7 @@ public class PaymentPage extends BaseClass {
 
     public void getPageFromEnumeration() {
         int lottoResult= new Random().nextInt(371);
-//        int lottoResult= 3;
+//        int lottoResult=55;
         if (1<= lottoResult && lottoResult<= 20) {
             pageIndex firstPage= pageIndex.firstPage;
             this.pageNumber= 1;
@@ -166,64 +169,178 @@ public class PaymentPage extends BaseClass {
         }
     }
 
+    public static void executeScrollingDown(WebDriver dr, JavascriptExecutor js, int scrollUnit) {
+        ((JavascriptExecutor)dr).executeScript("scroll(0,"+scrollUnit+")");
+    }
+
     public void relocateToThePage() {
+
         switch (pageNumber) {
             case 1:
                 System.out.println("---//-----##-------the first page------//-----##---".toUpperCase());
+                executeScrollingDown(driver, javascript, 3000);
                 break;
             case 2:
                 System.out.println("---//-----##-------the second page------//-----##---".toUpperCase());
+                for (int index=1; index<2; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 3000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 3:
                 System.out.println("---//-----##-------the third page------//-----##---".toUpperCase());
+                for (int index=1; index<3; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 4:
                 System.out.println("---//-----##-------the fourth page------//-----##---".toUpperCase());
+                for (int index=1; index<4; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 5:
                 System.out.println("---//-----##-------the fifth page------//-----##---".toUpperCase());
+                for (int index=1; index<5; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 6:
                 System.out.println("---//-----##-------the sixth page------//-----##---".toUpperCase());
+                for (int index=1; index<6; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 7:
                 System.out.println("---//-----##-------the seventh page------//-----##---".toUpperCase());
+                for (int index=1; index<7; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 8:
                 System.out.println("---//-----##-------the eighth page------//-----##---".toUpperCase());
+                for (int index=1; index<8; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 9:
                 System.out.println("---//-----##-------the ninth page------//-----##---".toUpperCase());
+                for (int index=1; index<9; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 10:
                 System.out.println("---//-----##-------the tenth page------//-----##---".toUpperCase());
+                for (int index=1; index<10; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 11:
                 System.out.println("---//-----##-------the eleventh page------//-----##---".toUpperCase());
+                for (int index=1; index<11; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 12:
                 System.out.println("---//-----##-------the twelfth page------//-----##---".toUpperCase());
+                for (int index=1; index<12; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 13:
                 System.out.println("---//-----##-------the thirteenth page------//-----##---".toUpperCase());
+                for (int index=1; index<13; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 14:
                 System.out.println("---//-----##-------the fourteenth page------//-----##---".toUpperCase());
+                for (int index=1; index<14; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 15:
                 System.out.println("---//-----##-------the fifteenth page------//-----##---".toUpperCase());
+                for (int index=1; index<15; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 16:
                 System.out.println("---//-----##-------the sixteenth page------//-----##---".toUpperCase());
+                for (int index=1; index<16; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 17:
                 System.out.println("---//-----##-------the seventeenth page------//-----##---".toUpperCase());
+                for (int index=1; index<17; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 18:
                 System.out.println("---//-----##-------the eighteenth page------//-----##---".toUpperCase());
+                for (int index=1; index<18; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
             case 19:
                 System.out.println("---//-----##-------the nineteenth page------//-----##---".toUpperCase());
+                for (int index=1; index<19; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                }
                 break;
 
         }

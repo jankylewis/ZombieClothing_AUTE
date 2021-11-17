@@ -80,7 +80,6 @@ import java.util.List;
                     int getProductPrice= Integer.parseInt(combinePartitions);
 
                     printTheIndexToConsole: System.out.println(getProductPrice+ "\n"+ " - product number: "+ index);
-
                     productsPriceArray.add(getProductPrice);
                     System.out.println(productsPriceArray);
                     if (indexProductPriceArray>0) {
