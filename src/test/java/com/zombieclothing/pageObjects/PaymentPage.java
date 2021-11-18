@@ -1,5 +1,6 @@
 package com.zombieclothing.pageObjects;
 
+import com.google.errorprone.annotations.Var;
 import com.zombieclothing.testCases.BaseClass;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -16,11 +17,15 @@ public class PaymentPage extends BaseClass {
     public boolean checkPoint;
     public Actions actions;
     public WebDriverWait wait;
-
     WebDriver ldriver;
-    private int pageNumber;
+
+    @Var
+    private   int pageNumber;
     transient String BTN_NEXT_LOCATOR= "//following::a[@class=\"next\"]";
-    transient By nextButtonLocator= By.xpath(BTN_NEXT_LOCATOR);
+    private   By nextButtonLocator= By.xpath(BTN_NEXT_LOCATOR);
+    private   String PAR_LIST_PRODUCT_LOCATOR= "//div[contains(normalize-space(@class),\"filter clearfix\")]";
+    private   String CHI_LIST_PRODUCT_NAME_LOCATOR= "//h3//child::a[@title][1]";
+    public    int lottoResult= new Random().nextInt(371);
 
     public PaymentPage(WebDriver rdriver) {
         ldriver= rdriver;
@@ -89,8 +94,6 @@ public class PaymentPage extends BaseClass {
     }
 
     public void getPageFromEnumeration() {
-        int lottoResult= new Random().nextInt(371);
-//        int lottoResult=55;
         if (1<= lottoResult && lottoResult<= 20) {
             pageIndex firstPage= pageIndex.firstPage;
             this.pageNumber= 1;
@@ -100,7 +103,6 @@ public class PaymentPage extends BaseClass {
             this.pageNumber= 2;
         }
         if (41<= lottoResult && lottoResult<= 60) {
-            pageIndex thirdPage= pageIndex.thirdPage;
             this.pageNumber= 3;
         }
         if (61<= lottoResult && lottoResult<= 80) {
@@ -174,7 +176,6 @@ public class PaymentPage extends BaseClass {
     }
 
     public void relocateToThePage() {
-
         switch (pageNumber) {
             case 1:
                 System.out.println("---//-----##-------the first page------//-----##---".toUpperCase());
@@ -187,6 +188,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 3000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 3:
@@ -196,6 +208,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 4:
@@ -205,6 +228,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 5:
@@ -214,6 +248,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 6:
@@ -223,6 +268,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 7:
@@ -232,6 +288,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 8:
@@ -241,6 +308,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 9:
@@ -250,6 +328,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 10:
@@ -259,6 +348,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 11:
@@ -268,6 +368,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 12:
@@ -277,6 +388,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 13:
@@ -286,6 +408,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 14:
@@ -295,6 +428,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 15:
@@ -304,6 +448,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 16:
@@ -313,6 +468,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 17:
@@ -322,6 +488,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 18:
@@ -331,6 +508,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
             case 19:
@@ -340,6 +528,17 @@ public class PaymentPage extends BaseClass {
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
                     actions.moveToElement(nextButton).click().perform();
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    String lottoResultParseString= String.valueOf(lottoResult);
+                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                    for (index=0; index<lottoResultParseInt; index++) {
+                        if (index== lottoResultParseInt - 1) {
+                            childResultsElements.get(index).click();
+                            break;
+                        }
+                    }
                 }
                 break;
 

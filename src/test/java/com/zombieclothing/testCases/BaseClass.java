@@ -1,13 +1,21 @@
 package com.zombieclothing.testCases;
 
-import java.util.Random;									import java.util.concurrent.TimeUnit;
-import org.apache.logging.log4j.Logger;						import org.junit.AfterClass;
-import org.junit.BeforeClass;								import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;						import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;				import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;		import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.opera.OperaDriver;				import com.google.errorprone.annotations.Var;
-import com.zombieclothing.utilities.ReadConfig;				import org.testng.annotations.Optional;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+import org.apache.logging.log4j.Logger;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+												import org.openqa.selenium.chrome.ChromeDriver;
+												import org.openqa.selenium.firefox.FirefoxDriver;
+												import org.openqa.selenium.ie.InternetExplorerDriver;
+												import org.openqa.selenium.interactions.Actions;
+												import org.openqa.selenium.opera.OperaDriver;
+												import com.google.errorprone.annotations.Var;
+												import com.zombieclothing.utilities.ReadConfig;
+												import org.testng.annotations.Optional;
 
 
 public abstract class BaseClass {
