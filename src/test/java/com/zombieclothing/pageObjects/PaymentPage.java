@@ -1,13 +1,17 @@
 package com.zombieclothing.pageObjects;
 
+import com.beust.jcommander.Parameter;
+import com.google.errorprone.annotations.CheckReturnValue;
 import com.google.errorprone.annotations.Var;
 import com.zombieclothing.testCases.BaseClass;
+import org.apache.logging.log4j.core.tools.picocli.CommandLine;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Optional;
 
 import java.util.List;
 import java.util.Random;
@@ -42,6 +46,63 @@ public class PaymentPage extends BaseClass {
     @CacheLookup
     WebElement NAV_CHILDREN;
 
+    @FindBy(xpath = "//a[@title=\"Sản phẩm\"]")
+    @CacheLookup
+    WebElement NAV_SAN_PHAM;
+
+    @FindBy(xpath = "//div//button[@id=\"add-to-cart\" and @type]")
+    @CacheLookup
+    WebElement BTN_ADD_TO_CART_LOCATOR;
+
+    @FindBy(xpath = "//div[@class=\"cart-view-total\"]//td//a[contains(@class, \"checkout\")]")
+    @Parameter
+    @CacheLookup
+    WebElement BTN_CHECK_OUT_LOCATOR;
+
+    @FindBy(xpath = "//div//child::input[@id=\"billing_address_full_name\"]")
+    @CacheLookup
+    WebElement TXT_FULL_NAME_LOCATOR;
+
+    @FindBy(xpath = "//div//child::input[@type=\"email\" and contains(@id, \"checkout\")]")
+    @CacheLookup
+    WebElement TXT_EMAIL_LOCATOR;
+
+    @FindBy(xpath = "//div//child::input[@type=\"tel\" and contains(@id, \"phone\")]")
+    @CacheLookup
+    WebElement TXT_PHONE_LOCATOR;
+
+    @FindBy(xpath = "//div//child::input[@type=\"text\" and contains(@id, \"address\") and contains(@name,\"address1\")]")
+    @CacheLookup
+    WebElement TXT_ADDRESS_LOCATOR;
+
+    @FindBy(xpath = "//*[@id=\"customer_shipping_province\"]")
+    @CacheLookup
+    WebElement PAR_DDL_PROVINCE_LOCATOR;
+
+    @FindBy(xpath = "//select[contains(@id, \"province\") and contains(@name, \"province\")]//child::option")
+    @CacheLookup
+    WebElement CHILD_DDI_PROVINCE_LOCATOR;
+
+    @FindBy(xpath = "//select[contains(@id, \"district\") and contains(@name, \"district\")]")
+    @CacheLookup
+    WebElement PAR_DDL_DISTRICT_LOCATOR;
+
+    @FindBy(xpath = "//select[contains(@id, \"district\") and contains(@name, \"district\")]//option")
+    @CacheLookup
+    WebElement CHILD_DDI_DISTRICT_LOCATOR;
+
+    @FindBy(xpath = "//div//select[contains(@id, \"ward\") and contains(@name, \"ward\")]")
+    @CacheLookup
+    WebElement PAR_DDL_WARD_LOCATOR;
+
+    @FindBy(xpath = "//select[contains(@id, \"ward\") and contains(@name, \"ward\")]//option")
+    @CacheLookup
+    WebElement CHILD_DDI_WARD_LOCATOR;
+
+    @FindBy(xpath = "//form[@id=\"form_next_step\"]//span//ancestor::button")
+    @CacheLookup
+    WebElement BTN_CONTINUE_CHECKOUT_LOCATOR;
+
     public void clickSanPhamNav(String str, WebDriver dr) {
         WebElement listElement= dr.findElement(By.xpath("//div[@id=\"nav\"]//nav"));
         List<WebElement> childNavElements= listElement.findElements(By.xpath("//nav//descendant::a[contains(@href,\"/\") and @title=\"Trang chủ\" or @title=\"Sản phẩm\" or @title=\"Giới thiệu\" or @title=\"Blog\"]"));
@@ -53,9 +114,7 @@ public class PaymentPage extends BaseClass {
         }
     }
 
-    @FindBy(xpath = "//a[@title=\"Sản phẩm\"]")
-    @CacheLookup
-    WebElement NAV_SAN_PHAM;
+
 
     public void clickToSanPhamNav(WebDriver dr) {
         if (NAV_SAN_PHAM.isDisplayed()) {
@@ -175,6 +234,88 @@ public class PaymentPage extends BaseClass {
         ((JavascriptExecutor)dr).executeScript("scroll(0,"+scrollUnit+")");
     }
 
+    public void clickAddToCartButton() {
+        if (BTN_ADD_TO_CART_LOCATOR.isEnabled() || BTN_ADD_TO_CART_LOCATOR.isDisplayed()) {
+            actions.moveToElement(BTN_ADD_TO_CART_LOCATOR).click().perform();
+        }
+    }
+
+    public void clickCheckOutButton() {
+        if (BTN_CHECK_OUT_LOCATOR.isDisplayed() || BTN_CHECK_OUT_LOCATOR.isEnabled()) {
+            actions.moveToElement(BTN_CHECK_OUT_LOCATOR).click().perform();
+        }
+    }
+
+    public void clickContinueCheckOutButton() {
+        if (BTN_CONTINUE_CHECKOUT_LOCATOR.isDisplayed() || BTN_CONTINUE_CHECKOUT_LOCATOR.isEnabled()) {
+            actions.moveToElement(BTN_CONTINUE_CHECKOUT_LOCATOR).click().perform();
+        }
+    }
+
+    public void setFullName(String fullName) {
+        if (TXT_FULL_NAME_LOCATOR.isDisplayed()) {
+            actions.click(TXT_FULL_NAME_LOCATOR).sendKeys(fullName).perform();
+            TXT_FULL_NAME_LOCATOR.clear();
+        }
+    }
+
+    public void setEmail(String email) {
+        if (TXT_EMAIL_LOCATOR.isDisplayed()) {
+            actions.click(TXT_EMAIL_LOCATOR).sendKeys(email).perform();
+        }
+    }
+
+    public void setPhone(String phone) {
+        if (TXT_PHONE_LOCATOR.isDisplayed()) {
+            actions.click(TXT_PHONE_LOCATOR).sendKeys(phone).perform();
+        }
+    }
+
+    public void setAddress(String address) {
+        if (TXT_ADDRESS_LOCATOR.isDisplayed()) {
+            actions.click(TXT_ADDRESS_LOCATOR).sendKeys(address).perform();
+        }
+    }
+
+    public void selectProvince(String str, WebDriver dr) {
+        WebElement listProvinceElement= dr.findElement(By.xpath("//select[contains(@id, \"province\") and contains(@name, \"province\")]"));
+        List<WebElement> childProvinceElements= listProvinceElement.findElements(By.xpath("//select[contains(@id, \"province\") and contains(@name, \"province\")]//option"));
+        for (int index=0; index< childProvinceElements.size(); index++) {
+            if (childProvinceElements.get(index).getText().equals(str) || childProvinceElements.get(index).getText().contains(str)) {
+                System.out.println("\nYour province: "+ childProvinceElements.get(index).getText().toUpperCase());
+                childProvinceElements.get(index).click();
+                break;
+            }
+        }
+    }
+
+    public void selectDistrict(String str, WebDriver dr) {
+        WebElement listDistrictElement= dr.findElement(By.xpath("//select[contains(@id, \"district\") and contains(@name, \"district\")]"));
+        List<WebElement> childDistrictElements= listDistrictElement.findElements(By.xpath("//select[contains(@id, \"district\") and contains(@name, \"district\")]//option"));
+        for (int index=0; index< childDistrictElements.size(); index++) {
+            if (childDistrictElements.get(index).getText().equals(str) || childDistrictElements.get(index).getText().contains(str)) {
+                System.out.println("\nYour district: "+ childDistrictElements.get(index).getText().toUpperCase());
+                childDistrictElements.get(index).click();
+                break;
+            }
+        }
+    }
+
+    public void selectWard(String str, WebDriver dr) {
+        WebElement listWardElement= dr.findElement(By.xpath("//div//select[contains(@id, \"ward\") and contains(@name, \"ward\")]"));
+        List<WebElement> childWardElements= listWardElement.findElements(By.xpath("//select[contains(@id, \"ward\") and contains(@name, \"ward\")]//option"));
+        for (int index=0; index< childWardElements.size(); index++) {
+            if (childWardElements.get(index).getText().equals(str) || childWardElements.get(index).getText().contains(str)) {
+                System.out.println("\nYour ward: "+ childWardElements.get(index).getText().toUpperCase());
+                childWardElements.get(index).click();
+                break;
+            }
+        }
+    }
+
+
+
+
     public void relocateToThePage(int lottoResult) {
         switch (pageNumber) {
             case 1:     /*      01->20      */
@@ -260,7 +401,7 @@ public class PaymentPage extends BaseClass {
                 clickNextButton: for (int index=1; index<4; index++) {
                     WebElement nextButton= driver.findElement(nextButtonLocator);
                     executeScrollingDown(driver, javascript, 4000);
-                    pauseWithTryCatch(500);
+                    pauseWithTryCatch(2000);
                     actions.moveToElement(nextButton).click().perform();
                     if (index==3) {
                         WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
@@ -270,10 +411,12 @@ public class PaymentPage extends BaseClass {
                             String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
                             int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
                             System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
                             childResultsElements.get(lottoResultParseInt-1).click();
                         }
                         else if (lottoResult>=70) {
                             System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-61).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
                             actions.moveToElement(childResultsElements.get(lottoResult-61)).click().perform();
                         }
                         break clickNextButton;
@@ -810,9 +953,5 @@ public class PaymentPage extends BaseClass {
                 }
                 break;
         }
-
-
     }
-
-
 }
