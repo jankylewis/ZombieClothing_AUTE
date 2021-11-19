@@ -94,7 +94,7 @@ public class TCs_SearchProduct extends BaseClass{
 		this.searchProductOnePageKeyRandom= searchProductOnePageKey[new Random().nextInt(searchProductOnePageKey.length)];
 		System.out.println("\r\r"+ "The search keyword: "+ searchProductOnePageKeyRandom+ "\r\r");
 		
-		setUp(readconfig.getApplicationBaseURL()+ "/search/", brRandom);
+		setUp(readconfig.getApplicationBaseURL()+ "/search/", "chrome");
 		log.info("Search URL is opened on browser\n");
 		
 		SearchProductPage spp= new SearchProductPage(driver);
@@ -195,7 +195,7 @@ public class TCs_SearchProduct extends BaseClass{
 															  };
 		this.searchProductGreaterThanOnePageKeyRandom= searchProductGreaterThanOnePageKey[new Random().nextInt(searchProductGreaterThanOnePageKey.length)];
 		
-		setUp(readconfig.getApplicationBaseURL()+ "/search/", brRandom);
+		setUp(readconfig.getApplicationBaseURL()+ "/search/", "chrome");
 		log.info("Search URL is opened on browser\n");
 		
 		SearchProductPage spp= new SearchProductPage(driver);

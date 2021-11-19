@@ -287,7 +287,7 @@ import java.util.List;
                 priority = 1)
         public void sortProductAlphabetically() throws InterruptedException {
 
-            setUp(readconfig.getApplicationBaseURL(), "firefox");
+            setUp(readconfig.getApplicationBaseURL(), "chrome");
 
             SortProductPage spp= new SortProductPage(driver);
             spp.clickTatcaspNavigationLink();

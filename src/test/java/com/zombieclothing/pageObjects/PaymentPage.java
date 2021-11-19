@@ -25,7 +25,7 @@ public class PaymentPage extends BaseClass {
     private   By nextButtonLocator= By.xpath(BTN_NEXT_LOCATOR);
     private   String PAR_LIST_PRODUCT_LOCATOR= "//div[contains(normalize-space(@class),\"filter clearfix\")]";
     private   String CHI_LIST_PRODUCT_NAME_LOCATOR= "//h3//child::a[@title][1]";
-    public    int lottoResult= new Random().nextInt(371);
+
 
     public PaymentPage(WebDriver rdriver) {
         ldriver= rdriver;
@@ -93,7 +93,7 @@ public class PaymentPage extends BaseClass {
                     nineteenthPage
     }
 
-    public void getPageFromEnumeration() {
+    public void getPageFromEnumeration(int lottoResult) {
         if (1<= lottoResult && lottoResult<= 20) {
             pageIndex firstPage= pageIndex.firstPage;
             this.pageNumber= 1;
@@ -175,155 +175,239 @@ public class PaymentPage extends BaseClass {
         ((JavascriptExecutor)dr).executeScript("scroll(0,"+scrollUnit+")");
     }
 
-    public void relocateToThePage() {
+    public void relocateToThePage(int lottoResult) {
         switch (pageNumber) {
-            case 1:
+            case 1:     /*      01->20      */
                 System.out.println("---//-----##-------the first page------//-----##---".toUpperCase());
                 executeScrollingDown(driver, javascript, 3000);
+                WebElement listResultsElementFrst= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                List<WebElement> childResultsElementsFrst= listResultsElementFrst.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                System.out.println("\n"+ "Product name: "+ childResultsElementsFrst.get(lottoResult-1).getText().toUpperCase());
+                actions.moveToElement(childResultsElementsFrst.get(lottoResult-1)).click().perform();
                 break;
-            case 2:
+            case 2:     /*      21->40      */
                 System.out.println("---//-----##-------the second page------//-----##---".toUpperCase());
-                for (int index=1; index<2; index++) {
+                    WebElement nextButtonSec= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 6000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButtonSec).click().perform();
+                    WebElement listResultsElementSec= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElementsSec= listResultsElementSec.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    if (lottoResult<= 29) {
+                        String lottoResultParseStringSec= String.valueOf(lottoResult);
+                        String lastLottoResultCharSec= lottoResultParseStringSec.substring(lottoResultParseStringSec.length()-1);
+                        int lottoResultParseIntSec= Integer.parseInt(lastLottoResultCharSec);
+                        System.out.println("\n"+ "Product name: "+ childResultsElementsSec.get(lottoResultParseIntSec-1).getText().toUpperCase());
+                        childResultsElementsSec.get(lottoResultParseIntSec-1).click();
+                    }
+                        else if (lottoResult>=30) {
+                        System.out.println("\n"+ "Product name: "+ childResultsElementsSec.get(lottoResult-21).getText().toUpperCase());
+                        actions.moveToElement(childResultsElementsSec.get(lottoResult-21)).click().perform();
+                    }
+
+                break;
+            case 3:     /*      41->60      */
+                System.out.println("---//-----##-------the third page------//-----##---".toUpperCase());
+                clickNextButton: for (int index=1; index<3; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                    if (index==2) {
+                        WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                        List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                        if (lottoResult<=49) {
+                            String lottoResultParseString= String.valueOf(lottoResult);
+                            String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                            int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                            childResultsElements.get(lottoResultParseInt-1).click();
+                        }
+                        else if (lottoResult>=50) {
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-41).getText().toUpperCase());
+                            actions.moveToElement(childResultsElements.get(lottoResult-41)).click().perform();
+                        }
+//                        clickSanPham: for (index=0; index<lottoResultParseInt; index++) {
+//                            if (index== lottoResultParseInt - 1) {
+//                                System.out.println("\n"+ "Product name: "+ childResultsElements.get(index).getText().toUpperCase());
+//                                childResultsElements.get(index).click();
+//                                break clickSanPham;
+//                            }
+//                        }
+                        break clickNextButton;
+                    }
+                }
+                break;
+            case 4:     /*      61->80      */
+                System.out.println("---//-----##-------the fourth page------//-----##---".toUpperCase());
+//                for (int index=1; index<4; index++) {
+//                    WebElement nextButton= driver.findElement(nextButtonLocator);
+//                    executeScrollingDown(driver, javascript, 4000);
+//                    pauseWithTryCatch(500);
+//                    actions.moveToElement(nextButton).click().perform();
+//                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+//                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+//                    String lottoResultParseString= String.valueOf(lottoResult);
+//                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+//                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+//                    for (index=0; index<lottoResultParseInt; index++) {
+//                        if (index== lottoResultParseInt - 1) {
+//                            childResultsElements.get(index).click();
+//                            break;
+//                        }
+//                    }
+//                }
+                clickNextButton: for (int index=1; index<4; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 4000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                    if (index==3) {
+                        WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                        List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                        if (lottoResult<=69) {
+                            String lottoResultParseString= String.valueOf(lottoResult);
+                            String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                            int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                            childResultsElements.get(lottoResultParseInt-1).click();
+                        }
+                        else if (lottoResult>=70) {
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-61).getText().toUpperCase());
+                            actions.moveToElement(childResultsElements.get(lottoResult-61)).click().perform();
+                        }
+                        break clickNextButton;
+                    }
+                }
+                break;
+            case 5:     /*      81->100      */
+                System.out.println("---//-----##-------the fifth page------//-----##---".toUpperCase());
+//                for (int index=1; index<5; index++) {
+//                    WebElement nextButton= driver.findElement(nextButtonLocator);
+//                    executeScrollingDown(driver, javascript, 4000);
+//                    pauseWithTryCatch(500);
+//                    actions.moveToElement(nextButton).click().perform();
+//                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+//                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+//                    String lottoResultParseString= String.valueOf(lottoResult);
+//                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+//                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+//                    for (index=0; index<lottoResultParseInt; index++) {
+//                        if (index== lottoResultParseInt - 1) {
+//                            childResultsElements.get(index).click();
+//                            break;
+//                        }
+//                    }
+//                }
+//                break;
+                clickNextButton: for (int index=1; index<5; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 6000);
+                    executeScrollingDown(driver, javascript, 6000);
+                    pauseWithTryCatch(500);
+                    actions.moveToElement(nextButton).click().perform();
+                    if (index==4) {
+                        WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                        List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                        if (lottoResult<=89) {
+                            String lottoResultParseString= String.valueOf(lottoResult);
+                            String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                            int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                            childResultsElements.get(lottoResultParseInt-1).click();
+                        }
+                        else if (lottoResult>=90) {
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-81).getText().toUpperCase());
+                            actions.moveToElement(childResultsElements.get(lottoResult-81)).click().perform();
+                        }
+                        break clickNextButton;
+                    }
+                }
+                break;
+            case 6:     /*      101->120      */
+                System.out.println("---//-----##-------the sixth page------//-----##---".toUpperCase());
+                clickNextButton: for (int index=1; index<=6; index++) {
                     WebElement nextButton= driver.findElement(nextButtonLocator);
                     executeScrollingDown(driver, javascript, 3000);
-                    pauseWithTryCatch(500);
+                    pauseWithTryCatch(2000);
                     actions.moveToElement(nextButton).click().perform();
-                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
-                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
-                    String lottoResultParseString= String.valueOf(lottoResult);
-                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
-                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
-                    for (index=0; index<lottoResultParseInt; index++) {
-                        if (index== lottoResultParseInt - 1) {
-                            childResultsElements.get(index).click();
-                            break;
+                    if (index==5) {
+                        WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                        List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                        if (lottoResult<=109) {
+                            String lottoResultParseString= String.valueOf(lottoResult);
+                            String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                            int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            childResultsElements.get(lottoResultParseInt-1).click();
                         }
+                        else if (lottoResult>=110) {
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-101).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            actions.moveToElement(childResultsElements.get(lottoResult-101)).click().perform();
+                        }
+                        break clickNextButton;
                     }
                 }
                 break;
-            case 3:
-                System.out.println("---//-----##-------the third page------//-----##---".toUpperCase());
-                for (int index=1; index<3; index++) {
-                    WebElement nextButton= driver.findElement(nextButtonLocator);
-                    executeScrollingDown(driver, javascript, 4000);
-                    pauseWithTryCatch(500);
-                    actions.moveToElement(nextButton).click().perform();
-                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
-                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
-                    String lottoResultParseString= String.valueOf(lottoResult);
-                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
-                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
-                    for (index=0; index<lottoResultParseInt; index++) {
-                        if (index== lottoResultParseInt - 1) {
-                            childResultsElements.get(index).click();
-                            break;
-                        }
-                    }
-                }
-                break;
-            case 4:
-                System.out.println("---//-----##-------the fourth page------//-----##---".toUpperCase());
-                for (int index=1; index<4; index++) {
-                    WebElement nextButton= driver.findElement(nextButtonLocator);
-                    executeScrollingDown(driver, javascript, 4000);
-                    pauseWithTryCatch(500);
-                    actions.moveToElement(nextButton).click().perform();
-                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
-                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
-                    String lottoResultParseString= String.valueOf(lottoResult);
-                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
-                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
-                    for (index=0; index<lottoResultParseInt; index++) {
-                        if (index== lottoResultParseInt - 1) {
-                            childResultsElements.get(index).click();
-                            break;
-                        }
-                    }
-                }
-                break;
-            case 5:
-                System.out.println("---//-----##-------the fifth page------//-----##---".toUpperCase());
-                for (int index=1; index<5; index++) {
-                    WebElement nextButton= driver.findElement(nextButtonLocator);
-                    executeScrollingDown(driver, javascript, 4000);
-                    pauseWithTryCatch(500);
-                    actions.moveToElement(nextButton).click().perform();
-                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
-                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
-                    String lottoResultParseString= String.valueOf(lottoResult);
-                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
-                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
-                    for (index=0; index<lottoResultParseInt; index++) {
-                        if (index== lottoResultParseInt - 1) {
-                            childResultsElements.get(index).click();
-                            break;
-                        }
-                    }
-                }
-                break;
-            case 6:
-                System.out.println("---//-----##-------the sixth page------//-----##---".toUpperCase());
-                for (int index=1; index<6; index++) {
-                    WebElement nextButton= driver.findElement(nextButtonLocator);
-                    executeScrollingDown(driver, javascript, 4000);
-                    pauseWithTryCatch(500);
-                    actions.moveToElement(nextButton).click().perform();
-                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
-                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
-                    String lottoResultParseString= String.valueOf(lottoResult);
-                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
-                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
-                    for (index=0; index<lottoResultParseInt; index++) {
-                        if (index== lottoResultParseInt - 1) {
-                            childResultsElements.get(index).click();
-                            break;
-                        }
-                    }
-                }
-                break;
-            case 7:
+            case 7:     /*      121->140      */
                 System.out.println("---//-----##-------the seventh page------//-----##---".toUpperCase());
-                for (int index=1; index<7; index++) {
+                clickNextButton: for (int index=1; index<=7; index++) {
                     WebElement nextButton= driver.findElement(nextButtonLocator);
-                    executeScrollingDown(driver, javascript, 4000);
-                    pauseWithTryCatch(500);
+                    executeScrollingDown(driver, javascript, 3000);
+                    pauseWithTryCatch(2000);
                     actions.moveToElement(nextButton).click().perform();
-                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
-                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
-                    String lottoResultParseString= String.valueOf(lottoResult);
-                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
-                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
-                    for (index=0; index<lottoResultParseInt; index++) {
-                        if (index== lottoResultParseInt - 1) {
-                            childResultsElements.get(index).click();
-                            break;
+                    if (index==6) {
+                        WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                        List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                        if (lottoResult<=129) {
+                            String lottoResultParseString= String.valueOf(lottoResult);
+                            String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                            int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            childResultsElements.get(lottoResultParseInt-1).click();
                         }
+                        else if (lottoResult>=130) {
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-121).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            actions.moveToElement(childResultsElements.get(lottoResult-121)).click().perform();
+                        }
+                        break clickNextButton;
                     }
                 }
                 break;
-            case 8:
+            case 8:     /*      141->160      */
                 System.out.println("---//-----##-------the eighth page------//-----##---".toUpperCase());
-                for (int index=1; index<8; index++) {
+                clickNextButton: for (int index=1; index<=8; index++) {
                     WebElement nextButton= driver.findElement(nextButtonLocator);
-                    executeScrollingDown(driver, javascript, 4000);
-                    pauseWithTryCatch(500);
+                    executeScrollingDown(driver, javascript, 3000);
+                    pauseWithTryCatch(2000);
                     actions.moveToElement(nextButton).click().perform();
-                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
-                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
-                    String lottoResultParseString= String.valueOf(lottoResult);
-                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
-                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
-                    for (index=0; index<lottoResultParseInt; index++) {
-                        if (index== lottoResultParseInt - 1) {
-                            childResultsElements.get(index).click();
-                            break;
+                    if (index==7) {
+                        WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                        List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                        if (lottoResult<=149) {
+                            String lottoResultParseString= String.valueOf(lottoResult);
+                            String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                            int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            childResultsElements.get(lottoResultParseInt-1).click();
                         }
+                        else if (lottoResult>=150) {
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-141).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            actions.moveToElement(childResultsElements.get(lottoResult-141)).click().perform();
+                        }
+                        break clickNextButton;
                     }
                 }
                 break;
-            case 9:
+            case 9:     /*      161->180      */
                 System.out.println("---//-----##-------the ninth page------//-----##---".toUpperCase());
-                for (int index=1; index<9; index++) {
+/*                for (int index=1; index<9; index++) {
                     WebElement nextButton= driver.findElement(nextButtonLocator);
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
@@ -340,30 +424,80 @@ public class PaymentPage extends BaseClass {
                         }
                     }
                 }
+                break;                                                                                                  */
+                clickNextButton: for (int index=1; index<=9; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 3000);
+                    pauseWithTryCatch(2000);
+                    actions.moveToElement(nextButton).click().perform();
+                    if (index==8) {
+                        WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                        List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                        if (lottoResult<=169) {
+                            String lottoResultParseString= String.valueOf(lottoResult);
+                            String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                            int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            childResultsElements.get(lottoResultParseInt-1).click();
+                        }
+                        else if (lottoResult>=170) {
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-161).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            actions.moveToElement(childResultsElements.get(lottoResult-161)).click().perform();
+                        }
+                        break clickNextButton;
+                    }
+                }
                 break;
-            case 10:
+            case 10:     /*      181->200      */
                 System.out.println("---//-----##-------the tenth page------//-----##---".toUpperCase());
-                for (int index=1; index<10; index++) {
-                    WebElement nextButton= driver.findElement(nextButtonLocator);
-                    executeScrollingDown(driver, javascript, 4000);
-                    pauseWithTryCatch(500);
-                    actions.moveToElement(nextButton).click().perform();
+//                for (int index=1; index<10; index++) {
+//                    WebElement nextButton= driver.findElement(nextButtonLocator);
+//                    executeScrollingDown(driver, javascript, 4000);
+//                    pauseWithTryCatch(500);
+//                    actions.moveToElement(nextButton).click().perform();
+//                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+//                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+//                    String lottoResultParseString= String.valueOf(lottoResult);
+//                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+//                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+//                    for (index=0; index<lottoResultParseInt; index++) {
+//                        if (index== lottoResultParseInt - 1) {
+//                            childResultsElements.get(index).click();
+//                            break;
+//                        }
+//                    }
+//                }
+//                break;
+            clickNextButton: for (int index=1; index<=10; index++) {
+                WebElement nextButton= driver.findElement(nextButtonLocator);
+                executeScrollingDown(driver, javascript, 3000);
+                pauseWithTryCatch(2000);
+                actions.moveToElement(nextButton).click().perform();
+                if (index==9) {
                     WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
                     List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
-                    String lottoResultParseString= String.valueOf(lottoResult);
-                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
-                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
-                    for (index=0; index<lottoResultParseInt; index++) {
-                        if (index== lottoResultParseInt - 1) {
-                            childResultsElements.get(index).click();
-                            break;
-                        }
+                    if (lottoResult<=189) {
+                        String lottoResultParseString= String.valueOf(lottoResult);
+                        String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                        int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                        System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                        pauseWithTryCatch(1000);
+                        childResultsElements.get(lottoResultParseInt-1).click();
                     }
+                    else if (lottoResult>=190) {
+                        System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-181).getText().toUpperCase());
+                        pauseWithTryCatch(1000);
+                        actions.moveToElement(childResultsElements.get(lottoResult-181)).click().perform();
+                    }
+                    break clickNextButton;
                 }
-                break;
-            case 11:
+            }
+            break;
+            case 11:     /*      201->220      */
                 System.out.println("---//-----##-------the eleventh page------//-----##---".toUpperCase());
-                for (int index=1; index<11; index++) {
+                /*for (int index=1; index<11; index++) {
                     WebElement nextButton= driver.findElement(nextButtonLocator);
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
@@ -380,10 +514,35 @@ public class PaymentPage extends BaseClass {
                         }
                     }
                 }
-                break;
-            case 12:
+                break;*/
+            clickNextButton: for (int index=1; index<=11; index++) {
+                WebElement nextButton= driver.findElement(nextButtonLocator);
+                executeScrollingDown(driver, javascript, 3000);
+                pauseWithTryCatch(2000);
+                actions.moveToElement(nextButton).click().perform();
+                if (index==10) {
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    if (lottoResult<=209) {
+                        String lottoResultParseString= String.valueOf(lottoResult);
+                        String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                        int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                        System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                        pauseWithTryCatch(1000);
+                        childResultsElements.get(lottoResultParseInt-1).click();
+                    }
+                    else if (lottoResult>=210) {
+                        System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-201).getText().toUpperCase());
+                        pauseWithTryCatch(1000);
+                        actions.moveToElement(childResultsElements.get(lottoResult-201)).click().perform();
+                    }
+                    break clickNextButton;
+                }
+            }
+            break;
+            case 12:     /*      221->240      */
                 System.out.println("---//-----##-------the twelfth page------//-----##---".toUpperCase());
-                for (int index=1; index<12; index++) {
+            /*    for (int index=1; index<12; index++) {
                     WebElement nextButton= driver.findElement(nextButtonLocator);
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
@@ -400,70 +559,134 @@ public class PaymentPage extends BaseClass {
                         }
                     }
                 }
-                break;
-            case 13:
+                break;                                                                                              */
+            clickNextButton: for (int index=1; index<=12; index++) {
+                WebElement nextButton= driver.findElement(nextButtonLocator);
+                executeScrollingDown(driver, javascript, 3000);
+                pauseWithTryCatch(2000);
+                actions.moveToElement(nextButton).click().perform();
+                if (index==11) {
+                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                    if (lottoResult<=229) {
+                        String lottoResultParseString= String.valueOf(lottoResult);
+                        String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                        int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                        System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                        pauseWithTryCatch(1000);
+                        childResultsElements.get(lottoResultParseInt-1).click();
+                    }
+                    else if (lottoResult>=230) {
+                        System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-221).getText().toUpperCase());
+                        pauseWithTryCatch(1000);
+                        actions.moveToElement(childResultsElements.get(lottoResult-221)).click().perform();
+                    }
+                    break clickNextButton;
+                }
+            }
+            break;
+            case 13:     /*      241->260      */
                 System.out.println("---//-----##-------the thirteenth page------//-----##---".toUpperCase());
-                for (int index=1; index<13; index++) {
+//                for (int index=1; index<13; index++) {
+//                    WebElement nextButton= driver.findElement(nextButtonLocator);
+//                    executeScrollingDown(driver, javascript, 4000);
+//                    pauseWithTryCatch(500);
+//                    actions.moveToElement(nextButton).click().perform();
+//                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+//                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+//                    String lottoResultParseString= String.valueOf(lottoResult);
+//                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+//                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+//                    for (index=0; index<lottoResultParseInt; index++) {
+//                        if (index== lottoResultParseInt - 1) {
+//                            childResultsElements.get(index).click();
+//                            break;
+//                        }
+//                    }
+//                }
+//                break;
+                clickNextButton: for (int index=1; index<=13; index++) {
                     WebElement nextButton= driver.findElement(nextButtonLocator);
-                    executeScrollingDown(driver, javascript, 4000);
-                    pauseWithTryCatch(500);
+                    executeScrollingDown(driver, javascript, 3000);
+                    pauseWithTryCatch(2000);
                     actions.moveToElement(nextButton).click().perform();
-                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
-                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
-                    String lottoResultParseString= String.valueOf(lottoResult);
-                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
-                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
-                    for (index=0; index<lottoResultParseInt; index++) {
-                        if (index== lottoResultParseInt - 1) {
-                            childResultsElements.get(index).click();
-                            break;
+                    if (index==12) {
+                        WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                        List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                        if (lottoResult<=249) {
+                            String lottoResultParseString= String.valueOf(lottoResult);
+                            String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                            int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            childResultsElements.get(lottoResultParseInt-1).click();
                         }
+                        else if (lottoResult>=250) {
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-241).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            actions.moveToElement(childResultsElements.get(lottoResult-241)).click().perform();
+                        }
+                        break clickNextButton;
                     }
                 }
                 break;
-            case 14:
+            case 14:     /*      261->280      */
                 System.out.println("---//-----##-------the fourteenth page------//-----##---".toUpperCase());
-                for (int index=1; index<14; index++) {
-                    WebElement nextButton= driver.findElement(nextButtonLocator);
-                    executeScrollingDown(driver, javascript, 4000);
-                    pauseWithTryCatch(500);
-                    actions.moveToElement(nextButton).click().perform();
-                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
-                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
-                    String lottoResultParseString= String.valueOf(lottoResult);
-                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
-                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
-                    for (index=0; index<lottoResultParseInt; index++) {
-                        if (index== lottoResultParseInt - 1) {
-                            childResultsElements.get(index).click();
-                            break;
-                        }
-                    }
-                }
-                break;
-            case 15:
+                                clickNextButton: for (int index=1; index<=14; index++) {
+                                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                                    executeScrollingDown(driver, javascript, 3000);
+                                    pauseWithTryCatch(2000);
+                                    actions.moveToElement(nextButton).click().perform();
+                                    if (index==13) {
+                                        WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                                        List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                                        if (lottoResult<=269) {
+                                            String lottoResultParseString= String.valueOf(lottoResult);
+                                            String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                                            int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                                            pauseWithTryCatch(1000);
+                                            childResultsElements.get(lottoResultParseInt-1).click();
+                                        }
+                                        else if (lottoResult>=270) {
+                                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-261).getText().toUpperCase());
+                                            pauseWithTryCatch(1000);
+                                            actions.moveToElement(childResultsElements.get(lottoResult-261)).click().perform();
+                                        }
+                                        break clickNextButton;
+                                    }
+                                }
+                                break;
+            case 15:     /*      281->300      */
                 System.out.println("---//-----##-------the fifteenth page------//-----##---".toUpperCase());
-                for (int index=1; index<15; index++) {
+                clickNextButton: for (int index=1; index<=15; index++) {
                     WebElement nextButton= driver.findElement(nextButtonLocator);
-                    executeScrollingDown(driver, javascript, 4000);
-                    pauseWithTryCatch(500);
+                    executeScrollingDown(driver, javascript, 3000);
+                    pauseWithTryCatch(2000);
                     actions.moveToElement(nextButton).click().perform();
-                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
-                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
-                    String lottoResultParseString= String.valueOf(lottoResult);
-                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
-                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
-                    for (index=0; index<lottoResultParseInt; index++) {
-                        if (index== lottoResultParseInt - 1) {
-                            childResultsElements.get(index).click();
-                            break;
+                    if (index==14) {
+                        WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                        List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                        if (lottoResult<=289) {
+                            String lottoResultParseString= String.valueOf(lottoResult);
+                            String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                            int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            childResultsElements.get(lottoResultParseInt-1).click();
                         }
+                        else if (lottoResult>=290) {
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-281).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            actions.moveToElement(childResultsElements.get(lottoResult-281)).click().perform();
+                        }
+                        break clickNextButton;
                     }
                 }
                 break;
-            case 16:
+            case 16:     /*      301->320      */
                 System.out.println("---//-----##-------the sixteenth page------//-----##---".toUpperCase());
-                for (int index=1; index<16; index++) {
+/*                for (int index=1; index<16; index++) {
                     WebElement nextButton= driver.findElement(nextButtonLocator);
                     executeScrollingDown(driver, javascript, 4000);
                     pauseWithTryCatch(500);
@@ -480,68 +703,112 @@ public class PaymentPage extends BaseClass {
                         }
                     }
                 }
-                break;
-            case 17:
-                System.out.println("---//-----##-------the seventeenth page------//-----##---".toUpperCase());
-                for (int index=1; index<17; index++) {
+                break;                                                                                                                                                                                              */
+                clickNextButton: for (int index=1; index<=16; index++) {
                     WebElement nextButton= driver.findElement(nextButtonLocator);
-                    executeScrollingDown(driver, javascript, 4000);
-                    pauseWithTryCatch(500);
+                    executeScrollingDown(driver, javascript, 3000);
+                    pauseWithTryCatch(2000);
                     actions.moveToElement(nextButton).click().perform();
-                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
-                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
-                    String lottoResultParseString= String.valueOf(lottoResult);
-                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
-                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
-                    for (index=0; index<lottoResultParseInt; index++) {
-                        if (index== lottoResultParseInt - 1) {
-                            childResultsElements.get(index).click();
-                            break;
+                    if (index==15) {
+                        WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                        List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                        if (lottoResult<=309) {
+                            String lottoResultParseString= String.valueOf(lottoResult);
+                            String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                            int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            childResultsElements.get(lottoResultParseInt-1).click();
                         }
+                        else if (lottoResult>=310) {
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-301).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            actions.moveToElement(childResultsElements.get(lottoResult-301)).click().perform();
+                        }
+                        break clickNextButton;
                     }
                 }
                 break;
-            case 18:
+            case 17:     /*      321->340      */
+                clickNextButton: for (int index=1; index<=17; index++) {
+                    WebElement nextButton= driver.findElement(nextButtonLocator);
+                    executeScrollingDown(driver, javascript, 3000);
+                    pauseWithTryCatch(2000);
+                    actions.moveToElement(nextButton).click().perform();
+                    if (index==16) {
+                        WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                        List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                        if (lottoResult<=329) {
+                            String lottoResultParseString= String.valueOf(lottoResult);
+                            String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                            int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            childResultsElements.get(lottoResultParseInt-1).click();
+                        }
+                        else if (lottoResult>=330) {
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-321).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            actions.moveToElement(childResultsElements.get(lottoResult-321)).click().perform();
+                        }
+                        break clickNextButton;
+                    }
+                }
+                break;
+            case 18:     /*      341->360      */
                 System.out.println("---//-----##-------the eighteenth page------//-----##---".toUpperCase());
-                for (int index=1; index<18; index++) {
+                clickNextButton: for (int index=1; index<=18; index++) {
                     WebElement nextButton= driver.findElement(nextButtonLocator);
-                    executeScrollingDown(driver, javascript, 4000);
-                    pauseWithTryCatch(500);
+                    executeScrollingDown(driver, javascript, 3000);
+                    pauseWithTryCatch(2000);
                     actions.moveToElement(nextButton).click().perform();
-                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
-                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
-                    String lottoResultParseString= String.valueOf(lottoResult);
-                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
-                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
-                    for (index=0; index<lottoResultParseInt; index++) {
-                        if (index== lottoResultParseInt - 1) {
-                            childResultsElements.get(index).click();
-                            break;
+                    if (index==17) {
+                        WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                        List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                        if (lottoResult<=349) {
+                            String lottoResultParseString= String.valueOf(lottoResult);
+                            String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                            int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            childResultsElements.get(lottoResultParseInt-1).click();
                         }
+                        else if (lottoResult>=350) {
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-341).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            actions.moveToElement(childResultsElements.get(lottoResult-341)).click().perform();
+                        }
+                        break clickNextButton;
                     }
                 }
                 break;
-            case 19:
+            case 19:     /*      361->369      */
                 System.out.println("---//-----##-------the nineteenth page------//-----##---".toUpperCase());
-                for (int index=1; index<19; index++) {
+                clickNextButton: for (int index=1; index<=19; index++) {
                     WebElement nextButton= driver.findElement(nextButtonLocator);
-                    executeScrollingDown(driver, javascript, 4000);
-                    pauseWithTryCatch(500);
+                    executeScrollingDown(driver, javascript, 3000);
+                    pauseWithTryCatch(2000);
                     actions.moveToElement(nextButton).click().perform();
-                    WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
-                    List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
-                    String lottoResultParseString= String.valueOf(lottoResult);
-                    String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
-                    int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
-                    for (index=0; index<lottoResultParseInt; index++) {
-                        if (index== lottoResultParseInt - 1) {
-                            childResultsElements.get(index).click();
-                            break;
+                    if (index==18) {
+                        WebElement listResultsElement= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
+                        List<WebElement> childResultsElements= listResultsElement.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
+                        if (lottoResult<=369) {
+                            String lottoResultParseString= String.valueOf(lottoResult);
+                            String lastLottoResultChar= lottoResultParseString.substring(lottoResultParseString.length()-1);
+                            int lottoResultParseInt= Integer.parseInt(lastLottoResultChar);
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResultParseInt-1).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            childResultsElements.get(lottoResultParseInt-1).click();
                         }
+                        else if (lottoResult>=370) {
+                            System.out.println("\n"+ "Product name: "+ childResultsElements.get(lottoResult-361).getText().toUpperCase());
+                            pauseWithTryCatch(1000);
+                            actions.moveToElement(childResultsElements.get(lottoResult-361)).click().perform();
+                        }
+                        break clickNextButton;
                     }
                 }
                 break;
-
         }
 
 
