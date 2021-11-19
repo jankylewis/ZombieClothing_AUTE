@@ -103,6 +103,10 @@ public class PaymentPage extends BaseClass {
     @CacheLookup
     WebElement BTN_CONTINUE_CHECKOUT_LOCATOR;
 
+    @FindBy(xpath = "//form[@id=\"form_next_step\"]//following::a[normalize-space(text())=\"Giỏ hàng\"]")
+    @CacheLookup
+    WebElement BTN_BACK_TO_CART;
+
     public void clickSanPhamNav(String str, WebDriver dr) {
         WebElement listElement= dr.findElement(By.xpath("//div[@id=\"nav\"]//nav"));
         List<WebElement> childNavElements= listElement.findElements(By.xpath("//nav//descendant::a[contains(@href,\"/\") and @title=\"Trang chủ\" or @title=\"Sản phẩm\" or @title=\"Giới thiệu\" or @title=\"Blog\"]"));
@@ -235,14 +239,20 @@ public class PaymentPage extends BaseClass {
     }
 
     public void clickAddToCartButton() {
-        if (BTN_ADD_TO_CART_LOCATOR.isEnabled() || BTN_ADD_TO_CART_LOCATOR.isDisplayed()) {
+//        if (BTN_ADD_TO_CART_LOCATOR.isEnabled() || BTN_ADD_TO_CART_LOCATOR.isDisplayed()) {
             actions.moveToElement(BTN_ADD_TO_CART_LOCATOR).click().perform();
-        }
+//        }
     }
 
     public void clickCheckOutButton() {
-        if (BTN_CHECK_OUT_LOCATOR.isDisplayed() || BTN_CHECK_OUT_LOCATOR.isEnabled()) {
+//        if (BTN_CHECK_OUT_LOCATOR.isDisplayed() || BTN_CHECK_OUT_LOCATOR.isEnabled()) {
             actions.moveToElement(BTN_CHECK_OUT_LOCATOR).click().perform();
+//        }
+    }
+
+    public void clickBackToCartButton() {
+        if (BTN_BACK_TO_CART.isDisplayed() || BTN_BACK_TO_CART.isEnabled()) {
+            actions.moveToElement(BTN_BACK_TO_CART).click().perform();
         }
     }
 
@@ -256,6 +266,12 @@ public class PaymentPage extends BaseClass {
         if (TXT_FULL_NAME_LOCATOR.isDisplayed()) {
             actions.click(TXT_FULL_NAME_LOCATOR).sendKeys(fullName).perform();
             TXT_FULL_NAME_LOCATOR.clear();
+        }
+    }
+
+    public void setName(String fullName) {
+        if (TXT_FULL_NAME_LOCATOR.isDisplayed()) {
+            actions.click(TXT_FULL_NAME_LOCATOR).sendKeys(fullName).perform();
         }
     }
 
@@ -320,7 +336,7 @@ public class PaymentPage extends BaseClass {
         switch (pageNumber) {
             case 1:     /*      01->20      */
                 System.out.println("---//-----##-------the first page------//-----##---".toUpperCase());
-                executeScrollingDown(driver, javascript, 3000);
+                executeScrollingDown(driver, javascript, 1000);
                 WebElement listResultsElementFrst= driver.findElement(By.xpath(PAR_LIST_PRODUCT_LOCATOR));
                 List<WebElement> childResultsElementsFrst= listResultsElementFrst.findElements(By.xpath(CHI_LIST_PRODUCT_NAME_LOCATOR));
                 System.out.println("\n"+ "Product name: "+ childResultsElementsFrst.get(lottoResult-1).getText().toUpperCase());
@@ -339,6 +355,8 @@ public class PaymentPage extends BaseClass {
                         String lastLottoResultCharSec= lottoResultParseStringSec.substring(lottoResultParseStringSec.length()-1);
                         int lottoResultParseIntSec= Integer.parseInt(lastLottoResultCharSec);
                         System.out.println("\n"+ "Product name: "+ childResultsElementsSec.get(lottoResultParseIntSec-1).getText().toUpperCase());
+                        pauseWithTryCatch(4500);
+//                        driver.navigate().refresh();
                         childResultsElementsSec.get(lottoResultParseIntSec-1).click();
                     }
                         else if (lottoResult>=30) {

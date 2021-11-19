@@ -170,7 +170,7 @@ import java.util.List;
                 priority = 0)
         public void sortProductDescendingly() throws InterruptedException {
 
-            setUp(readconfig.getApplicationBaseURL(), "firefox");
+            setUp(readconfig.getApplicationBaseURL(), "chrome");
 
             SortProductPage spp= new SortProductPage(driver);
             spp.clickTatcaspNavigationLink();
@@ -414,7 +414,7 @@ import java.util.List;
                 priority = 2)
         public void sortProductNonAlphabetically() throws InterruptedException {
 
-    triggerBrowser: setUp(readconfig.getApplicationBaseURL(), "firefox");
+    triggerBrowser: setUp(readconfig.getApplicationBaseURL(), "chrome");
 
             SortProductPage spp= new SortProductPage(driver);
             spp.clickTatcaspNavigationLink();

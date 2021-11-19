@@ -297,7 +297,7 @@ public class TCs_AddToCart extends BaseClass{
 		this.ringRandom= ringArray[new Random().nextInt(ringArray.length)];
 		System.out.println("\r\r"+ ringRandom+ "\r\r");
 		
-		setUp(readconfig.getApplicationBaseURL(), "opera");
+		setUp(readconfig.getApplicationBaseURL(), "chrome");
 		log.info("Search URL is opened on browser\n");
 		
 		AddToCartPage atcp= new AddToCartPage(this.driver);
